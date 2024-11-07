@@ -10,6 +10,7 @@ import BDSDetail from './views/BDSDetail';
 import BDSDetail2 from './views/BDSDetail2';
 import PolicyContent from './views/PolicyContent';
 import Login from './components/login/login';
+import DuAn from './components/introDuAn/DuAn';
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/BDS-detail2" element={<BDSDetail2 />} />
           <Route path="/Policy" element={<PolicyContent />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/DuAn" element={<DuAn />} />
         </Routes>
       </div>
       <Footer />

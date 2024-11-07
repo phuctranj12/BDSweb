@@ -1,0 +1,28 @@
+.duAn-container{
+  
+}
+.duAn-header{
+    margin: 50px 0 50px 0  ;
+    text-align: center;
+}
+
+.duAn-img-container{
+    margin: 0 10% 0 10%;
+    
+}
+.duAn-img-big{
+    margin-bottom: 10px;
+}
+.duAn-img-small-container{
+display: flex;
+width: 100%;
+gap : 10px;
+}
+.duAn-img-small-container img{
+    width: 50%;
+    object-fit: cover;
+}
+.duAn-container img{
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
