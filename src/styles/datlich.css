@@ -1,0 +1,49 @@
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+.datLich-container{
+    width: 100%;
+      display: flex;
+      padding: 0 10% 0 10%;
+      gap: 10%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .datLich-left{
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        padding: 20px 0 0 20px; 
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Thay đổi các giá trị theo nhu cầu */
+    }
+    .datLich-intro{
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 25px;
+        color: rgb(72, 72, 72);
+    }
+    .datLich-content{
+        margin-top: 30px;
+        font-size: 19px;
+        margin-bottom: 20px;
+        color: rgb(95, 95, 95);
+    
+    }
+    .datLich-left svg{
+        width: 50px; 
+        height: 50px;
+    }
+    .btn-datLich{
+        background-color: #e2974d;
+        border:1px solid white;
+        text-align: center;
+       box-sizing: border-box;
+       letter-spacing: -0.015em;
+       font-size: 15px;
+       padding: 5px;
+       color: white;
+       cursor: pointer;
+       margin-bottom: 20px;
+       border-radius: 5px;
+    }
+    .btn-datLich:hover{
+      background-color: #dd8339;
+    }

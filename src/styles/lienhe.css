@@ -1,0 +1,43 @@
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+.lienhe-container{
+}
+.lienhe-header{
+    background: linear-gradient(
+        to bottom right, 
+        rgb(241, 235, 229), 
+        rgb(255, 255, 255)
+    );
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+.lienhe-content{
+    margin: 50px 10% 50px 10%;
+    display: flex;
+    gap: 50px;
+}
+.content-left , .content-right{
+    width: 100%;
+}
+.lienhe-content .content-left .content-info{
+    display: flex;
+    margin: 0 0 20px 0;
+}
+.content-info svg{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+}
+.content-infor-r{
+    justify-content: center;
+}
+.content-left .login-right input{
+    padding: 55px 0 0 0;
+    width: 100%;
+}
+.content-left .login-right{
+    width: 100%;
+    padding: 0;
+}

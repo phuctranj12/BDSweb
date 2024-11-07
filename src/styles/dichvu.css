@@ -1,0 +1,24 @@
+
+.dichvu-container{
+    padding: 50px 0 50px 0%;
+    margin: 50px 10% 50px 10%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+.dichvu-main{
+    margin: 0 30px 30px 30px;
+}
+.dichvu-header{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.dichvu-intro{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.dichvu-content{
+    font-size: 18px;
+    margin-bottom: 15px;
+}

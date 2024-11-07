@@ -1,0 +1,105 @@
+
+.login-contain{
+    background-color: white;
+    width : 100%;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    padding: 50px 0 100px 0;
+    border : none;
+    border-radius: 10px;
+    width: 1200px;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+.login-left{
+    width : 40%;
+    padding:65px 30px 0 100px;
+}
+.login-right
+{
+    width : 60%;
+    padding:0 50px 0 30px;
+}
+.gioithieu{
+    font-weight: bold;
+    font-size: 35px;
+    color : black;
+    line-height: 1.5;
+}
+.intro{
+    font-size: 20px;
+    font-weight: 550;
+    padding: 25px 0 0 0 ;
+    color : black;
+    line-height: 1.5;
+}
+.intro .linkTuVan {
+    position: relative; 
+    text-decoration: none; 
+    color: inherit; 
+    margin-right: 15px;
+}
+
+.intro .linkTuVan::after {
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: 0;
+    width: 0; 
+    height: 2px; 
+    background-color: black; 
+    opacity: 0; 
+    transition: width 0.3s ease, opacity 0.3s ease; 
+}
+
+.intro .linkTuVan:hover::after {
+    width: 100%; 
+    opacity: 1; 
+}
+svg {
+    transition: transform 0.3s ease; 
+}
+
+svg:hover {
+    transform: translateX(5px);
+}
+
+
+.login-contain .login-right .form-right form{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    border: none;
+    border-bottom: 1px solid;
+    width: 100%;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    padding:70px 0 0 0 ;
+    overflow: visible;
+ }
+ input:focus {
+    outline: none; 
+}
+.button-register{
+    padding:50px 0 0 0px;
+}
+.button-register button{
+    background-color: #e2974d;
+    border:1px solid white;
+    text-align: center;
+   box-sizing: border-box;
+   letter-spacing: -0.015em;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 10px 10px 10px 10px;
+   color: white;
+   cursor: pointer;
+}
+.button-register button:hover{
+  background-color: #dd8339;
+}
+
