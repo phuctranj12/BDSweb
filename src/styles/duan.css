@@ -5,6 +5,9 @@
     margin: 50px 0 50px 0  ;
     text-align: center;
 }
+.duAn-header h1{
+    color: #e2974d;
+}
 
 .duAn-img-container{
     margin: 0 10% 0 10%;
@@ -25,4 +28,26 @@ gap : 10px;
 .duAn-container img{
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+}
+.duAn-body{
+    margin : 0 5% 0 5% ;
+}
+.duAn-body-intro{
+    margin: 50px 0 50px 0;
+}
+.duAn-body .body-head{
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+.duAn-body .body-content{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.duAn-body a{
+    color: #e2974d;
+    cursor: pointer;
+}
+.duAn-body a:hover{
+    color:#ff7200;
 }
