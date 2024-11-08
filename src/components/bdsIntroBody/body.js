@@ -63,7 +63,7 @@ function BodyIntro() {
         <section className="section section-project">
             <div className="container">
                 <h1 className="is-hidden">Tổng hợp toàn bộ bất động sản</h1>
-                <h2 className="section-title">Dự án Khu nhà thôn Đại Vi</h2>
+                <a href='/DuAn'><h2 className="section-title">Dự án Khu nhà thôn Đại Vi</h2></a>
                 <div className="section-content">
                     <div className="columns is-multiline">
                         {data.map((item, index) => (

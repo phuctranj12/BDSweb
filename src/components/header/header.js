@@ -33,7 +33,7 @@ function Header() {
         <div className="navbar">
             <div className="icon">
                 <h2 className="logo">
-                    <Link to="/" className="logo-link">BDS</Link>
+                    <Link to="/" className="logo-link">TRƯỜNG PHÁT</Link>
                 </h2>
             </div>
 
