@@ -2,30 +2,33 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/slide.css';
 import slideImage1 from '../assets/image/s2.jpg';
-import slideImage2 from '../assets/image/s3.png.webp';
-import slideImage3 from '../assets/image/s1.jpg';
+import slideImage2 from '../assets/image/LK1.jpg';
+import slideImage3 from '../assets/image/s1.png';
 function Slide() {
     const [active, setActive] = useState(0); // Biến trạng thái lưu chỉ số slide hiện tại
     const slides = [
         {
             img: slideImage1,
-            textBig: "HOMESTAY",
+            intro: "TRƯỜNG PHÁT",
+            textBig: "Bất Động Sản",
             textSmall: "Bắc Ninh",
             buttonText: "Liên hệ",
-            link: "Register.php",
+            link: "/LienHe",
         },
         {
             img: slideImage2,
-            textBig: "HOMESTAY",
-            buttonText: "Liên hệ",
-            link: "Register.php",
+            intro: "Bất Động Sản",
+            textBig: "Dự án Thôn Đại Vi",
+            buttonText: "Xem chi tiết",
+            link: "/DuAn",
         },
         {
             img: slideImage3,
-            textBig: "HOMESTAY",
+            intro: "DỊCH VỤ",
+            textBig: "Bất Động Sản",
             textSmall: "",
             buttonText: "Liên hệ",
-            link: "Register.php",
+            link: "/DichVu",
         },
     ];
 
@@ -64,7 +67,7 @@ function Slide() {
                             </div>
                             <div className="anh-truot-text" style={{ padding: '250px 0 0 100px' }}>
                                 <div className="anh-text">
-                                    <div className="text-small" style={{ paddingBottom: '5px' }}>BẤT ĐỘNG SẢN</div>
+                                    <div className="text-small" style={{ paddingBottom: '5px' }}>{slide.intro}</div>
                                     <div className="text-big">{slide.textBig}</div>
                                     {slide.textSmall && (
                                         <div className="text-small" style={{ fontSize: '20px', marginTop: '10px' }}>

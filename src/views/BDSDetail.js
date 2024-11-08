@@ -14,10 +14,10 @@ function BDSDetail() {
             <div className='bdsDetail-container'>
                 <div className='bdsDetail-main'>
                     <img src={property.imageUrl} alt={property.title} />
-                    <h1>{property.title}</h1>
+                    <h1>Ô Đất Quy Hoạch LK{property.stt}</h1>
                     <p>Địa chỉ: {property.address}</p>
-                    <p>Diện tích: {property.area}</p>
-                    <p>Giá bán: {property.price} tỉ</p>
+                    <p>Tổng diện tích: {property.area}</p>
+                    <p>Số lượng lô đất : {property.soLo}</p>
                     <p>{property.describe}</p>
                     <br></br>
                 </div>
