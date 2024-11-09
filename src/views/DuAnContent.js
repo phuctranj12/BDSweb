@@ -1,16 +1,15 @@
-import BodyIntro from "../components/bdsIntroBody/body";
-import BodyIntro2 from "../components/bdsIntroBody/body2";
-import DatLich from "../components/tuVan/datLich";
 import DuAn from "../components/introDuAn/DuAn";
-function BDSContent() {
+import BodyIntro from "../components/bdsIntroBody/body";
+import TuVan from "../components/tuVan/tuVan";
+import BodyIntro2 from "../components/bdsIntroBody/body2";
+function DuAnContent() {
     return (
         <div>
+            <DuAn />
             <BodyIntro />
-            <DatLich />
+            <TuVan />
             <BodyIntro2 />
         </div>
-
     );
 }
-
-export default BDSContent;
+export default DuAnContent;

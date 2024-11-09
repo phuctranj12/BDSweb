@@ -1,9 +1,11 @@
 import DichVu from '../components/tuVan/dichvu';
-import BodyIntro2 from '../components/bdsIntroBody/body2';
+import BodyIntro from '../components/bdsIntroBody/body';
+import DatLich from '../components/tuVan/datLich';
 function DichVuContent() {
     return (<div>
         <DichVu />
-        <BodyIntro2 />
+        <DatLich />
+        <BodyIntro />
     </div>);
 }
 

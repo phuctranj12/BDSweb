@@ -1,3 +1,6 @@
+.tuVan-container{
+    margin-top: 100px;
+}
 .tuVan-header{
     text-align: center;
     font-size: 30px;
@@ -9,7 +12,7 @@
 .tuVan-main{
     display: flex;
     margin: 0 10% 0 10%;
-    gap : 100px
+    gap : 100px;
 }
 .main-r{
     padding: 20px;

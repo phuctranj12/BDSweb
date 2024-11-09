@@ -1,12 +1,12 @@
 .duAn-container{
-  
+  margin-top: 100px;
 }
-.duAn-header{
+.duAn-container .duAn-header{
     margin: 50px 0 50px 0  ;
     text-align: center;
-}
-.duAn-header h1{
+    font-size: 30px;
     color: #e2974d;
+    font-weight: bold;
 }
 
 .duAn-img-container{

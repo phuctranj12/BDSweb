@@ -10,19 +10,16 @@ import BDSDetail from './views/BDSDetail';
 import BDSDetail2 from './views/BDSDetail2';
 import PolicyContent from './views/PolicyContent';
 import Login from './components/login/login';
-import DuAn from './components/introDuAn/DuAn';
-import { useLocation } from 'react-router-dom';
+import DuAnContent from './views/DuAnContent';
+import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-
-
-
   return (
 
     <div>
-      <Header />
-      <div className="content">
+      <Header className="header-app-bds" />
+      <div className="content-app-bds">
         <Routes>
           <Route path="/" element={<TrangChuContent />} />
           <Route path="/BDS" element={<BDSContent />} />
@@ -33,7 +30,7 @@ function App() {
           <Route path="/BDS-detail2" element={<BDSDetail2 />} />
           <Route path="/Policy" element={<PolicyContent />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/DuAn" element={<DuAn />} />
+          <Route path="/DuAn" element={<DuAnContent />} />
         </Routes>
       </div>
       <Footer />

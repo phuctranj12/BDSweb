@@ -7,7 +7,7 @@ function DuAn() {
     return (
         <div className="duAn-container">
             <div className='duAn-header'>
-                <h1>Dự án Khu Nhà ở Thôn Đại Vi</h1>
+                DỰ ÁN KHU NHÀ Ở THÔN ĐẠI VI
             </div>
             <div className="duAn-img-container">
                 <div className="duAn-img-big">
@@ -20,7 +20,6 @@ function DuAn() {
             </div>
             <div className='duAn-body'>
                 <div className='duAn-body-intro'>
-                    <h2> Dự án đầu tư và xây dựng Khu nhà ở thôn Đại Vi , xã Đại Đồng , huyện Tiên Du</h2>
                 </div>
                 <div className='body-head'>
                     Thông tin chung

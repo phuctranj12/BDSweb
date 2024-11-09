@@ -14,3 +14,23 @@
 p{
     font-size: 20px;
 }
+.bdsDetail-container .img-bdsDetail{
+    margin-bottom: 20px;
+}
+.bdsDetail-container .btn-bdsDetail{
+    padding: 8px;
+    background-color: #e2974d;
+    color: white;
+    border: none;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.bdsDetail-container .btn-bdsDetail:hover{
+    background-color: #dd8339;
+}
+.bdsDetail-header{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
