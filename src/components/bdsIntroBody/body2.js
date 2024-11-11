@@ -1,5 +1,5 @@
 
-import '../../styles/bodyIntro.css';
+import '../../styles/bodyIntro2.css';
 import { useNavigate } from 'react-router-dom';
 const data = [
     {
