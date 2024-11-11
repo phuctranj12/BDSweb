@@ -1,5 +1,5 @@
 
-import '../../styles/bodyIntro.css';
+import '../../styles/bodyIntro2.css';
 import { useNavigate } from 'react-router-dom';
 import Image from '../assets/image/LK1.jpg';
 import Image1 from '../assets/image/lk1.jpeg';
@@ -9,6 +9,7 @@ import Image4 from '../assets/image/lk4.png';
 import Image5 from '../assets/image/lk5.png';
 import Image6 from '../assets/image/lk6.png';
 import Image7 from '../assets/image/chiaLo.jpeg';
+
 const data = [
     {
         stt: 1,
@@ -79,68 +80,68 @@ const data = [
         describe: "Liền kề LK6 bao gồm 13 lô đất với diện tích từ 85.9 m² đến 107.7 m², là một khu vực nhỏ gọn nhưng vô cùng lý tưởng cho những ai thích không gian riêng tư và yên tĩnh. LK6 có vị trí cách biệt một chút so với các khu liền kề khác, tạo nên không gian sống thoải mái, tránh xa sự ồn ào và náo nhiệt của thành phố. Với diện tích lô đất vừa phải, LK6 thích hợp cho các gia đình trẻ hoặc các cá nhân muốn đầu tư vào bất động sản với mức chi phí hợp lý. Khu vực này có tiềm năng phát triển cao và là lựa chọn tuyệt vời cho cả ở và đầu tư dài hạn."
     }
 ];
-
 function BodyIntro() {
     const navigate = useNavigate();
 
     const handleViewDetails = (item) => {
         navigate('/BDS-detail', { state: { property: item } });
     };
-
     return (
-        <section className="section section-project">
-            <div className="container">
-                <h1 className="is-hidden">Tổng hợp toàn bộ bất động sản</h1>
-                <a href='/DuAn'><h2 className="section-title">DỰ ÁN KHU NHÀ THÔN ĐẠI VI</h2></a>
-                <div className="section-content">
-                    <div className="columns is-multiline">
-                        {data.map((item, index) => (
-                            <div key={index} className="column is-6-tablet is-4-desktop">
-                                <div className="card card-project-2">
-                                    <div className="badges">
-                                        <span className="badge is-primary is-effect">BDS nổi bật</span>
-                                    </div>
-                                    <a href="" onClick={() => handleViewDetails(item)} className="card-image">
-                                        <img
-                                            src={item.imageUrl}
-                                            data-srcset={item.dataSrcset || ""}
-                                            className="lazyload lazyload-blur"
-                                            alt={item.title}
-                                        />
-                                    </a>
-                                    <div className="card-content">
-                                        <div className="card-body">
-                                            <h3 className="card-title">
-                                                <a href="" onClick={() => handleViewDetails(item)}>{item.title}</a>
-                                            </h3>
-                                            <p className="card-address">
-                                                <i className="ti ti-map-pin">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt" viewBox="0 0 16 16">
-                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
-                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                                                    </svg>
-                                                </i>
-                                                {item.address}
-                                            </p>
-                                            <span className="list-utilities-item" style={{ fontWeight: 'bold' }}>Liền Kề {item.stt} </span>
-                                            <div className="list-utilities is-dot">
-                                                <span className="list-utilities-item">Tổng diện tích: {item.area}</span>
+        <div class="bds-tp-container">
+            <h2 class="bds-tp-title">BẤT ĐỘNG SẢN CHO THUÊ</h2>
+            <div class="bds-tp-content">
+                <div class="bds-tp-column-container">
+                    {data.map((item, index) => (
+                        <div key={index} class="bds-tp-column">
+                            <div class="card">
+                                <div class="logo">BĐS nổi bật</div>
+                                <a href="">
+                                    <img class="card-img" onClick={() => handleViewDetails(item)}
+                                        src={item.imageUrl}
+                                        data-srcset={item.dataSrcset || ""}
+                                        alt={item.title} />
+                                </a>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <a class="" href="" onClick={() => handleViewDetails(item)}>{item.title}</a>
+                                        </div>
+                                        <p class="card-address">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                            </svg>
+
+                                            {item.address}
+                                        </p>
+                                        <div class="card-item-name">Liền Kề {item.stt}
+                                        </div>
+                                        <div class="card-infor-container">
+                                            <div className='card-infor-col1'>
+                                                <div class="card-infor">Tổng diện tích: {item.area}</div>
+                                                <div class="card-infor">Số lô đất : {item.soLo} </div>
                                             </div>
-                                            <span className="list-utilities-item">Số lô đất : {item.soLo} </span>
+                                            <a href="" class="card-btn">
+                                                <button onClick={() => handleViewDetails(item)}>Xem chi tiết</button>
+                                            </a>
 
                                         </div>
-                                        <a href="" className="card-logo">
-                                            <button onClick={() => handleViewDetails(item)}>Xem chi tiết</button>
-                                            {/* <img src="" /> */}
-                                        </a>
+
+
                                     </div>
+
                                 </div>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
+
+
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 

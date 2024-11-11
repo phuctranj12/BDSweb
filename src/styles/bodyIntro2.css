@@ -1,0 +1,132 @@
+.bds-tp-container {
+    margin: 0 5%;
+}
+
+.bds-tp-container .bds-tp-column-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bds-tp-container .bds-tp-column {
+    width: 32%;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* .bds-tp-column:hover {
+    border-radius: 5px;
+    border: 0.2px solid gray;
+} */
+
+.bds-tp-container .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bds-tp-container .card-img {
+    width: 100%;
+    height: 100%;
+    height: 450px; 
+    display: block;
+    border-radius: 7px;
+    cursor: pointer;
+    overflow: hidden;
+
+    object-fit: cover;
+    transition: transform 2s ease; /* Thêm hiệu ứng zoom mượt mà trong 2 giây */
+}
+
+.bds-tp-container .card-img:hover {
+    transform: scale(1.05); /* Phóng to ảnh khi di chuột vào */
+    object-position: center;  /* Giữ tỷ lệ khung hình của ảnh khi zoom vào */
+}
+
+.bds-tp-container .logo {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    overflow: hidden;
+    background: #ed9c00;
+    padding: 3px 8px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.bds-tp-container .logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    transform: skewX(-25deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+.bds-tp-container .card-content{
+    padding: 20px;
+}
+.bds-tp-container .card-title a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 19px;
+}
+.bds-tp-container .card-address {
+    display: flex;
+    font-size: 14px;
+    color: rgb(74, 74, 74);
+    align-items: center; 
+}
+.bds-tp-container .card-item-name{
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+.bds-tp-container .card-address svg{
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+}
+.bds-tp-container .card-infor{
+    font-size: 15px;
+    color: rgb(74, 74, 74);
+    margin-bottom: 3px;
+}
+.bds-tp-container .card-btn{
+    margin-top: auto;
+}
+.bds-tp-container .card-btn button{
+    margin: 0 0 10px 0 ;
+    background-color: #e2974d;
+    color: white;
+    border: none;
+    padding:5px ;
+    cursor: pointer;
+}
+.bds-tp-container .card-btn button:hover{
+    background-color: #dd8339;
+}
+.bds-tp-container .card-infor-container{
+    justify-content: space-between;
+    display: flex;
+}

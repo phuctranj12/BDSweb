@@ -1,5 +1,6 @@
 .duAn-container{
   margin-top: 100px;
+  width: 100%;
 }
 .duAn-container .duAn-header{
     margin: 50px 0 50px 0  ;
@@ -15,6 +16,9 @@
 }
 .duAn-img-big{
     margin-bottom: 10px;
+}
+.duAn-img-big img{
+    width: 100%;
 }
 .duAn-img-small-container{
 display: flex;
