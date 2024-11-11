@@ -9,7 +9,7 @@ function Slide() {
     const slides = [
         {
             img: slideImage1,
-            intro: "TRƯỜNG PHÁT",
+            intro: "TRƯỜNG PHÁT TỪ SƠN",
             textBig: "Bất Động Sản",
             textSmall: "Bắc Ninh",
             buttonText: "Liên hệ",

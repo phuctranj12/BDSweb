@@ -17,7 +17,7 @@ function Footer({ }) {
             <div className="footer-row2">
                 <div className="footer-tieude">Công ty</div>
                 <div className="footer-noidung">
-                    <a href='https://www.facebook.com/batdongsantruongphatquangngai/' target="_blank">Về chúng tôi</a><br />
+                    <a href='/AboutUs' target="_blank">Về chúng tôi</a><br />
                     <a href="/Policy">Chính sách bảo mật</a><br />
                     <a href="/Policy">Chính sách đặt cọc</a><br />
                     <a href="/Policy">Chính sách hoàn trả</a><br />

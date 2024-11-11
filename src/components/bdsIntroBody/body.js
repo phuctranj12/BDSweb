@@ -1,5 +1,5 @@
 
-import '../../styles/bodyIntro2.css';
+import '../../styles/bodyIntro.css';
 import { useNavigate } from 'react-router-dom';
 import Image from '../assets/image/LK1.jpg';
 import Image1 from '../assets/image/lk1.jpeg';
@@ -88,7 +88,7 @@ function BodyIntro() {
     };
     return (
         <div class="bds-tp-container">
-            <h2 class="bds-tp-title">BẤT ĐỘNG SẢN CHO THUÊ</h2>
+            <h2 class="bds-tp-title"><a href='/DuAn'>DỰ ÁN KHU NHÀ Ở THÔN ĐẠI VI</a></h2>
             <div class="bds-tp-content">
                 <div class="bds-tp-column-container">
                     {data.map((item, index) => (

@@ -1,5 +1,5 @@
 
-import '../../styles/bodyIntro2.css';
+import '../../styles/bodyIntro.css';
 import { useNavigate } from 'react-router-dom';
 import Image from '../assets/image/LK1.jpg';
 import Image1 from '../assets/image/lk1.jpeg';
@@ -63,7 +63,7 @@ function BodyIntro2() {
     const navigate = useNavigate();
 
     const handleViewDetails = (item) => {
-        navigate('/BDS-detail', { state: { property: item } });
+        navigate('/BDS-detail2', { state: { property: item } });
     };
     return (
         <div class="bds-tp-container">
@@ -101,7 +101,7 @@ function BodyIntro2() {
                                         <div class="card-infor-container">
                                             <div className='card-infor-col1'>
                                                 <div class="card-infor">Tổng diện tích: {item.area}</div>
-                                                <div class="card-infor">Số lô đất : {item.soLo} </div>
+                                                <div class="card-infor">Giá thuê : {item.price} triệu/tháng </div>
                                             </div>
                                             <a href="" class="card-btn">
                                                 <button onClick={() => handleViewDetails(item)}>Xem chi tiết</button>

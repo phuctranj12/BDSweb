@@ -1,0 +1,126 @@
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+.aboutUs-container {
+    margin: 0 10% 0 10%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aboutUs-container h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .aboutUs-container h2 {
+    font-size: 1.5em;
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .aboutUs-container p {
+    margin-bottom: 15px;
+  }
+  
+  .aboutUs-container ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .aboutUs-container ul li {
+    margin-bottom: 10px;
+  }
+  
+  .aboutUs-container ul ul {
+    margin-left: 20px;
+  }
+  
+  .aboutUs-container strong {
+    color: #333;
+  }
+  
+  .aboutUs-container em {
+    color: #666;
+    font-style: italic;
+  }
+  .aboutUs-container .info-table {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .aboutUs-container .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .aboutUs-container .info-label {
+    font-weight: bold;
+    color: #666;
+    display: flex;
+    align-items: center;
+  }
+  
+  .aboutUs-container .icon-aboutus {
+    margin-right: 8px;
+    font-size: 1.2em;
+    width: 30px;
+  }
+  
+  .aboutUs-container .info-value {
+    color: #333;
+    font-size: 1em;
+  }
+  
+  .aboutUs-container.hide-info {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    color: #666;
+    font-size: 0.9em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .aboutUs-container .hide-info:hover {
+    background-color: #ddd;
+  }
+  .aboutUs-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .aboutUs-container thead {
+    background-color: #f4f4f4;
+  }
+  
+  .aboutUs-container thead th {
+    font-weight: bold;
+    text-align: left;
+    padding: 12px;
+    font-size: 1.1em;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .aboutUs-container tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .aboutUs-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .aboutUs-container tbody td {
+    padding: 12px;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  .aboutUs-container tbody td:first-child {
+    font-weight: bold;
+    color: #666;
+  }
