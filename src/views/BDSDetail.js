@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import BodyIntro2 from '../components/bdsIntroBody/body2';
 import '../styles/bdsDetail.css';
 import TuVan from '../components/tuVan/tuVan';
 function BDSDetail() {
@@ -25,7 +24,6 @@ function BDSDetail() {
                 </div>
             </div>
             <TuVan />
-            <BodyIntro2 />
         </div>
     );
 }

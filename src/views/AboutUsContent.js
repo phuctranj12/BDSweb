@@ -1,12 +1,15 @@
 import '../styles/aboutUs.css';
-import '../components/assets/image/s1.JPG'
+import Image1 from '../components/assets/image/s1.JPG'
 import BodyIntro from "../components/bdsIntroBody/body";
 function AboutUsContent() {
     return (
         <div>
             <div class="aboutUs-container">
+                <div className='aboutUs-header'>
+                    <img src={Image1} />
+                </div>
                 <h1>CÔNG TY TNHH TRƯỜNG PHÁT TỪ SƠN</h1>
-                <p>Chào mừng đến với công ty chúng tôi, một doanh nghiệp uy tín trong ngành xây dựng và bất động sản. Được thành lập từ ngày 20 tháng 05 năm 2008, công ty chúng tôi hoạt động dưới sự quản lý của <strong>Tạ Thị Minh Lộc</strong> và <strong>Nguyễn Trọng Đại</strong>, với trụ sở tại <em>Lô F26, Khu đô thị Phú Điền, Phố Chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</em>.</p>
+                <p>Chào mừng đến với công ty chúng tôi, một doanh nghiệp uy tín trong ngành xây dựng và bất động sản. Được thành lập từ ngày 20 tháng 05 năm 2008, công ty chúng tôi hoạt động dưới sự quản lý của <strong>Tạ Thị Minh Lộc</strong> và <strong>Nguyễn Trọng Đại</strong>, với trụ sở tại <strong>Lô F26, Khu đô thị Phú Điền, Phố Chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</strong>.</p>
                 <br></br>
                 <a href='/TruongPhatInfor.pdf' target='_blank'>Xem chi tiết Giấy chứng nhận đăng ký doanh nghiệp</a><br />
                 <h1>Thông Tin Doanh Nghiệp</h1>

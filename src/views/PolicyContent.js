@@ -1,10 +1,10 @@
 import ChinhSach from "../components/tuVan/policy";
-import BodyIntro2 from "../components/bdsIntroBody/body2";
+import BodyIntro from "../components/bdsIntroBody/body";
 function PolicyContent() {
     return (
         <div>
             <ChinhSach />
-            <BodyIntro2 />
+            <BodyIntro />
         </div>
     );
 }
