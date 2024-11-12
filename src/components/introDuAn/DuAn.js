@@ -34,8 +34,8 @@ function DuAn() {
                     - Đầu tư xây dựng hạ tầng kĩ thuật tại dự án : Chủ đầu tư đã
                     thực hiện đầu tư xây dựng hoàn thiện hệ thống hạ tầng kĩ thuật tại dự án. Chủ đầu tư đã tổ chức nghiệm thu
                     hoàn thành hạng mục công trình, công trình xây dựng của dự án tại Biên bản nghiệm thu ngày 24/10/2024.<br />
-                    <a href=''>Xem chi tiết Văn bản chuyển nhượng</a><br />
-                    <a href=''>Xem chi tiết Quyết định trúng đấu giá</a>
+                    <a href='/VanBanChuyenNhuong.pdf' target='_blank'>Xem chi tiết Văn bản chuyển nhượng</a><br />
+                    <a href='/QuyetDinhTrungDauGia.pdf' target='_blank'>Xem chi tiết Quyết định trúng đấu giá</a>
                     <div className='body-head'>
                         Tổng quan về quy hoạch dự án
                     </div>

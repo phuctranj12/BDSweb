@@ -1,11 +1,11 @@
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 .datLich-container{
-    width: 100%;
+    /* width: 100%; */
       display: flex;
-      padding: 0 10% 0 10%;
+      padding: 50px 10% 50px 10%;
       gap: 10%;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
     .datLich-left{
         width: 100%;

@@ -1,12 +1,14 @@
 import '../styles/aboutUs.css';
+import '../components/assets/image/s1.JPG'
 import BodyIntro from "../components/bdsIntroBody/body";
 function AboutUsContent() {
     return (
         <div>
             <div class="aboutUs-container">
                 <h1>CÔNG TY TNHH TRƯỜNG PHÁT TỪ SƠN</h1>
-                <p>Chào mừng đến với công ty chúng tôi, một doanh nghiệp uy tín trong ngành xây dựng và bất động sản. Được thành lập từ ngày 07 tháng 03 năm 2008, công ty chúng tôi hoạt động dưới sự quản lý của <strong>Tạ Thị Minh Lộc</strong> và <strong>Nguyễn Trọng Đại</strong>, với trụ sở tại <em>Lô F26, Khu đô thị Phú Điền, Phố Chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</em>.</p>
-
+                <p>Chào mừng đến với công ty chúng tôi, một doanh nghiệp uy tín trong ngành xây dựng và bất động sản. Được thành lập từ ngày 20 tháng 05 năm 2008, công ty chúng tôi hoạt động dưới sự quản lý của <strong>Tạ Thị Minh Lộc</strong> và <strong>Nguyễn Trọng Đại</strong>, với trụ sở tại <em>Lô F26, Khu đô thị Phú Điền, Phố Chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</em>.</p>
+                <br></br>
+                <a href='/TruongPhatInfor.pdf' target='_blank'>Xem chi tiết Giấy chứng nhận đăng ký doanh nghiệp</a><br />
                 <h1>Thông Tin Doanh Nghiệp</h1>
                 <div class="info-table">
                     <div class="info-row">
@@ -47,7 +49,7 @@ function AboutUsContent() {
                                 <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5M8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
                             </svg></span> Ngày hoạt động
                         </div>
-                        <div class="info-value">2008-03-07</div>
+                        <div class="info-value">2008-05-20</div>
                     </div>
                     <div class="info-row">
                         <div class="info-label">

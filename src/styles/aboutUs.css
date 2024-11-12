@@ -124,3 +124,11 @@
     font-weight: bold;
     color: #666;
   }
+.aboutUs-container a{
+    color: #e2974d;
+    cursor: pointer;
+    font-size: 18px;
+}
+.aboutUs-container a:hover{
+    color:#ff7200;
+}

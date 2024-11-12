@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import '../../styles/slide.css';
-import slideImage1 from '../assets/image/s2.jpg';
+import slideImage1 from '../assets/image/s1.JPG';
 import slideImage2 from '../assets/image/LK1.jpg';
-import slideImage3 from '../assets/image/s1.png';
+import slideImage3 from '../assets/image/s4.JPG';
 function Slide() {
-    const [active, setActive] = useState(0); // Biến trạng thái lưu chỉ số slide hiện tại
+    const [active, setActive] = useState(0);
     const slides = [
         {
             img: slideImage1,
@@ -13,7 +13,7 @@ function Slide() {
             textBig: "Bất Động Sản",
             textSmall: "Bắc Ninh",
             buttonText: "Liên hệ",
-            link: "/LienHe",
+            link: "/AboutUs",
         },
         {
             img: slideImage2,
