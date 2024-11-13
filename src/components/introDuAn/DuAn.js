@@ -31,11 +31,13 @@ function DuAn() {
                     - Địa điểm dự án : Xã Đại Đồng, huyện Tiên Du <br />
                     - Quy mô dự án : Tổng diện tích khu đất là 59.935,5m2, trong đó diện tích đất ở là 23,939,5m2 gồm 235
                     thửa đất ở<br />
-                    - Đầu tư xây dựng hạ tầng kĩ thuật tại dự án : Chủ đầu tư đã
+                    - Đầu tư xây dựng hạ tầng kĩ thuật tại dự án : Công ty TNHH Trường Phát Từ Sơn đã
                     thực hiện đầu tư xây dựng hoàn thiện hệ thống hạ tầng kĩ thuật tại dự án. Chủ đầu tư đã tổ chức nghiệm thu
                     hoàn thành hạng mục công trình, công trình xây dựng của dự án tại Biên bản nghiệm thu ngày 24/10/2024.<br />
+
                     <a href='/VanBanChuyenNhuong.pdf' target='_blank'>Xem chi tiết Văn bản chuyển nhượng</a><br />
                     <a href='/QuyetDinhTrungDauGia.pdf' target='_blank'>Xem chi tiết Quyết định trúng đấu giá</a>
+                    <br /><br />
                     <div className='body-head'>
                         Tổng quan về quy hoạch dự án
                     </div>

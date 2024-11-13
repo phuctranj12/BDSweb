@@ -1,5 +1,6 @@
 import '../styles/aboutUs.css';
 import Image1 from '../components/assets/image/s1.JPG'
+import Image2 from '../components/assets/image/s3.JPG'
 import BodyIntro from "../components/bdsIntroBody/body";
 function AboutUsContent() {
     return (
@@ -81,8 +82,18 @@ function AboutUsContent() {
                     </div>
                 </div>
 
-
+                <h1>Sàn giao dịch bất động sản Thanh Quỳnh</h1>
+                <div className='aboutUs-header'>
+                    <img src={Image2} />
+                </div>
+                <br />
+                <p>Công ty TNHH Trường Phát Bắc Ninh, với sứ mệnh phát triển và mở rộng thị trường bất động sản tại Việt Nam, tự hào giới thiệu Sàn giao dịch bất động sản Thanh Quỳnh – một địa chỉ tin cậy và uy tín tại khu vực Bắc Ninh. Được thành lập với mục tiêu mang lại những giá trị bền vững cho khách hàng, Thanh Quỳnh không ngừng nỗ lực nâng cao chất lượng dịch vụ, hướng tới việc trở thành đối tác tin cậy trong lĩnh vực bất động sản.</p>
+                <br />
+                <p>Sàn giao dịch bất động sản Thanh Quỳnh chuyên cung cấp các dịch vụ đa dạng như mua bán, cho thuê, và đầu tư bất động sản, nhằm đáp ứng nhu cầu của cá nhân và doanh nghiệp. Đặc biệt, Thanh Quỳnh luôn cập nhật thông tin mới nhất về thị trường bất động sản, từ các dự án nhà ở, đất nền, căn hộ chung cư đến các khu công nghiệp, nhằm mang đến cho khách hàng cái nhìn toàn diện và chính xác nhất để đưa ra quyết định phù hợp.</p>
+                <br />
+                <p>Với đội ngũ nhân viên giàu kinh nghiệm và am hiểu sâu sắc về thị trường địa phương, Thanh Quỳnh cam kết mang đến cho khách hàng những giải pháp đầu tư an toàn, hiệu quả, và có tính bền vững cao. Bên cạnh đó, công ty luôn đặt lợi ích của khách hàng lên hàng đầu, lấy uy tín làm nền tảng cho sự phát triển dài lâu. Từ việc tư vấn pháp lý đến hỗ trợ thủ tục mua bán, Sàn giao dịch Thanh Quỳnh luôn đồng hành cùng khách hàng trong suốt quá trình giao dịch, đảm bảo mọi giao dịch đều diễn ra một cách minh bạch và an toàn.</p>
                 <h1>Ngành nghề kinh doanh</h1>
+
                 <table>
                     <thead>
                         <tr>
