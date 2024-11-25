@@ -87,29 +87,29 @@ function BodyIntro() {
         navigate('/BDS-detail', { state: { property: item } });
     };
     return (
-        <div class="bds-tp-container">
-            <h2 class="bds-tp-title"><a href='/DuAn'>DỰ ÁN KHU NHÀ Ở THÔN ĐẠI VI</a></h2>
-            <div class="bds-tp-content">
-                <div class="bds-tp-column-container">
+        <div className="bds-tp-container">
+            <h2 className="bds-tp-title"><a href='/DuAn'>DỰ ÁN KHU NHÀ Ở THÔN ĐẠI VI</a></h2>
+            <div className="bds-tp-content">
+                <div className="bds-tp-column-container">
                     {data.map((item, index) => (
-                        <div key={index} class="bds-tp-column">
-                            <div class="card">
-                                <div class="logo">BĐS nổi bật</div>
+                        <div key={index} className="bds-tp-column">
+                            <div className="card">
+                                <div className="logo">BĐS nổi bật</div>
                                 <a href="">
-                                    <img class="card-img" onClick={() => handleViewDetails(item)}
+                                    <img className="card-img" onClick={() => handleViewDetails(item)}
                                         src={item.imageUrl}
                                         data-srcset={item.dataSrcset || ""}
                                         alt={item.title} />
                                 </a>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <a class="" href="" onClick={() => handleViewDetails(item)}>{item.title}</a>
+                                <div className="card-content">
+                                    <div className="card-body">
+                                        <div className="card-title">
+                                            <a className="" href="" onClick={() => handleViewDetails(item)}>{item.title}</a>
                                         </div>
-                                        <p class="card-address">
+                                        <p className="card-address">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                                class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                className="bi bi-geo-alt" viewBox="0 0 16 16">
                                                 <path
                                                     d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
                                                 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
@@ -117,14 +117,14 @@ function BodyIntro() {
 
                                             {item.address}
                                         </p>
-                                        <div class="card-item-name">Liền Kề {item.stt}
+                                        <div className="card-item-name">Liền Kề {item.stt}
                                         </div>
-                                        <div class="card-infor-container">
-                                            <div className='card-infor-col1'>
-                                                <div class="card-infor">Tổng diện tích: {item.area}</div>
-                                                <div class="card-infor">Số lô đất : {item.soLo} </div>
+                                        <div className="card-infor-container">
+                                            <div classNameName='card-infor-col1'>
+                                                <div className="card-infor">Tổng diện tích: {item.area}</div>
+                                                <div className="card-infor">Số lô đất : {item.soLo} </div>
                                             </div>
-                                            <a href="" class="card-btn">
+                                            <a href="" className="card-btn">
                                                 <button onClick={() => handleViewDetails(item)}>Xem chi tiết</button>
                                             </a>
 

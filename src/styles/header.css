@@ -114,9 +114,11 @@ ul li a:hover{
 .srch:focus{
     outline: none;
 }
+
+
 /* Responsive cho laptop và tablet */
-@media screen and (max-width: 1200px) {
-    .icon .logo {
+@media screen and (max-width: 1320px) {
+    .logo .logo-link {
         font-size: 22px;
     }
 
@@ -125,62 +127,94 @@ ul li a:hover{
     }
 
     .srch {
-        width: 120px;
+        width: 150px;
     }
 
     .btn {
         font-size: 13px;
-        padding: 4px 8px;
+        padding: 4px 10px;
     }
 }
-
-/* Responsive cho tablet và điện thoại */
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap; /* Đảm bảo các phần tử không bị tràn */
+@media screen and (max-width: 1100px) {
+    .logo .logo-link {
+        font-size: 17px;
     }
-
-    .menu ul {
-        flex: 1;
-        justify-content: center; /* Giữ menu ở giữa */
+    .icon{
+        width: 200px;
     }
-
-    .search {
-        flex: 1;
-        justify-content: flex-end; /* Đưa phần tìm kiếm về bên phải */
+    .menu ul{
+        margin-left: 0px;
+    }
+    .menu{
+        width: 600px;
+    }
+    .menu ul li a {
+        font-size: 12px;
     }
 
     .srch {
         width: 100px;
     }
+
+    .btn {
+        font-size: 13px;
+        padding: 4px 10px;
+    }
 }
-
-/* Responsive cho màn hình nhỏ nhất */
-@media screen and (max-width: 480px) {
-    .navbar {
-        padding: 10px;
+@media screen and (max-width: 912px) {
+    .logo .logo-link {
+        font-size: 13px;
     }
-
-    .menu ul {
-        gap: 10px; /* Giảm khoảng cách giữa các mục menu */
+    .icon{
+        width: 150px;
     }
-
-    .icon .logo {
-        font-size: 20px;
+    .menu ul{
+        margin-left: 0px;
     }
-
+    .menu{
+        width: 400px;
+    }
     .menu ul li a {
-        font-size: 12px;
-        padding: 5px;
+        font-size: 10px;
     }
-
+    .menu ul li {
+        margin-left: 15px;
+    }
     .srch {
-        width: 90px;
-        font-size: 12px;
+        width: 100px;
     }
 
     .btn {
-        font-size: 12px;
-        padding: 3px 6px;
+        font-size: 13px;
+        padding: 4px 10px;
+    }
+}
+@media screen and (max-width: 730px) {
+    .logo .logo-link {
+        font-size: 10px;
+    }
+    .icon{
+        width: 100px;
+    }
+    .menu ul{
+        margin-left: 0px;
+    }
+    .menu{
+        width: 200px;
+    }
+    .menu ul li a {
+        font-size: 9px;
+    }
+    .menu ul li {
+        margin-left: 15px;
+    }
+    .srch {
+        width: 50px;
+        font-size: 10px;
+    }
+
+    .btn {
+        font-size: 10px;
+        padding: 4px 10px;
     }
 }
