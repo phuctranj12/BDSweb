@@ -21,8 +21,8 @@ function Header() {
             </div>
 
             <div className="search">
-                <input className="srch" type="search" placeholder="Type To text" />
-                <button className="btn">Search</button>
+                <input className="srch" type="search" placeholder="Nhập nội dung" />
+                <button className="btn">Tìm kiếm</button>
             </div>
         </div>
     );
