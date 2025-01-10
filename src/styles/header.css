@@ -218,3 +218,76 @@ ul li a:hover{
         padding: 4px 10px;
     }
 }
+
+/* Responsive cho iPhone */
+@media screen and (max-width: 414px) {
+    .icon{
+        width: 90px;
+        height: 10px;
+        margin-top: 10px;
+    }
+    .logo .logo-link {
+        font-size: 8px;
+    }
+    .menu{
+        margin-left: 10px;
+        width: 300px;
+    }
+    ul{
+      
+        display: flex;
+        justify-content: left;
+        align-items: center;
+    }
+    .menu ul li a {
+        font-size: 8px;
+    }
+    .srch {
+        width: 20px;
+        font-size: 5px;
+    }
+    .btn {
+        font-size: 5px;
+        padding: 0px 0px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .logo .logo-link {
+        font-size: 12px;
+    }
+
+    .menu ul li a {
+        font-size: 10px;
+    }
+
+    .srch {
+        width: 50%; /* Giảm kích thước input */
+        font-size: 10px;
+    }
+
+    .btn {
+        width: 40%;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .logo .logo-link {
+        font-size: 10px;
+    }
+
+    .menu ul li a {
+        font-size: 9px;
+    }
+
+    .srch {
+        width: 45%;
+        font-size: 9px;
+    }
+
+    .btn {
+        width: 50%;
+        font-size: 9px;
+    }
+}
