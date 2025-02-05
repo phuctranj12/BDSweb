@@ -5,11 +5,11 @@ import '../../styles/header.css';
 function Header() {
     return (
         <div className="navbar2">
-            <div className="icon">
-                <h2 className="logo">
-                    <Link to="/" className="logo-link">TRƯỜNG PHÁT</Link>
-                </h2>
-            </div>
+
+            <h2 className="logo">
+                <Link to="/" className="logo-link">TRƯỜNG PHÁT</Link>
+            </h2>
+
 
             <div className="menu">
                 <ul>
@@ -21,7 +21,7 @@ function Header() {
             </div>
 
             <div className="search">
-                <input className="srch" type="search" placeholder="Nhập nội dung" />
+                <input className="srch" type="search" placeholder="" />
                 <button className="btn">Tìm kiếm</button>
             </div>
         </div>
