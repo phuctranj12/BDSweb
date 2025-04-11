@@ -103,3 +103,95 @@ input{
   background-color: #dd8339;
 }
 
+/* responsive  */
+/* Media Queries cho responsive */
+@media (max-width: 1200px) {
+    .login-contain {
+        width: 100%;
+        padding: 30px 0 50px 0;
+    }
+
+    .login-left, .login-right {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .login-contain {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .login-left, .login-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .gioithieu {
+        font-size: 30px;
+    }
+
+    .intro {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-contain {
+        padding: 20px 0 40px 0;
+    }
+
+    .login-left, .login-right {
+        padding: 15px;
+    }
+
+    .gioithieu {
+        font-size: 25px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    input {
+        padding: 50px 0 0 0;
+    }
+
+    .button-register {
+        padding: 30px 0 0 0px;
+    }
+
+    .button-register button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-contain {
+        padding: 10px 0 30px 0;
+    }
+
+    .login-left, .login-right {
+        padding: 10px;
+    }
+
+    .gioithieu {
+        font-size: 20px;
+    }
+
+    .intro {
+        font-size: 14px;
+    }
+
+    input {
+        padding: 30px 0 0 0;
+    }
+
+    .button-register {
+        padding: 20px 0 0 0px;
+    }
+
+    .button-register button {
+        font-size: 16px;
+    }
+}

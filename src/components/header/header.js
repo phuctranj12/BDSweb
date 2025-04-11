@@ -20,10 +20,10 @@ function Header() {
                 </ul>
             </div>
 
-            <div className="search">
+            {/* <div className="search">
                 <input className="srch" type="search" placeholder="" />
                 <button className="btn">Tìm kiếm</button>
-            </div>
+            </div> */}
         </div>
     );
 }
