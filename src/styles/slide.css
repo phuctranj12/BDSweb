@@ -1,5 +1,3 @@
-/* anh truot */
-
 .anh-truot {
     padding: 20px 0 30px 0;
 }
@@ -30,26 +28,37 @@
 
 .slider .buttons {
     position: absolute;
-    top: 45%;
-    left: 3%;
-    width: 94%;
+    top: 50%;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
+    box-sizing: border-box;
+    transform: translateY(-50%);
+    z-index: 5;
 }
 
 .slider .buttons button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff5;
+    background-color: rgba(255, 255, 255, 0.5);
     color: #fff;
     border: none;
     font-family: monospace;
     font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .slider .dots {
     position: absolute;
     bottom: 10px;
@@ -60,6 +69,7 @@ a{
     padding: 0;
     display: flex;
     justify-content: center;
+    z-index: 5;
 }
 
 .slider .dots li {
@@ -76,24 +86,18 @@ a{
     width: 30px;
 }
 
-@media screen and (max-width: 768px) {
-    .slider {
-        height: 400px;
-    }
-}
-
 .item {
     position: relative; 
-    width: 100%; /* Đảm bảo chiều rộng 100% */
-    flex-shrink: 0; /* Ngăn không cho phần tử co lại */
+    width: 100%; 
+    flex-shrink: 0; 
 }
 
 .anh-truot-noidung {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    z-index: 1; 
-    padding: 500px 0 0 100px;
+    position: absolute;
+    top: 70%;
+    left: 100px;
+    z-index: 2;
+    transform: translateY(-50%);
 }
 
 .anh-truot-noidung a {
@@ -104,29 +108,19 @@ a{
 
 .anh-truot-noidung button {
     border: none;
-    position: relative; 
-    z-index: 2; 
     background-color: red;
     padding: 10px 50px;
     box-sizing: border-box;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .anh-truot-text {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    z-index: 2; 
-}
-
-.anh-truot-noidung .anhtext {
-    position: relative; 
-    z-index: 2; 
-}
-
-.anh-truot-text {
-    position: absolute; 
-    z-index: 2; 
-    padding: 250px 0 0 100px;
+    position: absolute;
+    top: 25%;
+    left: 100px;
+    z-index: 2;
+    transform: translateY(-50%);
 }
 
 .text-small {
@@ -142,64 +136,55 @@ a{
     font-weight: bold;
 }
 
-/* anh truot */
-/* Responsive styles */
+.text-small-extra {
+    font-size: 20px;
+    margin-top: 10px;
+    color: white;
+}
+
+/* ===================== Responsive ===================== */
 @media screen and (max-width: 1200px) {
     .slider {
         height: 600px;
     }
-
-    .text-big {
-        font-size: 50px;
-    }
-
-    .text-small {
-        font-size: 40px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 400px 0 0 80px;
-    }
+    .text-big { font-size: 50px; }
+    .text-small { font-size: 40px; }
+    .anh-truot-text { top: 22%; left: 80px; }
+    .anh-truot-noidung { top: 68%; left: 80px; }
 }
 
 @media screen and (max-width: 1024px) {
     .slider {
         height: 500px;
     }
-
-    .text-big {
-        font-size: 40px;
-    }
-
-    .text-small {
-        font-size: 30px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 300px 0 0 60px;
-    }
+    .text-big { font-size: 40px; }
+    .text-small { font-size: 30px; }
+    .anh-truot-text { top: 20%; left: 60px; }
+    .anh-truot-noidung { top: 65%; left: 60px; }
 }
 
 @media screen and (max-width: 768px) {
     .slider {
         height: 400px;
     }
-
-    .text-big {
-        font-size: 35px;
-    }
-
-    .text-small {
-        font-size: 25px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 200px 0 0 40px;
-    }
+    .text-big { font-size: 35px; }
+    .text-small { font-size: 25px; }
+    .anh-truot-text { top: 18%; left: 40px; }
+    .anh-truot-noidung { top: 60%; left: 40px; }
 
     .anh-truot-noidung button {
         padding: 8px 30px;
         font-size: 14px;
+    }
+
+    .slider .buttons button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .text-small-extra {
+        font-size: 16px;
     }
 }
 
@@ -207,22 +192,24 @@ a{
     .slider {
         height: 300px;
     }
-
-    .text-big {
-        font-size: 25px;
-    }
-
-    .text-small {
-        font-size: 18px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 150px 0 0 20px;
-    }
+    .text-big { font-size: 25px; }
+    .text-small { font-size: 18px; }
+    .anh-truot-text { top: 15%; left: 20px; }
+    .anh-truot-noidung { top: 55%; left: 20px; }
 
     .anh-truot-noidung button {
         padding: 6px 20px;
         font-size: 12px;
+    }
+
+    .slider .buttons button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    .text-small-extra {
+        font-size: 14px;
     }
 }
 
@@ -230,22 +217,20 @@ a{
     .slider {
         height: 250px;
     }
-
-    .text-big {
-        font-size: 20px;
-    }
-
-    .text-small {
-        font-size: 15px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 100px 0 0 10px;
-    }
+    .text-big { font-size: 20px; }
+    .text-small { font-size: 15px; }
+    .anh-truot-text { top: 12%; left: 10px; }
+    .anh-truot-noidung { top: 50%; left: 10px; }
 
     .anh-truot-noidung button {
         padding: 5px 15px;
         font-size: 10px;
+    }
+
+    .slider .buttons button {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
     }
 }
 
@@ -253,21 +238,23 @@ a{
     .slider {
         height: 200px;
     }
-
-    .text-big {
-        font-size: 18px;
-    }
-
-    .text-small {
-        font-size: 12px;
-    }
-
-    .anh-truot-noidung, .anh-truot-text {
-        padding: 80px 0 0 8px;
-    }
+    .text-big { font-size: 18px; }
+    .text-small { font-size: 12px; }
+    .anh-truot-text { top: 10%; left: 8px; }
+    .anh-truot-noidung { top: 45%; left: 8px; }
 
     .anh-truot-noidung button {
         padding: 4px 12px;
         font-size: 9px;
+    }
+
+    .slider .buttons button {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+
+    .text-small-extra {
+        font-size: 12px;
     }
 }

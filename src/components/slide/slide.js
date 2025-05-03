@@ -1,17 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
 import '../../styles/slide.css';
-import slideImage1 from '../assets/image/s1.JPG';
+import slideImage1 from '../assets/image/Bds1.jpg';
 import slideImage2 from '../assets/image/LK1.jpg';
 import slideImage3 from '../assets/image/s4.JPG';
+
 function Slide() {
     const [active, setActive] = useState(0);
     const slides = [
         {
             img: slideImage1,
-            intro: "TRƯỜNG PHÁT TỪ SƠN",
-            textBig: "Bất Động Sản",
-            textSmall: "Bắc Ninh",
+            intro: "Bất Động Sản",
+            textBig: "Bắc Ninh",
+            // textSmall: "Bắc Ninh",
             buttonText: "Liên hệ",
             link: "/AboutUs",
         },
@@ -42,8 +42,6 @@ function Slide() {
         setActive((prev) => (prev - 1 + lengthItems) % lengthItems);
     };
 
-
-
     const handleDotClick = (index) => {
         setActive(index);
     };
@@ -60,17 +58,17 @@ function Slide() {
                     {slides.map((slide, index) => (
                         <div className="item" key={index}>
                             <img src={slide.img} alt="" />
-                            <div className="anh-truot-noidung" style={{ padding: '550px 0 0 100px' }}>
+                            <div className="anh-truot-noidung">
                                 <button>
                                     <a href={slide.link}>{slide.buttonText}</a>
                                 </button>
                             </div>
-                            <div className="anh-truot-text" style={{ padding: '250px 0 0 100px' }}>
+                            <div className="anh-truot-text">
                                 <div className="anh-text">
                                     <div className="text-small" style={{ paddingBottom: '5px' }}>{slide.intro}</div>
                                     <div className="text-big">{slide.textBig}</div>
                                     {slide.textSmall && (
-                                        <div className="text-small" style={{ fontSize: '20px', marginTop: '10px' }}>
+                                        <div className="text-small text-small-extra">
                                             {slide.textSmall}
                                         </div>
                                     )}
@@ -79,10 +77,13 @@ function Slide() {
                         </div>
                     ))}
                 </div>
+
+                {/* Nếu muốn dùng nút next/prev thì bỏ comment 2 dòng dưới */}
                 {/* <div className="buttons">
                     <button id="prev" onClick={handlePrev}> &lt; </button>
                     <button id="next" onClick={handleNext}> &gt; </button>
                 </div> */}
+
                 <ul className="dots">
                     {slides.map((_, index) => (
                         <li key={index} className={index === active ? 'active' : ''} onClick={() => handleDotClick(index)}></li>

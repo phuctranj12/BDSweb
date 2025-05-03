@@ -1,14 +1,14 @@
 
 import { Link } from 'react-router-dom';
 import '../../styles/header.css';
-
+import logo from '../assets/image/logo.png';
 function Header() {
     return (
         <div className="navbar2">
 
-            <h2 className="logo">
-                <Link to="/" className="logo-link">TRƯỜNG PHÁT</Link>
-            </h2>
+            <div className="logo">
+                <img src={logo} />
+            </div>
 
 
             <div className="menu">
