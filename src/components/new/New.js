@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/News.css"; // Import file CSS riêng
+import "../../styles/news.css"; // Import file CSS riêng
 
 const newsList = [
     {

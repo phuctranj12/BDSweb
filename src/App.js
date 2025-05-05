@@ -12,6 +12,7 @@ import PolicyContent from './views/PolicyContent';
 import Login from './components/login/login';
 import DuAnContent from './views/DuAnContent';
 import AboutUsContent from './views/AboutUsContent';
+import NewsContent from './views/NewsContent';
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/DuAn" element={<DuAnContent />} />
           <Route path="/AboutUs" element={<AboutUsContent />} />
+          <Route path="/News" element={<NewsContent />} />
         </Routes>
       </div>
       <Footer />
