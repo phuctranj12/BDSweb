@@ -10,13 +10,23 @@ import Image5 from '../assets/image/lk5.png';
 import Image6 from '../assets/image/lk6.png';
 import Image7 from '../assets/image/chiaLo.jpeg';
 
+import Img1 from '../assets/image/DuAn1.jpg';
+import Img2 from '../assets/image/DuAn2.jpg';
+import Img3 from '../assets/image/DuAn3.jpg';
+import Img4 from '../assets/image/DuAn4.jpeg';
+import Img5 from '../assets/image/DuAn5.jpg';
+import Img6 from '../assets/image/DuAn6.jpeg';
+import Img7 from '../assets/image/DuAn7.JPG';
+import Img8 from '../assets/image/DuAn8.jpg';
+
+
 const data = [
     {
         stt: 1,
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3204 m2",
-        imageUrl: Image,
+        imageUrl: Img4,
         imageUrl2: Image1,
         imageUrl3: Image7,
         soLo: 30,
@@ -27,7 +37,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "6152,4 m2",
-        imageUrl: Image,
+        imageUrl: Img5,
         imageUrl2: Image2,
         imageUrl3: Image7,
         soLo: 59,
@@ -40,7 +50,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "405,3 m2",
-        imageUrl: Image,
+        imageUrl: Img6,
         imageUrl2: Image3,
         imageUrl3: Image7,
         soLo: 39,
@@ -51,7 +61,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3852.05 m2",
-        imageUrl: Image,
+        imageUrl: Img7,
         imageUrl2: Image4,
         imageUrl3: Image7,
         soLo: 40,
@@ -62,7 +72,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "5414.3 m2",
-        imageUrl: Image,
+        imageUrl: Img3,
         imageUrl2: Image5,
         imageUrl3: Image7,
         soLo: 54,
@@ -73,7 +83,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "1263.8 m2",
-        imageUrl: Image,
+        imageUrl: Img8,
         imageUrl2: Image6,
         imageUrl3: Image7,
         soLo: 13,
