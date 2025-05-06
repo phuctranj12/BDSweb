@@ -11,20 +11,20 @@ function Slide() {
             textBig: "HOMESTAY",
             textSmall: "Bắc Ninh",
             buttonText: "Liên hệ",
-            link: "Register.php",
+            link: "",
         },
         {
             img: slideImage2,
             textBig: "HOMESTAY",
             buttonText: "Liên hệ",
-            link: "Register.php",
+            link: "",
         },
         {
             img: slideImage3,
-            textBig: "HOMESTAY",
+            textBig: "",
             textSmall: "",
             buttonText: "Liên hệ",
-            link: "Register.php",
+            link: "",
         },
     ];
 
