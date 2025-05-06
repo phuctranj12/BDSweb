@@ -2,6 +2,7 @@ import '../styles/aboutUs.css';
 import Image1 from '../components/assets/image/s1.JPG'
 import Image2 from '../components/assets/image/s3.JPG'
 import BodyIntro from "../components/bdsIntroBody/body";
+import News from "../components/new/News";
 function AboutUsContent() {
     return (
         <div>
@@ -178,6 +179,7 @@ function AboutUsContent() {
                 </table>
             </div>
             <BodyIntro />
+            <News />
         </div>
     );
 }

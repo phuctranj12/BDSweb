@@ -28,7 +28,7 @@ function Footer({ }) {
             <div className="footer-row3">
                 <div className="footer-tieude">HOTLINE</div>
                 <div className="lienhe1">
-                    0965561991
+                    0977208988
                 </div>
                 <div className="icon-contain">
                     <a href='/AboutUs'>

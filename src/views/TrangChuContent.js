@@ -10,7 +10,6 @@ function TrangChuContent() {
             <BodyIntro />
             <TuVan />
             <NewsContent />
-
         </div>
     );
 }

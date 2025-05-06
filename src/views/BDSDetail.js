@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/bdsDetail.css';
 import TuVan from '../components/tuVan/tuVan';
+import News from "../components/new/News";
 function BDSDetail() {
     const location = useLocation();
     const property = location.state?.property;
@@ -24,6 +25,7 @@ function BDSDetail() {
                 </div>
             </div>
             <TuVan />
+            <News />
         </div>
     );
 }
