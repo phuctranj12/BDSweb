@@ -1,0 +1,66 @@
+.call-wrapper {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  z-index: 9999;
+  touch-action: none;
+}
+
+.call-button {
+  position: absolute;
+  background-color: #e2974d;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.call-button:active {
+  cursor: grabbing;
+}
+
+.call-button:hover {
+  transform: scale(1.1);
+}
+
+.call-icon {
+  color: white;
+  font-size: 24px;
+}
+
+.vibrating {
+  animation: vibrate 0.3s linear infinite;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .call-button {
+    width: 50px;
+    height: 50px;
+    bottom: 80px;
+  }
+
+  .call-icon {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .call-button {
+    width: 45px;
+    height: 45px;
+    bottom: 70px;
+  }
+
+  .call-icon {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,60 @@
+/* Nút Zalo */
+.zalo-button {
+  position: fixed;
+  bottom: 110px; /* Đặt vị trí dưới */
+  left: 20px;   /* Đặt vị trí bên trái */
+  width: 60px;
+  height: 60px;
+  background-color: #0084FF;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  touch-action: none; /* Hạn chế zoom/pan gây giật trên mobile */
+}
+
+.zalo-button:active {
+  cursor: grabbing;
+}
+
+.zalo-button:hover {
+  transform: scale(1.1);
+}
+
+.zalo-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media screen and (max-width: 768px) {
+  .zalo-button {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;  /* Điều chỉnh vị trí trên màn hình nhỏ */
+    left: 15px;
+  }
+
+  .zalo-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .zalo-button {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;  /* Điều chỉnh vị trí trên màn hình rất nhỏ */
+    left: 10px;
+  }
+
+  .zalo-icon {
+    width: 22px;
+    height: 22px;
+  }
+}

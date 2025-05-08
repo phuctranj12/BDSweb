@@ -3,9 +3,12 @@ import Image1 from '../components/assets/image/s1.JPG'
 import Image2 from '../components/assets/image/s3.JPG'
 import BodyIntro from "../components/bdsIntroBody/body";
 import News from "../components/new/News";
+import AboutUsPage from '../components/tuVan/AboutUsPage';
+
 function AboutUsContent() {
     return (
         <div>
+            <AboutUsPage />
             <div class="aboutUs-container">
                 <div className='aboutUs-header'>
                     <img src={Image1} />
@@ -178,8 +181,7 @@ function AboutUsContent() {
                     </tbody>
                 </table>
             </div>
-            <BodyIntro />
-            <News />
+
         </div>
     );
 }

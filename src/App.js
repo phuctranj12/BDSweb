@@ -14,6 +14,9 @@ import DuAnContent from './views/DuAnContent';
 import AboutUsContent from './views/AboutUsContent';
 import NewsContent from './views/NewsContent';
 import NewsDetailContent from './views/NewsDetailContent';
+import CallButton from './components/button/CallButton';
+import ZaloButton from './components/button/ZaloButton';
+import AboutUsPage from './components/tuVan/AboutUsPage';
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -21,6 +24,8 @@ function App() {
   return (
 
     <div>
+      <CallButton />
+      <ZaloButton />
       <Header className="header-app-bds" />
       <div className="content-app-bds">
         <Routes>
