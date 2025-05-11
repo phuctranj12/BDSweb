@@ -12,7 +12,7 @@ const mockProducts = [
     { id: 8, name: "Empire City Thủ Thiêm", location: "Thủ Thiêm", price: "18 tỷ", image: "https://via.placeholder.com/300x200?text=Empire+City", description: "Căn hộ siêu sang ven sông Sài Gòn." },
     { id: 9, name: "The 9 Stellars", location: "Quận 9", price: "3.2 tỷ", image: "https://via.placeholder.com/300x200?text=The+9+Stellars", description: "Căn hộ xanh gần Depot Metro." },
     { id: 10, name: "Vinhomes Ocean Park 2", location: "Hưng Yên", price: "4.9 tỷ", image: "https://via.placeholder.com/300x200?text=Ocean+Park+2", description: "Đô thị biển hồ, tiện ích resort đỉnh cao." },
-    // Thêm nhiều sản phẩm vào đây...
+
 ];
 
 const ProductListPage = () => {
@@ -20,27 +20,24 @@ const ProductListPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 
-    // Lọc các sản phẩm dựa trên tìm kiếm
     const filteredProducts = mockProducts.filter(
         product =>
             product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             product.location.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Phân trang: tính toán các sản phẩm hiển thị cho mỗi trang
     const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
     const currentProducts = filteredProducts.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
     );
 
-    // Xử lý tìm kiếm
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
-        setCurrentPage(1);  // Reset trang về 1 khi thay đổi tìm kiếm
+        setCurrentPage(1);
     };
 
-    // Chuyển trang
+
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
