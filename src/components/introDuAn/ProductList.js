@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../../styles/ProductList.css';
-
+import img1 from '../assets/image/GlobalCity.jpg'
 const mockProducts = [
-    { id: 1, name: "The Global City", location: "An Phú, Thủ Đức", price: "12.8 tỷ", image: "https://via.placeholder.com/300x200?text=The+Global+City", description: "Khu đô thị cao cấp phong cách Singapore." },
+    { id: 1, name: "The Global City", location: "An Phú, Thủ Đức", price: "12.8 tỷ", image: img1, description: "Khu đô thị cao cấp phong cách Singapore." },
     { id: 2, name: "Vinhomes Grand Park", location: "Long Bình, Thủ Đức", price: "4.2 tỷ", image: "https://via.placeholder.com/300x200?text=Vinhomes+Grand+Park", description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
     { id: 3, name: "Sunshine City Sài Gòn", location: "Quận 7", price: "6.5 tỷ", image: "https://via.placeholder.com/300x200?text=Sunshine+City", description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
     { id: 4, name: "Aqua City", location: "Biên Hòa", price: "7.8 tỷ", image: "https://via.placeholder.com/300x200?text=Aqua+City", description: "Đô thị sinh thái ven sông." },
