@@ -181,6 +181,9 @@ function AboutUsContent() {
                     </tbody>
                 </table>
             </div>
+            <News />
+            <BodyIntro />
+
 
         </div>
     );
