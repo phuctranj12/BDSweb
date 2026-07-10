@@ -3,13 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useReveal from '../../hooks/useReveal';
 import '../../styles/bodyIntro.css';
 
-// Per-lot plan drawings, shown on the detail page.
-import Image1 from '../assets/image/lk1.jpeg';
-import Image2 from '../assets/image/lk2.png';
-import Image3 from '../assets/image/lk3.png';
-import Image4 from '../assets/image/lk4.png';
-import Image5 from '../assets/image/lk5.png';
-import Image6 from '../assets/image/lk6.png';
+// Bản vẽ quy hoạch tổng thể, dùng làm ảnh lớn ở trang chi tiết.
 import Image7 from '../assets/image/chiaLo.jpeg';
 
 // Card thumbnails.
@@ -28,10 +22,9 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3204 m2",
         imageUrl: Img4,
-        imageUrl2: Image1,
         imageUrl3: Image7,
         soLo: 30,
-        describe: "Liền kề LK1 bao gồm 30 lô đất có diện tích đa dạng, từ những lô có diện tích nhỏ khoảng 151 m² cho đến những lô lớn hơn lên đến 224.1 m². Đây là khu vực có nhiều lựa chọn cho các nhu cầu khác nhau, từ các gia đình nhỏ đến các nhà đầu tư mong muốn sở hữu lô đất rộng hơn để xây dựng công trình lớn. LK1 được thiết kế với hệ thống hạ tầng hiện đại, đường sá rộng rãi và kết nối thuận tiện đến các tiện ích xung quanh. Khu vực này được đánh giá cao về tiềm năng phát triển và phù hợp cho cả mục đích ở và đầu tư dài hạn."
+        describe: "Liền kề LK1 gồm 30 lô đất trên tổng diện tích 3.204 m², chia thành hai loại: 26 lô chuẩn 100 m² và 4 lô góc rộng 151 m² tại các vị trí LK1-1, 15, 16 và 30. Cơ cấu đơn giản, dễ lựa chọn — lô chuẩn phù hợp với gia đình trẻ, lô góc dành cho ai cần mặt tiền rộng để vừa ở vừa kinh doanh. LK1 có hạ tầng hoàn thiện, đường nội khu rộng rãi và kết nối thuận tiện tới các tiện ích xung quanh."
     },
     {
         stt: 2,
@@ -39,10 +32,9 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "6152,4 m2",
         imageUrl: Img5,
-        imageUrl2: Image2,
         imageUrl3: Image7,
         soLo: 59,
-        describe: "Liền kề LK2 gồm 59 lô đất, với diện tích trải dài từ 98.5 m² đến 224.1 m², tạo nên một lựa chọn phong phú cho người mua. Đây là một khu vực được thiết kế dành riêng cho những ai tìm kiếm không gian sống rộng rãi, thoải mái. LK2 có vị trí thuận lợi, gần các trung tâm thương mại, trường học, và các khu vực tiện ích khác, giúp nâng cao chất lượng cuộc sống cho cư dân. Với sự đa dạng trong diện tích và giá trị đất tăng cao, LK2 là lựa chọn lý tưởng cho cả nhu cầu ở và đầu tư bất động sản."
+        describe: "Liền kề LK2 là phân khu lớn nhất dự án: 59 lô đất trên 6.152,4 m², diện tích trải dài từ 98 m² đến 224,1 m². Phần lớn là 51 lô chuẩn 100 m², bên cạnh đó có lô LK2-32 rộng 224,1 m² — lô lớn nhất toàn dự án. Sự đa dạng này cho phép người mua chọn đúng nhu cầu, từ tổ ấm gia đình đến biệt thự sân vườn. LK2 nằm ở vị trí thuận lợi, gần các trung tâm thương mại và trường học."
 
 
     },
@@ -50,12 +42,12 @@ const data = [
         stt: 3,
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
-        area: "405,3 m2",
+        // Trước ghi "405,3 m2" — sai 10 lần. Bảng phân lô LK3 cộng ra 4053 m².
+        area: "4053 m2",
         imageUrl: Img6,
-        imageUrl2: Image3,
         imageUrl3: Image7,
         soLo: 39,
-        describe: "Liền kề LK3 bao gồm 39 lô đất với diện tích từ 98 m² đến 155.5 m². Khu vực này được quy hoạch với các lô đất vừa phải, phù hợp cho các gia đình muốn xây dựng ngôi nhà ấm cúng hoặc các nhà đầu tư tìm kiếm các lô đất có giá trị hợp lý. LK3 có hệ thống đường giao thông kết nối thuận lợi, dễ dàng di chuyển đến các khu vực xung quanh. Đây là khu vực có không gian sống trong lành, gần các khu vực xanh mát, phù hợp cho những ai yêu thích không gian yên tĩnh, gần gũi với thiên nhiên."
+        describe: "Liền kề LK3 gồm 39 lô đất trên 4.053 m², diện tích từ 92,1 m² đến 157,9 m². Xương sống của phân khu là 31 lô chuẩn 100 m², cùng hai lô góc 155,5 m² và các lô đặc biệt LK3-19 (157,9 m²), LK3-20 (92,1 m²). Đây là khu vực có không gian sống trong lành, gần các mảng xanh, phù hợp với những ai yêu thích sự yên tĩnh và gần gũi thiên nhiên."
     },
     {
         stt: 4,
@@ -63,10 +55,9 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3852.05 m2",
         imageUrl: Img7,
-        imageUrl2: Image4,
         imageUrl3: Image7,
         soLo: 40,
-        describe: "Liền kề LK4 bao gồm 40 lô đất với diện tích từ 86.85 m² đến 127.9 m². Đây là khu vực có nhiều lô đất diện tích nhỏ, rất thích hợp cho những gia đình nhỏ hoặc các cặp đôi trẻ đang tìm kiếm nơi xây dựng ngôi nhà đầu tiên. LK4 có vị trí thuận lợi gần các tiện ích công cộng như công viên, trường học và khu mua sắm, giúp cuộc sống hàng ngày trở nên thuận tiện và tiện nghi hơn. Ngoài ra, LK4 còn có hệ thống an ninh đảm bảo, mang lại sự an toàn cho cư dân và tạo môi trường sống lý tưởng."
+        describe: "Liền kề LK4 gồm 40 lô đất trên 3.852,05 m², diện tích từ 86,25 m² đến 127,9 m². Đây là phân khu có nhiều lô diện tích vừa và nhỏ nhất, với 16 lô 99 m² và 10 lô 90,75 m² — rất thích hợp cho gia đình trẻ hoặc các cặp đôi đang tìm nơi xây dựng ngôi nhà đầu tiên. LK4 nằm gần công viên, trường học và khu mua sắm, mang lại cuộc sống hàng ngày thuận tiện."
     },
     {
         stt: 5,
@@ -74,10 +65,9 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "5414.3 m2",
         imageUrl: Img3,
-        imageUrl2: Image5,
         imageUrl3: Image7,
         soLo: 54,
-        describe: "Liền kề LK5 có 54 lô đất với diện tích từ 89.65 m² đến 130.5 m², phù hợp cho các gia đình có nhu cầu sử dụng không gian sống vừa đủ và tiện nghi. LK5 nằm ở vị trí trung tâm, với hệ thống giao thông thuận lợi và kết nối nhanh chóng đến các khu tiện ích như siêu thị, trường học, và bệnh viện. Khu vực này mang lại không gian sống thoải mái với các dịch vụ tiện ích đa dạng xung quanh, đáp ứng đầy đủ nhu cầu hàng ngày của cư dân. LK5 còn được đánh giá là một lựa chọn tiềm năng cho các nhà đầu tư nhờ vị trí đắc địa và sự phát triển bền vững."
+        describe: "Liền kề LK5 gồm 54 lô đất trên 5.414,3 m², diện tích từ 87,65 m² đến 155,5 m². Phân khu có cơ cấu phong phú nhất với 14 loại diện tích khác nhau, trong đó 22 lô chuẩn 100 m² và 10 lô 89,65 m². LK5 nằm ở vị trí trung tâm, giao thông thuận lợi, kết nối nhanh tới siêu thị, trường học và bệnh viện — vừa đáp ứng nhu cầu ở, vừa là lựa chọn tiềm năng cho nhà đầu tư."
     },
     {
         stt: 6,
@@ -85,10 +75,9 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "1263.8 m2",
         imageUrl: Img8,
-        imageUrl2: Image6,
         imageUrl3: Image7,
         soLo: 13,
-        describe: "Liền kề LK6 bao gồm 13 lô đất với diện tích từ 85.9 m² đến 107.7 m², là một khu vực nhỏ gọn nhưng vô cùng lý tưởng cho những ai thích không gian riêng tư và yên tĩnh. LK6 có vị trí cách biệt một chút so với các khu liền kề khác, tạo nên không gian sống thoải mái, tránh xa sự ồn ào và náo nhiệt của thành phố. Với diện tích lô đất vừa phải, LK6 thích hợp cho các gia đình trẻ hoặc các cá nhân muốn đầu tư vào bất động sản với mức chi phí hợp lý. Khu vực này có tiềm năng phát triển cao và là lựa chọn tuyệt vời cho cả ở và đầu tư dài hạn."
+        describe: "Liền kề LK6 gồm 13 lô đất trên 1.263,8 m², diện tích từ 80,3 m² đến 119 m². Mỗi lô một diện tích riêng, không lô nào trùng lô nào — phân khu nhỏ gọn, riêng tư và yên tĩnh nhất dự án. LK6 nằm tách biệt đôi chút so với các khu liền kề khác, thích hợp cho gia đình trẻ hoặc cá nhân muốn đầu tư với mức chi phí hợp lý."
     }
 ];
 function BodyIntro() {
@@ -110,7 +99,7 @@ function BodyIntro() {
                         </h2>
                     </div>
                     <p className="lots__intro">
-                        Sáu phân khu liền kề với 235 thửa đất ở, diện tích từ 85,9 m² đến 224,1 m².
+                        Sáu phân khu liền kề với 235 thửa đất ở, diện tích từ 80,3 m² đến 224,1 m².
                         Hạ tầng đã nghiệm thu, sổ đỏ từng lô.
                     </p>
                 </header>

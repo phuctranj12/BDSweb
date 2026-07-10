@@ -9,8 +9,12 @@
   padding-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
+/* Content and controls share one flex column. They used to both be positioned
+   absolutely, which let the caption collide with the CTA on short windows. */
 .hero__stage {
   position: relative;
+  display: flex;
+  flex-direction: column;
   height: min(94svh, 900px);
   min-height: 560px;
   overflow: hidden;
@@ -91,8 +95,9 @@
 /* ---------- Content ---------- */
 
 .hero__content {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -270,11 +275,10 @@
 /* ---------- Controls ---------- */
 
 .hero__controls {
-  position: absolute;
-  left: 50%;
-  translate: -50% 0;
-  /* Must clear the search card, which overhangs the stage's bottom edge. */
-  bottom: clamp(5.5rem, 8vw, 7rem);
+  position: relative;
+  flex-shrink: 0;
+  /* Bottom padding clears the search card, which overhangs the stage's edge. */
+  padding-bottom: clamp(5rem, 7vw, 6.5rem);
   display: flex;
   align-items: center;
   justify-content: space-between;

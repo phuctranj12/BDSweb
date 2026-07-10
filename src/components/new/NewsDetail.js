@@ -60,6 +60,19 @@ const NewsDetail = () => {
                 <div className="article__layout">
                     <div className="article__body prose">
                         <p>{currentNews.detail}</p>
+
+                        {currentNews.source && (
+                            <p className="article__source">
+                                Nguồn:{' '}
+                                <a
+                                    href={currentNews.source.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer nofollow"
+                                >
+                                    {currentNews.source.name}
+                                </a>
+                            </p>
+                        )}
                     </div>
 
                     <aside className="article__aside">

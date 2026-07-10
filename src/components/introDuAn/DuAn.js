@@ -17,7 +17,7 @@ const FACTS = [
 const HIGHLIGHTS = [
     {
         title: 'Thiết kế hiện đại và hợp lý',
-        body: 'Lô đất từ 80 m² đến hơn 200 m², phù hợp cho nhà ở gia đình lẫn biệt thự. Thiết kế mở với không gian xanh và ánh sáng tự nhiên dồi dào.',
+        body: 'Lô đất từ 80,3 m² đến 224,1 m², phù hợp cho nhà ở gia đình lẫn biệt thự. Thiết kế mở với không gian xanh và ánh sáng tự nhiên dồi dào.',
     },
     {
         title: 'Công viên cây xanh và hồ nước',

@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy:zip": "bash scripts/make-deploy-zip.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

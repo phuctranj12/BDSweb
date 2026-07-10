@@ -81,6 +81,16 @@
   white-space: pre-line; /* the source text carries \n\n paragraph breaks */
 }
 
+/* Attribution line for articles reproduced from other outlets. */
+.article__source {
+  margin-top: var(--s-10);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-border);
+  font-size: var(--t-sm);
+  color: var(--c-muted);
+  white-space: normal;
+}
+
 /* ---------- Related sidebar ---------- */
 
 .article__aside {
