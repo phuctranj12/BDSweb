@@ -1,197 +1,219 @@
+/* =============================================================
+   CONSULT — dark lead-capture band.
+   Also defines the shared .field form primitive used site-wide.
+   ============================================================= */
 
-.login-contain{
-    background-color: white;
-    width : 100%;
-    display: flex;
-    font-family: 'Montserrat', sans-serif;
-    padding: 50px 0 100px 0;
-    border : none;
-    border-radius: 10px;
-    width: 1200px;
-    margin: auto;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
-}
-.login-left{
-    width : 40%;
-    padding:65px 30px 0 100px;
-}
-.login-right
-{
-    width : 60%;
-    padding:0 50px 0 30px;
-}
-.gioithieu{
-    font-weight: bold;
-    font-size: 35px;
-    color : black;
-    line-height: 1.5;
-}
-.intro{
-    font-size: 20px;
-    font-weight: 550;
-    padding: 25px 0 0 0 ;
-    color : black;
-    line-height: 1.5;
-}
-.intro .linkTuVan {
-    position: relative; 
-    text-decoration: none; 
-    color: inherit; 
-    margin-right: 15px;
+.consult__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding-block: var(--section-y);
 }
 
-.intro .linkTuVan::after {
-    content: ''; 
-    position: absolute; 
-    left: 0; 
-    bottom: 0;
-    width: 0; 
-    height: 2px; 
-    background-color: black; 
-    opacity: 0; 
-    transition: width 0.3s ease, opacity 0.3s ease; 
+/* ---------- Left copy ---------- */
+
+.consult__title {
+  font-size: var(--t-h1);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  color: var(--c-cream);
+  margin-bottom: var(--s-6);
 }
 
-.intro .linkTuVan:hover::after {
-    width: 100%; 
-    opacity: 1; 
-}
-svg {
-    transition: transform 0.3s ease; 
-}
-
-svg:hover {
-    transform: translateX(5px);
+.consult__lead {
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--c-cream-body);
+  max-width: 46ch;
+  margin-bottom: var(--s-10);
 }
 
-
-.login-contain .login-right .form-right form{
-    display: flex;
-    flex-direction: column;
-}
-input{
-    border: none;
-    border-bottom: 1px solid;
-    width: 100%;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    padding:70px 0 0 0 ;
-    overflow: visible;
- }
- input:focus {
-    outline: none; 
-}
-.button-register{
-    padding:50px 0 0 0px;
-}
-.button-register button{
-    background-color: #e2974d;
-    border:1px solid white;
-    text-align: center;
-   box-sizing: border-box;
-   letter-spacing: -0.015em;
-   font-size: 20px;
-   font-weight: bold;
-   padding: 10px 10px 10px 10px;
-   color: white;
-   cursor: pointer;
-}
-.button-register button:hover{
-  background-color: #dd8339;
+.consult__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 44px;
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream);
+  padding-bottom: var(--s-1);
+  border-bottom: 1px solid var(--c-border-dark-strong);
+  transition: color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
 }
 
-/* responsive  */
-/* Media Queries cho responsive */
-@media (max-width: 1200px) {
-    .login-contain {
-        width: 100%;
-        padding: 30px 0 50px 0;
-    }
-
-    .login-left, .login-right {
-        padding: 30px;
-    }
+.consult__link:hover {
+  color: var(--c-brass);
+  border-bottom-color: var(--c-brass);
 }
 
-@media (max-width: 992px) {
-    .login-contain {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .login-left, .login-right {
-        width: 100%;
-        padding: 20px;
-    }
-
-    .gioithieu {
-        font-size: 30px;
-    }
-
-    .intro {
-        font-size: 18px;
-    }
+.consult__link svg {
+  transition: transform var(--dur) var(--ease-out);
 }
 
-@media (max-width: 768px) {
-    .login-contain {
-        padding: 20px 0 40px 0;
-    }
-
-    .login-left, .login-right {
-        padding: 15px;
-    }
-
-    .gioithieu {
-        font-size: 25px;
-    }
-
-    .intro {
-        font-size: 16px;
-    }
-
-    input {
-        padding: 50px 0 0 0;
-    }
-
-    .button-register {
-        padding: 30px 0 0 0px;
-    }
-
-    .button-register button {
-        font-size: 18px;
-    }
+.consult__link:hover svg {
+  transform: translateX(4px);
 }
 
-@media (max-width: 576px) {
-    .login-contain {
-        padding: 10px 0 30px 0;
-    }
+/* ---------- Right panel ---------- */
 
-    .login-left, .login-right {
-        padding: 10px;
-    }
+.consult__panel {
+  background: var(--c-black-2);
+  border: 1px solid var(--c-border-dark);
+  border-radius: var(--r-lg);
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+}
 
-    .gioithieu {
-        font-size: 20px;
-    }
+.consult__form {
+  display: grid;
+  gap: var(--s-6);
+}
 
-    .intro {
-        font-size: 14px;
-    }
+.consult__submit {
+  width: 100%;
+  margin-top: var(--s-2);
+}
 
-    input {
-        padding: 30px 0 0 0;
-    }
+.consult__note {
+  font-size: var(--t-xs);
+  line-height: var(--lh-normal);
+  color: var(--c-cream-faint);
+  text-align: center;
+}
 
-    .button-register {
-        padding: 20px 0 0 0px;
-    }
+/* ---------- Success state ---------- */
 
-    .button-register button {
-        font-size: 16px;
-    }
+.consult__success {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-4);
+  padding-block: var(--s-8);
+}
+
+.consult__success svg {
+  color: var(--c-brass);
+}
+
+.consult__success h3 {
+  color: var(--c-cream);
+}
+
+.consult__success p {
+  color: var(--c-cream-body);
+  max-width: 38ch;
+  margin-bottom: var(--s-2);
+}
+
+.consult__success .u-btn--outline {
+  color: var(--c-cream);
+  border-color: var(--c-border-dark-strong);
+}
+
+/* =============================================================
+   .field — shared labelled input (dark by default).
+   `.field--light` adapts it to a warm-white surface.
+   ============================================================= */
+
+.field {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.field > label {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-faint);
+}
+
+.field > label span {
+  color: var(--c-brass);
+}
+
+.field > input {
+  width: 100%;
+  /* 48px keeps the tap target legal, and 16px text stops iOS zooming on focus. */
+  min-height: 48px;
+  padding: var(--s-2) 0;
+  font-size: var(--t-body);
+  color: var(--c-cream);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--c-border-dark-strong);
+  border-radius: 0;
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.field > input::placeholder {
+  color: var(--c-cream-faint);
+}
+
+.field > input:focus {
+  outline: none;
+  border-bottom-color: var(--c-brass);
+}
+
+.field > input:focus-visible {
+  outline: none;
+}
+
+.field.has-error > input {
+  border-bottom-color: #e07a72;
+}
+
+.field__error {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--t-xs);
+  line-height: var(--lh-normal);
+  color: #e8a49e;
+}
+
+/* ---------- Light-surface variant ---------- */
+
+.field--light > label {
+  color: var(--c-muted);
+}
+
+.field--light > label span {
+  color: var(--c-accent);
+}
+
+.field--light > input {
+  color: var(--c-ink);
+  border-bottom-color: var(--c-border-strong);
+}
+
+.field--light > input::placeholder {
+  color: var(--c-faint);
+}
+
+.field--light > input:focus {
+  border-bottom-color: var(--c-accent);
+}
+
+.field--light.has-error > input {
+  border-bottom-color: var(--c-danger);
+}
+
+.field--light .field__error {
+  color: var(--c-danger);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 900px) {
+  .consult__inner {
+    grid-template-columns: 1fr;
+    gap: var(--s-12);
+  }
 }

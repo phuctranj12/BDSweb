@@ -1,12 +1,131 @@
-
-.content-app-bds {
-  margin-top: 65px;
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
 }
-@keyframes vibrate {
-  0% { transform: rotate(0deg); }
-  20% { transform: rotate(-10deg); }
-  40% { transform: rotate(10deg); }
-  60% { transform: rotate(-10deg); }
-  80% { transform: rotate(10deg); }
-  100% { transform: rotate(0deg); }
+
+.app-main {
+  flex: 1;
+}
+
+/* Inner pages start below the fixed header. The home page does not, because its
+   hero image intentionally runs beneath the transparent header. */
+.app-main--offset {
+  padding-top: var(--header-h);
+}
+
+/* ---------- Floating contact buttons ---------- */
+
+.app-float-stack {
+  position: fixed;
+  right: var(--s-4);
+  bottom: calc(var(--s-4) + env(safe-area-inset-bottom));
+  z-index: var(--z-float);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+/* ---------- Shared page header (inner pages) ---------- */
+
+.page-head {
+  border-bottom: 1px solid var(--c-border);
+  padding-block: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 4vw, 3.5rem);
+}
+
+.page-head__title {
+  font-size: var(--t-h1);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.page-head__lead {
+  margin-top: var(--s-6);
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Long-form prose (project info, policies, about) ---------- */
+
+.prose {
+  color: var(--c-body);
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+}
+
+.prose > * + * {
+  margin-top: var(--s-5);
+}
+
+.prose h2,
+.prose h3 {
+  color: var(--c-ink);
+  letter-spacing: var(--ls-heading);
+  margin-top: var(--s-12);
+  margin-bottom: var(--s-4);
+}
+
+.prose h2 {
+  font-size: var(--t-h3);
+  padding-bottom: var(--s-3);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.prose a {
+  color: var(--c-accent);
+  font-weight: var(--fw-medium);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.prose a:hover {
+  color: var(--c-accent-hover);
+}
+
+.prose strong {
+  color: var(--c-ink);
+  font-weight: var(--fw-semibold);
+}
+
+.prose img {
+  width: 100%;
+  border-radius: var(--r-md);
+}
+
+/* =============================================================
+   REVEAL-ON-SCROLL
+   Driven by the useReveal() hook, which adds `is-visible`.
+   ============================================================= */
+
+/* Scoped to .has-js (set by index.js): if the bundle never runs, content stays
+   visible instead of being permanently stuck at opacity 0. */
+.has-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+  will-change: opacity, transform;
+}
+
+.has-js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+/* Never let a reveal hide content from someone who disabled motion, and never
+   let it hide content if JS fails to run. */
+@media (prefers-reduced-motion: reduce) {
+  .has-js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

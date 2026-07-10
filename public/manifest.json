@@ -1,11 +1,13 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Trường Phát",
+  "name": "Bất Động Sản Trường Phát",
+  "description": "Chủ đầu tư Dự án Khu nhà ở thôn Đại Vi, xã Đại Đồng, huyện Tiên Du, Bắc Ninh.",
+  "lang": "vi",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     },
     {
       "src": "logo192.png",
@@ -15,11 +17,13 @@
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0A0908",
+  "background_color": "#0A0908"
 }

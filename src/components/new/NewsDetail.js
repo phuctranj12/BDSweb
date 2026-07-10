@@ -1,124 +1,107 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../../styles/newsDetail.css";
 
 const NewsDetail = () => {
-    const location = useLocation();
-    const { state } = location;
+    const { state } = useLocation();
     const { news, newsList } = state || {};
+    const [currentNews, setCurrentNews] = useState(news);
 
-    const [rating, setRating] = useState(0);
-    const [userRating, setUserRating] = useState(null);
-    const [comments, setComments] = useState([]);
-    const [newComment, setNewComment] = useState("");
-    const [currentNews, setCurrentNews] = useState(news); // state cho tin hiện tại
+    // Swapping articles in place must return the reader to the top.
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+    }, [currentNews?.id]);
 
     if (!currentNews || !newsList) {
-        return <div>Không tìm thấy tin tức!</div>;
+        return (
+            <div className="u-container article__missing">
+                <h1>Không tìm thấy bài viết</h1>
+                <p>
+                    Có thể bạn đã mở trực tiếp đường dẫn này hoặc tải lại trang. Hãy quay lại
+                    trang tin tức để chọn bài viết.
+                </p>
+                <Link to="/News" className="u-btn u-btn--primary">
+                    Về trang tin tức
+                </Link>
+            </div>
+        );
     }
 
-    // Loại bỏ tin đang xem ra khỏi danh sách gợi ý và liên quan
-    const suggestions = newsList.filter(item => item.id !== currentNews.id);
-
-    const handleRating = (value) => {
-        setUserRating(value);
-        // Cập nhật trung bình đánh giá (giả lập)
-        setRating(((rating * comments.length + value) / (comments.length + 1)).toFixed(1));
-    };
-
-    const handleCommentSubmit = () => {
-        if (newComment.trim()) {
-            setComments([...comments, newComment]);
-            setNewComment("");
-        }
-    };
-
-    // Hàm xử lý khi click vào tin gợi ý hoặc tin liên quan
-    const handleSuggestionClick = (suggestedNews) => {
-        setCurrentNews(suggestedNews);  // Cập nhật tin chi tiết mới
-        setComments([]);  // Xóa bình luận cũ khi chuyển sang tin mới
-        setNewComment(""); // Xóa bình luận mới khi chuyển sang tin mới
-    };
+    const suggestions = newsList.filter((item) => item.id !== currentNews.id);
 
     return (
-        <div className="news-detail-wrapper">
+        <article className="article">
+            <div className="u-container">
+                <nav className="article__crumbs" aria-label="Đường dẫn">
+                    <Link to="/">Trang chủ</Link>
+                    <span aria-hidden="true">/</span>
+                    <Link to="/News">Tin tức</Link>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">{currentNews.title}</span>
+                </nav>
 
-            {/* Phần trái - Tin chính */}
-            <div className="news-main" style={{ flex: 3 }}>
-                <h2>{currentNews.title}</h2>
-                <p><strong>Ngày đăng:</strong> {currentNews.date || "01/01/2025"}</p>
-                <p><strong>Lượt xem:</strong> {currentNews.views || Math.floor(Math.random() * 1000)}</p>
-                <img
-                    src={currentNews.image}
-                    alt={currentNews.title}
-                    style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
-                />
-                <p style={{ marginTop: "20px" }}>{currentNews.detail}</p>
+                <header className="article__head">
+                    <p className="u-eyebrow">Thị trường</p>
+                    <h1 className="article__title">{currentNews.title}</h1>
+                    <p className="article__meta">
+                        <time dateTime="2025-01-01">01/01/2025</time>
+                    </p>
+                </header>
 
-                {/* Phần đánh giá */}
-                <div className="rating-section" style={{ marginTop: "30px" }}>
-                    <h4>Đánh giá bài viết:</h4>
-                    {[1, 2, 3, 4, 5].map(num => (
-                        <span
-                            key={num}
-                            onClick={() => handleRating(num)}
-                            style={{
-                                fontSize: "24px",
-                                cursor: "pointer",
-                                color: userRating >= num ? "gold" : "gray",
-                            }}
-                        >
-                            ★
-                        </span>
-                    ))}
-                    <p>Đánh giá trung bình: {rating || "Chưa có"} ⭐</p>
+                <figure className="article__hero u-media">
+                    <img
+                        src={currentNews.image}
+                        alt={currentNews.title}
+                        loading="eager"
+                        decoding="async"
+                    />
+                </figure>
+
+                <div className="article__layout">
+                    <div className="article__body prose">
+                        <p>{currentNews.detail}</p>
+                    </div>
+
+                    <aside className="article__aside">
+                        <h2 className="article__aside-title">Tin liên quan</h2>
+                        <ul className="article__related">
+                            {suggestions.slice(0, 4).map((item) => (
+                                <li key={item.id}>
+                                    <button type="button" onClick={() => setCurrentNews(item)}>
+                                        <span className="article__related-media u-media">
+                                            <img
+                                                src={item.image}
+                                                alt=""
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </span>
+                                        <span className="article__related-title">{item.title}</span>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </aside>
                 </div>
 
-                {/* Phần bình luận */}
-                <div className="comment-section" style={{ marginTop: "30px" }}>
-                    <h4>Bình luận bài viết:</h4>
-                    <textarea
-                        rows="3"
-                        placeholder="Nhập bình luận..."
-                        value={newComment}
-                        onChange={(e) => setNewComment(e.target.value)}
-                        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-                    ></textarea>
-                    <button onClick={handleCommentSubmit}>Gửi bình luận</button>
-
-                    <ul style={{ marginTop: "20px" }}>
-                        {comments.map((cmt, idx) => (
-                            <li key={idx} style={{ padding: "5px 0", borderBottom: "1px solid #ccc" }}>{cmt}</li>
+                <section className="article__more">
+                    <h2 className="article__more-title">Có thể bạn quan tâm</h2>
+                    <ul className="article__more-grid">
+                        {suggestions.slice(0, 3).map((item) => (
+                            <li key={item.id}>
+                                <button type="button" className="more-card" onClick={() => setCurrentNews(item)}>
+                                    <span className="more-card__media u-media">
+                                        <img src={item.image} alt="" loading="lazy" decoding="async" />
+                                    </span>
+                                    <span className="more-card__title">{item.title}</span>
+                                    <span className="more-card__excerpt">{item.content}</span>
+                                </button>
+                            </li>
                         ))}
                     </ul>
-                </div>
-
-                {/* Gợi ý dưới */}
-                <div className="related-articles" style={{ marginTop: "40px" }}>
-                    <h3>Có thể bạn quan tâm</h3>
-                    <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
-                        {suggestions.slice(0, 3).map(sug => (
-                            <div key={sug.id} style={{ width: "30%", border: "1px solid #eee", borderRadius: "8px", padding: "10px", cursor: "pointer" }} onClick={() => handleSuggestionClick(sug)}>
-                                <img src={sug.image} alt={sug.title} style={{ width: "100%", height: "auto" }} />
-                                <h5>{sug.title}</h5>
-                                <p style={{ fontSize: "14px" }}>{sug.summary || sug.detail.slice(0, 60) + "..."}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                </section>
             </div>
-
-            {/* Phần phải - Tin liên quan */}
-            <div className="news-suggestions" style={{ flex: 1, borderLeft: "1px solid #ccc", paddingLeft: "20px" }}>
-                <h3>Tin liên quan</h3>
-                {suggestions.slice(0, 5).map(sug => (
-                    <div key={sug.id} style={{ marginBottom: "20px", cursor: "pointer" }} onClick={() => handleSuggestionClick(sug)}>
-                        <img src={sug.image} alt={sug.title} style={{ width: "100%", height: "150px", objectFit: "cover", borderRadius: "4px" }} />
-                        <p style={{ margin: "5px 0" }}>{sug.title}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        </article>
     );
 };
 

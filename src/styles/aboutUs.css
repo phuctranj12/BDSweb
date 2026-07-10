@@ -1,143 +1,248 @@
-@import '~bootstrap-icons/font/bootstrap-icons.css';
-.aboutUs-header{
-  /* margin: 0 5% 20px 5%; */
+/* =============================================================
+   ABOUT US PAGE
+   ============================================================= */
+
+.about__banner {
+  aspect-ratio: 21 / 9;
+  border-radius: var(--r-lg);
+  margin: var(--s-12) 0 0;
 }
 
-.aboutUs-header img{
+.about__section-title {
+  font-size: var(--t-h2);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  max-width: 20ch;
+  margin-bottom: var(--s-10);
+}
+
+/* ---------- Mission / vision ---------- */
+
+.about__pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.about__pillar-title {
+  font-size: var(--t-h3);
+  letter-spacing: var(--ls-heading);
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* ---------- Core values ---------- */
+
+.about__values-section {
+  background: var(--c-surface);
+  border-block: 1px solid var(--c-border);
+  padding-block: var(--section-y);
+}
+
+.about__values {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-8);
+  margin: 0;
+}
+
+.about__values li {
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-ink);
+}
+
+.about__value-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: var(--fv-display);
+  font-size: 1.5rem;
+  font-weight: var(--fw-normal);
+  color: var(--c-accent);
+  margin-bottom: var(--s-4);
+}
+
+.about__values h3 {
+  font-size: var(--t-h4);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--s-2);
+}
+
+.about__values p {
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+}
+
+/* ---------- Company info ---------- */
+
+.about__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(2rem, 5vw, 5rem);
+  margin: 0;
+  border-top: 1px solid var(--c-border);
+}
+
+.about__info > div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--s-4);
+  padding-block: var(--s-5);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.about__info dt {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  padding-top: 3px;
+}
+
+.about__info dd {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: var(--lh-normal);
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
+}
+
+.about__doc {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 48px;
+  margin-top: var(--s-8);
+  font-weight: var(--fw-medium);
+  color: var(--c-accent);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.about__doc:hover {
+  color: var(--c-accent-hover);
+}
+
+/* ---------- Trading floor ---------- */
+
+.about__floor {
+  background: var(--c-surface);
+  border-block: 1px solid var(--c-border);
+  padding-block: var(--section-y);
+}
+
+.about__floor-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.about__floor-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+}
+
+.about__floor-prose {
+  font-size: var(--t-body);
+}
+
+.about__floor-cta {
+  margin-top: var(--s-8);
+}
+
+/* ---------- Industries table ---------- */
+
+/* Wide tables scroll inside their own box; the page body never scrolls sideways. */
+.about__table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+
+.about__table {
   width: 100%;
-  border-radius: 5px ;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: var(--t-sm);
 }
-.aboutUs-container {
-    margin: 0 10% 0 10%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .aboutUs-container h1 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .aboutUs-container h2 {
-    font-size: 1.5em;
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .aboutUs-container p {
-    margin-bottom: 15px;
-  }
-  
-  .aboutUs-container ul {
-    margin-left: 20px;
-    margin-bottom: 15px;
-  }
-  
-  .aboutUs-container ul li {
-    margin-bottom: 10px;
-  }
-  
-  .aboutUs-container ul ul {
-    margin-left: 20px;
-  }
-  
-  .aboutUs-container strong {
-    color: #333;
-  }
-  
-  .aboutUs-container em {
-    color: #666;
-    font-style: italic;
-  }
-  .aboutUs-container .info-table {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .aboutUs-container .info-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .aboutUs-container .info-label {
-    font-weight: bold;
-    color: #666;
-    display: flex;
-    align-items: center;
-  }
-  
-  .aboutUs-container .icon-aboutus {
-    margin-right: 8px;
-    font-size: 1.2em;
-    width: 30px;
-  }
-  
-  .aboutUs-container .info-value {
-    color: #333;
-    font-size: 1em;
-  }
-  
-  .aboutUs-container.hide-info {
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    color: #666;
-    font-size: 0.9em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .aboutUs-container .hide-info:hover {
-    background-color: #ddd;
-  }
-  .aboutUs-container table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .aboutUs-container thead {
-    background-color: #f4f4f4;
-  }
-  
-  .aboutUs-container thead th {
-    font-weight: bold;
-    text-align: left;
-    padding: 12px;
-    font-size: 1.1em;
-    color: #555;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .aboutUs-container tbody tr {
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .aboutUs-container tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .aboutUs-container tbody td {
-    padding: 12px;
-    font-size: 1em;
-    color: #333;
-  }
-  
-  .aboutUs-container tbody td:first-child {
-    font-weight: bold;
-    color: #666;
-  }
-.aboutUs-container a{
-    color: #e2974d;
-    cursor: pointer;
-    font-size: 18px;
+
+.about__table th {
+  text-align: left;
+  padding: var(--s-4) var(--s-6);
+  font-family: var(--font-display);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
 }
-.aboutUs-container a:hover{
-    color:#ff7200;
+
+.about__table td {
+  padding: var(--s-4) var(--s-6);
+  border-bottom: 1px solid var(--c-border);
+  color: var(--c-body);
+  vertical-align: top;
+}
+
+.about__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.about__table tbody tr:hover {
+  background: var(--c-surface);
+}
+
+.about__table td:first-child {
+  width: 90px;
+  color: var(--c-faint);
+}
+
+/* The two real-estate lines are why anyone reads this table. */
+.about__table tr.is-primary td {
+  color: var(--c-ink);
+  font-weight: var(--fw-semibold);
+  background: var(--c-accent-tint);
+}
+
+.about__table tr.is-primary td:first-child {
+  color: var(--c-accent);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 1024px) {
+  .about__values {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about__info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .about__pillars,
+  .about__floor-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__banner {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 600px) {
+  .about__values {
+    grid-template-columns: 1fr;
+  }
+
+  .about__info > div {
+    grid-template-columns: 1fr;
+    gap: var(--s-2);
+  }
 }

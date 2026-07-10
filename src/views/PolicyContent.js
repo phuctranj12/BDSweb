@@ -1,13 +1,9 @@
-import ChinhSach from "../components/tuVan/policy";
-import BodyIntro from "../components/bdsIntroBody/body";
-import News from "../components/new/News";
+import React from 'react';
+import ChinhSach from '../components/tuVan/policy';
+
+/** A legal page should not be padded out with marketing sections. */
 function PolicyContent() {
-    return (
-        <div>
-            <ChinhSach />
-            <BodyIntro />
-            <News />
-        </div>
-    );
+    return <ChinhSach />;
 }
+
 export default PolicyContent;

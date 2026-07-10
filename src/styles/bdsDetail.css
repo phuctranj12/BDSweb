@@ -1,36 +1,187 @@
-.bdsDetail-container{
-    margin: 50px 10% 50px 10%;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+/* =============================================================
+   LOT DETAIL PAGE
+   ============================================================= */
+
+.detail {
+  padding-block: clamp(2rem, 4vw, 3.5rem) var(--section-y);
 }
-.bdsDetail-main{
-    margin: 20px;
+
+/* ---------- Breadcrumbs ---------- */
+
+.detail__crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: var(--t-sm);
+  color: var(--c-muted);
+  margin-bottom: var(--s-10);
 }
-.bdsDetail-main img{
-    margin-top: 20px;
-    border-radius: 10px;
-    width: 100%;
+
+.detail__crumbs a {
+  transition: color var(--dur) var(--ease-out);
 }
-p{
-    font-size: 20px;
+
+.detail__crumbs a:hover {
+  color: var(--c-accent);
 }
-.bdsDetail-container .img-bdsDetail{
-    margin-bottom: 20px;
+
+.detail__crumbs span[aria-hidden] {
+  color: var(--c-faint);
 }
-.bdsDetail-container .btn-bdsDetail{
-    padding: 8px;
-    background-color: #e2974d;
-    color: white;
-    border: none;
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+
+.detail__crumbs [aria-current] {
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
 }
-.bdsDetail-container .btn-bdsDetail:hover{
-    background-color: #dd8339;
+
+/* ---------- Head ---------- */
+
+.detail__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-8);
+  padding-bottom: var(--s-8);
+  margin-bottom: var(--s-10);
+  border-bottom: 1px solid var(--c-border);
 }
-.bdsDetail-header{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0 10px 0;
+
+.detail__title {
+  font-size: var(--t-h1);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+}
+
+.detail__address {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-4);
+  font-size: var(--t-body);
+  color: var(--c-muted);
+}
+
+.detail__stats {
+  display: flex;
+  gap: var(--s-10);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.detail__stats dt {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-bottom: var(--s-2);
+}
+
+.detail__stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--fv-heading);
+  font-size: var(--t-h3);
+  font-weight: var(--fw-normal);
+  color: var(--c-ink);
+}
+
+/* ---------- Hero plan image ---------- */
+
+.detail__hero {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--c-border);
+  margin: 0 0 var(--section-y);
+}
+
+/* Plans are line drawings — never crop them. */
+.detail__hero img {
+  object-fit: contain;
+  background: var(--c-surface-2);
+}
+
+/* ---------- Body ---------- */
+
+.detail__layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.detail__prose > h2 {
+  margin-top: 0;
+}
+
+.detail__aside {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.detail__plan {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-md);
+  border: 1px solid var(--c-border);
+  margin: 0;
+}
+
+.detail__plan img {
+  object-fit: contain;
+  background: var(--c-surface-2);
+}
+
+.detail__plan-cap {
+  display: block;
+  margin-top: var(--s-3);
+  font-size: var(--t-xs);
+  color: var(--c-muted);
+  text-align: center;
+}
+
+.detail__actions {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-8);
+}
+
+/* ---------- Missing-state ---------- */
+
+.detail__missing {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-4);
+  padding-block: clamp(4rem, 12vw, 9rem);
+}
+
+.detail__missing p {
+  color: var(--c-muted);
+  max-width: 48ch;
+  margin-bottom: var(--s-4);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 1024px) {
+  .detail__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail__aside {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .detail__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-8);
+  }
+
+  .detail__stats {
+    gap: var(--s-8);
+  }
 }

@@ -1,12 +1,9 @@
-import LienHe from "../components/tuVan/lienhe";
-import BodyIntro from "../components/bdsIntroBody/body";
-import News from "../components/new/News";
+import React from 'react';
+import LienHe from '../components/tuVan/lienhe';
+
+/** The contact page's job is the form. Nothing should compete with it. */
 function LienHeContent() {
-    return (<div>
-        <LienHe />
-        <BodyIntro />
-        <News />
-    </div>);
+    return <LienHe />;
 }
 
 export default LienHeContent;

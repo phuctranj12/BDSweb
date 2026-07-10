@@ -1,191 +1,214 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/aboutUs.css';
-import Image1 from '../components/assets/image/s1.JPG'
-import Image2 from '../components/assets/image/s3.JPG'
-import BodyIntro from "../components/bdsIntroBody/body";
-import News from "../components/new/News";
-import AboutUsPage from '../components/tuVan/AboutUsPage';
+import Image1 from '../components/assets/image/s1.JPG';
+import Image2 from '../components/assets/image/s3.JPG';
+import News from '../components/new/News';
+import BodyIntro from '../components/bdsIntroBody/body';
+
+const COMPANY_INFO = [
+    { label: 'Mã số thuế', value: '2300324841', tabular: true },
+    { label: 'Địa chỉ', value: 'Lô F26, Khu đô thị Phú Điền, Phố chùa Dận, Phường Đình Bảng, TP. Từ Sơn, Bắc Ninh' },
+    { label: 'Người đại diện', value: 'Tạ Thị Minh Lộc · Nguyễn Trọng Đại' },
+    { label: 'Điện thoại', value: '0913 390 979', tabular: true },
+    { label: 'Ngày hoạt động', value: '20/05/2008' },
+    { label: 'Quản lý bởi', value: 'Chi cục Thuế khu vực Từ Sơn – Yên Phong' },
+    { label: 'Loại hình', value: 'Công ty TNHH 2 thành viên trở lên ngoài NN' },
+    { label: 'Tình trạng', value: 'Đang hoạt động (đã được cấp GCN ĐKTT)' },
+];
+
+const VALUES = [
+    { title: 'Uy tín', body: 'Pháp lý minh bạch, thông tin trung thực, cam kết đúng như đã nói.' },
+    { title: 'Chuyên nghiệp', body: 'Quy trình rõ ràng từ tư vấn, xem đất đến công chứng sang tên.' },
+    { title: 'Khách hàng là trung tâm', body: 'Chúng tôi tư vấn theo nhu cầu thật của bạn, không đẩy hàng.' },
+    { title: 'Liên tục đổi mới', body: 'Cập nhật thị trường, công nghệ và quy định pháp luật mỗi ngày.' },
+];
+
+const INDUSTRIES = [
+    ['0810', 'Khai thác đá, cát, sỏi, đất sét'],
+    ['4100', 'Xây dựng nhà các loại'],
+    ['4210', 'Xây dựng công trình đường sắt và đường bộ'],
+    ['4220', 'Xây dựng công trình công ích'],
+    ['4290', 'Xây dựng công trình kỹ thuật dân dụng khác'],
+    ['4311', 'Phá dỡ'],
+    ['4312', 'Chuẩn bị mặt bằng'],
+    ['4321', 'Lắp đặt hệ thống điện'],
+    ['4322', 'Lắp đặt hệ thống cấp, thoát nước, lò sưởi và điều hoà không khí'],
+    ['4329', 'Lắp đặt hệ thống xây dựng khác'],
+    ['4330', 'Hoàn thiện công trình xây dựng'],
+    ['4390', 'Hoạt động xây dựng chuyên dụng khác'],
+    ['5210', 'Kho bãi và lưu giữ hàng hoá'],
+    ['5224', 'Bốc xếp hàng hoá'],
+    ['6810', 'Kinh doanh bất động sản, quyền sử dụng đất thuộc chủ sở hữu, chủ sử dụng hoặc đi thuê', true],
+    ['6820', 'Tư vấn, môi giới, đấu giá bất động sản, đấu giá quyền sử dụng đất', true],
+    ['7110', 'Hoạt động kiến trúc và tư vấn kỹ thuật có liên quan'],
+    ['7410', 'Hoạt động thiết kế chuyên dụng'],
+];
 
 function AboutUsContent() {
     return (
-        <div>
-            <AboutUsPage />
-            <div class="aboutUs-container">
-                <div className='aboutUs-header'>
-                    <img src={Image1} />
+        <>
+            <header className="page-head">
+                <div className="u-container">
+                    <p className="u-eyebrow">Về chúng tôi</p>
+                    <h1 className="page-head__title">Công ty TNHH Trường Phát Từ Sơn</h1>
+                    <p className="page-head__lead">
+                        Thành lập ngày 20/05/2008, chúng tôi hoạt động trong lĩnh vực xây dựng và
+                        bất động sản tại Bắc Ninh, với sứ mệnh kết nối con người với không gian
+                        sống mơ ước.
+                    </p>
                 </div>
-                <h1>CÔNG TY TNHH TRƯỜNG PHÁT TỪ SƠN</h1>
-                <p>Chào mừng đến với công ty chúng tôi, một doanh nghiệp uy tín trong ngành xây dựng và bất động sản. Được thành lập từ ngày 20 tháng 05 năm 2008, công ty chúng tôi hoạt động dưới sự quản lý của <strong>Tạ Thị Minh Lộc</strong> và <strong>Nguyễn Trọng Đại</strong>, với trụ sở tại <strong>Lô F26, Khu đô thị Phú Điền, Phố Chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</strong>.</p>
-                <br></br>
-                <a href='/TruongPhatInfor.pdf' target='_blank'>Xem chi tiết Giấy chứng nhận đăng ký doanh nghiệp</a><br />
-                <h1>Thông Tin Doanh Nghiệp</h1>
-                <div class="info-table">
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus">#</span> Mã số thuế
-                        </div>
-                        <div class="info-value">2300324841</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                            </svg></span> Địa chỉ
-                        </div>
-                        <div class="info-value">Lô F26, Khu đô thị Phú Điền, Phố chùa Dận, Phường Đình Bảng, Thành phố Từ Sơn, Tỉnh Bắc Ninh, Việt Nam</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                            </svg></span> Người đại diện
-                        </div>
-                        <div class="info-value">TẠ THỊ MINH LỘC NGUYỄN TRỌNG ĐẠI</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                            </svg></span> Điện thoại
-                        </div>
-                        <div class="info-value">
-                            0913 390 979
-                        </div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16">
-                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5M8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
-                            </svg></span> Ngày hoạt động
-                        </div>
-                        <div class="info-value">2008-05-20</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
-                            </svg></span> Quản lý bởi
-                        </div>
-                        <div class="info-value">Chi cục Thuế khu vực Từ Sơn - Yên Phong</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building-fill-check" viewBox="0 0 16 16">
-                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514" />
-                                <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-3.59 1.787A.5.5 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.5 4.5 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
-                            </svg></span> Loại hình DN
-                        </div>
-                        <div class="info-value">Công ty trách nhiệm hữu hạn 2 thành viên trở lên ngoài NN</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-label">
-                            <span class="icon-aboutus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-lg" viewBox="0 0 16 16">
-                                <path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0" />
-                            </svg></span> Tình trạng
-                        </div>
-                        <div class="info-value">Đang hoạt động (đã được cấp GCN ĐKTT)</div>
-                    </div>
-                </div>
+            </header>
 
-                <h1>Sàn giao dịch bất động sản Thanh Quỳnh</h1>
-                <div className='aboutUs-header'>
-                    <img src={Image2} />
-                </div>
-                <br />
-                <p>Công ty TNHH Trường Phát Bắc Ninh, với sứ mệnh phát triển và mở rộng thị trường bất động sản tại Việt Nam, tự hào giới thiệu Sàn giao dịch bất động sản Thanh Quỳnh – một địa chỉ tin cậy và uy tín tại khu vực Bắc Ninh. Được thành lập với mục tiêu mang lại những giá trị bền vững cho khách hàng, Thanh Quỳnh không ngừng nỗ lực nâng cao chất lượng dịch vụ, hướng tới việc trở thành đối tác tin cậy trong lĩnh vực bất động sản.</p>
-                <br />
-                <p>Sàn giao dịch bất động sản Thanh Quỳnh chuyên cung cấp các dịch vụ đa dạng như mua bán, cho thuê, và đầu tư bất động sản, nhằm đáp ứng nhu cầu của cá nhân và doanh nghiệp. Đặc biệt, Thanh Quỳnh luôn cập nhật thông tin mới nhất về thị trường bất động sản, từ các dự án nhà ở, đất nền, căn hộ chung cư đến các khu công nghiệp, nhằm mang đến cho khách hàng cái nhìn toàn diện và chính xác nhất để đưa ra quyết định phù hợp.</p>
-                <br />
-                <p>Với đội ngũ nhân viên giàu kinh nghiệm và am hiểu sâu sắc về thị trường địa phương, Thanh Quỳnh cam kết mang đến cho khách hàng những giải pháp đầu tư an toàn, hiệu quả, và có tính bền vững cao. Bên cạnh đó, công ty luôn đặt lợi ích của khách hàng lên hàng đầu, lấy uy tín làm nền tảng cho sự phát triển dài lâu. Từ việc tư vấn pháp lý đến hỗ trợ thủ tục mua bán, Sàn giao dịch Thanh Quỳnh luôn đồng hành cùng khách hàng trong suốt quá trình giao dịch, đảm bảo mọi giao dịch đều diễn ra một cách minh bạch và an toàn.</p>
-                <h1>Ngành nghề kinh doanh</h1>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mã</th>
-                            <th>Ngành</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>0810</td>
-                            <td>Khai thác đá, cát, sỏi, đất sét</td>
-                        </tr>
-                        <tr>
-                            <td>4100</td>
-                            <td>Xây dựng nhà các loại</td>
-                        </tr>
-                        <tr>
-                            <td>4210</td>
-                            <td>Xây dựng công trình đường sắt và đường bộ</td>
-                        </tr>
-                        <tr>
-                            <td>4220</td>
-                            <td>Xây dựng công trình công ích</td>
-                        </tr>
-                        <tr>
-                            <td>4290</td>
-                            <td>Xây dựng công trình kỹ thuật dân dụng khác</td>
-                        </tr>
-                        <tr>
-                            <td>4311</td>
-                            <td>Phá dỡ</td>
-                        </tr>
-                        <tr>
-                            <td>4312</td>
-                            <td>Chuẩn bị mặt bằng</td>
-                        </tr>
-                        <tr>
-                            <td>4321</td>
-                            <td>Lắp đặt hệ thống điện</td>
-                        </tr>
-                        <tr>
-                            <td>4322</td>
-                            <td>Lắp đặt hệ thống cấp, thoát nước, lò sưởi và điều hoà không khí</td>
-                        </tr>
-                        <tr>
-                            <td>4329</td>
-                            <td>Lắp đặt hệ thống xây dựng khác</td>
-                        </tr>
-                        <tr>
-                            <td>4330</td>
-                            <td>Hoàn thiện công trình xây dựng</td>
-                        </tr>
-                        <tr>
-                            <td>4390</td>
-                            <td>Hoạt động xây dựng chuyên dụng khác</td>
-                        </tr>
-                        <tr>
-                            <td>5210</td>
-                            <td>Kho bãi và lưu giữ hàng hóa</td>
-                        </tr>
-                        <tr>
-                            <td>5224</td>
-                            <td>Bốc xếp hàng hóa</td>
-                        </tr>
-                        <tr>
-                            <td>6810</td>
-                            <td style={{ fontWeight: 'bold' }}>Kinh doanh bất động sản, quyền sử dụng đất thuộc chủ sở hữu, chủ sử dụng hoặc đi thuê</td>
-                        </tr>
-                        <tr>
-                            <td>6820</td>
-                            <td>Tư vấn, môi giới, đấu giá bất động sản, đấu giá quyền sử dụng đất</td>
-                        </tr>
-                        <tr>
-                            <td>7110</td>
-                            <td>Hoạt động kiến trúc và tư vấn kỹ thuật có liên quan</td>
-                        </tr>
-                        <tr>
-                            <td>7410</td>
-                            <td>Hoạt động thiết kế chuyên dụng</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="u-container">
+                <figure className="about__banner u-media">
+                    <img
+                        src={Image1}
+                        alt="Toàn cảnh dự án khu nhà ở do Trường Phát Từ Sơn đầu tư"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </figure>
             </div>
-            <News />
+
+            {/* Mission + vision */}
+            <section className="u-section">
+                <div className="u-container about__pillars">
+                    <div>
+                        <h2 className="about__pillar-title">Sứ mệnh</h2>
+                        <p className="u-lead">
+                            Kết nối con người với không gian sống mơ ước, góp phần kiến tạo cộng
+                            đồng văn minh và hiện đại.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 className="about__pillar-title">Tầm nhìn</h2>
+                        <p className="u-lead">
+                            Trở thành thương hiệu bất động sản uy tín hàng đầu tại Bắc Ninh và khu
+                            vực đồng bằng Bắc Bộ.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Core values */}
+            <section className="about__values-section">
+                <div className="u-container">
+                    <p className="u-eyebrow">Giá trị cốt lõi</p>
+                    <h2 className="about__section-title">Điều chúng tôi không đánh đổi</h2>
+
+                    <ul className="about__values">
+                        {VALUES.map((value, i) => (
+                            <li key={value.title}>
+                                <span className="about__value-num tabular">
+                                    {String(i + 1).padStart(2, '0')}
+                                </span>
+                                <h3>{value.title}</h3>
+                                <p>{value.body}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* Registration details */}
+            <section className="u-section">
+                <div className="u-container">
+                    <p className="u-eyebrow">Hồ sơ pháp lý</p>
+                    <h2 className="about__section-title">Thông tin doanh nghiệp</h2>
+
+                    <dl className="about__info">
+                        {COMPANY_INFO.map((row) => (
+                            <div key={row.label}>
+                                <dt>{row.label}</dt>
+                                <dd className={row.tabular ? 'tabular' : undefined}>{row.value}</dd>
+                            </div>
+                        ))}
+                    </dl>
+
+                    <a
+                        className="about__doc"
+                        href="/TruongPhatInfor.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z" />
+                        </svg>
+                        Giấy chứng nhận đăng ký doanh nghiệp
+                        <span className="u-sr-only">(mở tab mới, tệp PDF)</span>
+                    </a>
+                </div>
+            </section>
+
+            {/* Trading floor */}
+            <section className="about__floor">
+                <div className="u-container about__floor-inner">
+                    <figure className="u-media about__floor-media">
+                        <img
+                            src={Image2}
+                            alt="Sàn giao dịch bất động sản Thanh Quỳnh"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </figure>
+
+                    <div>
+                        <p className="u-eyebrow">Đơn vị thành viên</p>
+                        <h2 className="about__section-title">Sàn giao dịch Thanh Quỳnh</h2>
+                        <div className="prose about__floor-prose">
+                            <p>
+                                Sàn giao dịch bất động sản Thanh Quỳnh chuyên cung cấp dịch vụ mua
+                                bán, cho thuê và đầu tư bất động sản, đáp ứng nhu cầu của cá nhân và
+                                doanh nghiệp tại khu vực Bắc Ninh.
+                            </p>
+                            <p>
+                                Với đội ngũ giàu kinh nghiệm và am hiểu sâu sắc thị trường địa
+                                phương, Thanh Quỳnh cam kết mang đến những giải pháp đầu tư an toàn,
+                                hiệu quả và bền vững — từ tư vấn pháp lý đến hỗ trợ thủ tục mua bán.
+                            </p>
+                        </div>
+                        <Link to="/LienHe" className="u-btn u-btn--primary about__floor-cta">
+                            Liên hệ với sàn
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Registered industries */}
+            <section className="u-section">
+                <div className="u-container">
+                    <p className="u-eyebrow">Đăng ký kinh doanh</p>
+                    <h2 className="about__section-title">Ngành nghề kinh doanh</h2>
+
+                    <div className="about__table-scroll">
+                        <table className="about__table">
+                            <caption className="u-sr-only">
+                                Danh sách ngành nghề kinh doanh đã đăng ký của Công ty TNHH Trường Phát Từ Sơn
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mã</th>
+                                    <th scope="col">Ngành nghề</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {INDUSTRIES.map(([code, name, primary]) => (
+                                    <tr key={code} className={primary ? 'is-primary' : undefined}>
+                                        <td className="tabular">{code}</td>
+                                        <td>{name}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
             <BodyIntro />
-
-
-        </div>
+            <News />
+        </>
     );
 }
+
 export default AboutUsContent;

@@ -1,0 +1,65 @@
+/* =============================================================
+   STATS — trust strip. Continues the hero's near-black.
+   ============================================================= */
+
+.stats {
+  padding-block: clamp(3rem, 6vw, 5.5rem);
+  border-top: 1px solid var(--c-border-dark);
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s-8);
+  margin: 0;
+}
+
+.stats__item {
+  display: grid;
+  gap: var(--s-3);
+  padding-left: var(--s-8);
+  border-left: 1px solid var(--c-border-dark);
+}
+
+.stats__item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.stats__value {
+  font-family: var(--font-display);
+  font-variation-settings: var(--fv-heading);
+  font-size: clamp(2.125rem, 3.6vw, 3.25rem);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  line-height: 1;
+  color: var(--c-cream);
+}
+
+.stats__label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-faint);
+}
+
+@media (max-width: 780px) {
+  .stats__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-8) var(--s-6);
+  }
+
+  .stats__item {
+    padding-left: var(--s-5);
+    border-left: 1px solid var(--c-border-dark);
+  }
+
+  /* Only the second column keeps the divider. */
+  .stats__item:nth-child(odd) {
+    padding-left: 0;
+    border-left: none;
+  }
+}

@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import Slide from './components/slide/slide';
 import reportWebVitals from './reportWebVitals';
-import Header from './components/header/header';
-import BodyIntro from './components/bdsIntroBody/body';
-import Footer from './components/footer/footer';
-import Input from './components/tuVan/tuVan';
-import BDSDetail from './views/BDSDetail';
-import { BrowserRouter } from 'react-router-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+// Reveal-on-scroll hides elements until observed. Only opt in once JS is alive,
+// so a failed bundle degrades to fully visible content rather than a blank page.
+document.documentElement.classList.add('has-js');
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -20,7 +18,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

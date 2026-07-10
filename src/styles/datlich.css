@@ -1,49 +1,62 @@
-@import '~bootstrap-icons/font/bootstrap-icons.css';
-.datLich-container{
-    /* width: 100%; */
-      display: flex;
-      padding: 50px 10% 50px 10%;
-      gap: 10%;
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-    .datLich-left{
-        width: 100%;
-        border-radius: 10px;
-        border: none;
-        padding: 20px 0 0 20px; 
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Thay đổi các giá trị theo nhu cầu */
-    }
-    .datLich-intro{
-        margin-top: 20px;
-        font-weight: bold;
-        font-size: 25px;
-        color: rgb(72, 72, 72);
-    }
-    .datLich-content{
-        margin-top: 30px;
-        font-size: 19px;
-        margin-bottom: 20px;
-        color: rgb(95, 95, 95);
-    
-    }
-    .datLich-left svg{
-        width: 50px; 
-        height: 50px;
-    }
-    .btn-datLich{
-        background-color: #e2974d;
-        border:1px solid white;
-        text-align: center;
-       box-sizing: border-box;
-       letter-spacing: -0.015em;
-       font-size: 15px;
-       padding: 5px;
-       color: white;
-       cursor: pointer;
-       margin-bottom: 20px;
-       border-radius: 5px;
-    }
-    .btn-datLich:hover{
-      background-color: #dd8339;
-    }
+/* =============================================================
+   BOOKING — two-up call-to-action cards
+   ============================================================= */
+
+.booking__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-6);
+  margin: 0;
+}
+
+.booking-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  transition: border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+.booking-card:hover {
+  border-color: var(--c-border-strong);
+  box-shadow: var(--sh-md);
+}
+
+.booking-card__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--s-8);
+  border-radius: var(--r-full);
+  background: var(--c-black);
+  color: var(--c-brass);
+}
+
+.booking-card__title {
+  font-size: var(--t-h3);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  margin-bottom: var(--s-3);
+}
+
+.booking-card__body {
+  color: var(--c-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 42ch;
+  margin-bottom: var(--s-8);
+}
+
+.booking-card__cta {
+  margin-top: auto;
+}
+
+@media (max-width: 760px) {
+  .booking__grid {
+    grid-template-columns: 1fr;
+  }
+}

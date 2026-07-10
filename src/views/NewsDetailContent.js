@@ -1,14 +1,14 @@
-import NewsDetail from "../components/new/NewsDetail";
-import News from "../components/new/News";
-import BodyIntro from "../components/bdsIntroBody/body";
+import React from 'react';
+import NewsDetail from '../components/new/NewsDetail';
 import TuVan from '../components/tuVan/tuVan';
-function NewsContent() {
-    return (<div>
-        <NewsDetail />
-        <News />
-        <BodyIntro />
-        <TuVan />
-    </div>);
+
+function NewsDetailContent() {
+    return (
+        <>
+            <NewsDetail />
+            <TuVan />
+        </>
+    );
 }
 
-export default NewsContent;
+export default NewsDetailContent;

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../../styles/news.css";
@@ -59,35 +59,97 @@ const News = () => {
         }
     ];
 
-    // Hàm điều hướng khi click vào tin tức
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+
     const handleNewsClick = (newsId) => {
         const selectedNews = newsList.find(item => item.id === newsId);
         navigate(`/NewsDetailContent/${newsId}`, { state: { news: selectedNews, newsList: newsList } });
     };
 
     return (
-        <div className="news-carousel-container">
-            <h2 className="news-title">Bản tin bất động sản</h2>
-            <Swiper
-                modules={[Navigation, Autoplay]}
-                spaceBetween={30}
-                slidesPerView={3}
-                navigation
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                loop={true}
-                className="mySwiper"
-            >
-                {newsList.map((item) => (
-                    <SwiperSlide key={item.id} onClick={() => handleNewsClick(item.id)}>
-                        <div className="news-card-carousel">
-                            <img src={item.image} alt={item.title} />
-                            <h3>{item.title}</h3>
-                            <p>{item.content}</p>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+        <section className="news u-section">
+            <div className="u-container">
+                <header className="news__head">
+                    <div>
+                        <p className="u-eyebrow">Thị trường</p>
+                        <h2 className="news__title">
+                            Bản tin <span className="u-wonk">bất động sản</span>
+                        </h2>
+                    </div>
+
+                    <div className="news__nav">
+                        <button type="button" ref={prevRef} className="news__arrow" aria-label="Tin trước">
+                            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                        </button>
+                        <button type="button" ref={nextRef} className="news__arrow" aria-label="Tin kế tiếp">
+                            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                            </svg>
+                        </button>
+                    </div>
+                </header>
+
+                <Swiper
+                    className="news__swiper"
+                    modules={[Navigation, Autoplay, A11y]}
+                    spaceBetween={24}
+                    slidesPerView={1}
+                    breakpoints={{
+                        640: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                    autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                    loop
+                    onBeforeInit={(swiper) => {
+                        // Swiper reads these before mount, so wire up our own buttons here.
+                        swiper.params.navigation.prevEl = prevRef.current;
+                        swiper.params.navigation.nextEl = nextRef.current;
+                    }}
+                    navigation={{ prevEl: null, nextEl: null }}
+                >
+                    {newsList.map((item) => (
+                        <SwiperSlide key={item.id}>
+                            <article
+                                className="news-card"
+                                role="link"
+                                tabIndex={0}
+                                onClick={() => handleNewsClick(item.id)}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                        e.preventDefault();
+                                        handleNewsClick(item.id);
+                                    }
+                                }}
+                            >
+                                <div className="news-card__media u-media">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        loading="lazy"
+                                        decoding="async"
+                                        width="640"
+                                        height="400"
+                                    />
+                                </div>
+                                <div className="news-card__body">
+                                    <h3 className="news-card__title">{item.title}</h3>
+                                    <p className="news-card__excerpt">{item.content}</p>
+                                    <span className="news-card__cue">
+                                        Đọc tiếp
+                                        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </article>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </section>
     );
 };
 

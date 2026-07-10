@@ -1,43 +1,148 @@
-@import '~bootstrap-icons/font/bootstrap-icons.css';
-.lienhe-container{
-}
-.lienhe-header{
-    background: linear-gradient(
-        to bottom right, 
-        rgb(241, 235, 229), 
-        rgb(255, 255, 255)
-    );
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px 0 20px 0;
+/* =============================================================
+   CONTACT PAGE
+   ============================================================= */
+
+.contact__layout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
 }
 
-.lienhe-content{
-    margin: 50px 10% 50px 10%;
-    display: flex;
-    gap: 50px;
+/* ---------- Details list ---------- */
+
+.contact__details {
+  display: grid;
+  gap: var(--s-6);
+  margin-bottom: var(--s-10);
 }
-.content-left , .content-right{
-    width: 100%;
+
+.contact__details li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-4);
 }
-.lienhe-content .content-left .content-info{
-    display: flex;
-    margin: 0 0 20px 0;
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  background: var(--c-accent-tint);
+  color: var(--c-accent);
 }
-.content-info svg{
-    width: 35px;
-    height: 35px;
-    margin-right: 20px;
+
+.contact__label {
+  display: block;
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-bottom: var(--s-1);
 }
-.content-infor-r{
-    justify-content: center;
+
+.contact__value {
+  display: block;
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
+  max-width: 46ch;
 }
-.content-left .login-right input{
-    padding: 55px 0 0 0;
-    width: 100%;
+
+/* ---------- Map ---------- */
+
+.contact__map {
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--c-border);
 }
-.content-left .login-right{
-    width: 100%;
-    padding: 0;
+
+/* The old markup hardcoded width="600" on the iframe, which forced horizontal
+   scroll on every phone. Let it fill its container instead. */
+.contact__map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---------- Form ---------- */
+
+.contact__form-wrap {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+}
+
+.contact__form {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.contact__form-title {
+  font-size: var(--t-h3);
+  letter-spacing: var(--ls-heading);
+}
+
+.contact__form textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--s-3) 0;
+  font-size: var(--t-body);
+  color: var(--c-ink);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--c-border-strong);
+  border-radius: 0;
+  resize: vertical;
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.contact__form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--c-ink);
+}
+
+.contact__submit {
+  width: 100%;
+  min-height: 54px;
+}
+
+/* ---------- Success ---------- */
+
+.contact__success {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-4);
+  padding-block: var(--s-8);
+}
+
+.contact__success svg {
+  color: var(--c-success);
+}
+
+.contact__success p {
+  color: var(--c-muted);
+  max-width: 36ch;
+  margin-bottom: var(--s-2);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 1024px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__form-wrap {
+    position: static;
+  }
 }

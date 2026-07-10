@@ -1,260 +1,472 @@
-.anh-truot {
-    padding: 20px 0 30px 0;
+/* =============================================================
+   HERO — near-black cinematic stage, letter-by-letter wordmark,
+   one parallax firelight wash, overlapping search card.
+   ============================================================= */
+
+.hero {
+  position: relative;
+  background: var(--c-black);
+  padding-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
-.slider {
-    max-width: 100vw;
-    height: 700px;
-    position: relative;
-    overflow: hidden;
+.hero__stage {
+  position: relative;
+  height: min(94svh, 900px);
+  min-height: 560px;
+  overflow: hidden;
+  background: var(--c-black);
 }
 
-.slider .list {
-    position: absolute;
-    width: 100%; 
-    height: 100%;
-    left: 0;
-    top: 0;
-    display: flex;
-    transition: left 1s; 
+.hero__stage:focus-visible {
+  outline: 2px solid var(--c-brass);
+  outline-offset: -4px;
 }
 
-.slider .list img {
-    width: 100%;
-    max-width: 100vw;
-    height: 100%;
-    object-fit: cover;
+/* ---------- Backdrop crossfade ---------- */
+
+.hero__backdrops {
+  position: absolute;
+  inset: 0;
 }
 
-.slider .buttons {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    box-sizing: border-box;
-    transform: translateY(-50%);
-    z-index: 5;
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  /* Photos sit far back: desaturated and dimmed so the type owns the frame. */
+  filter: saturate(0.62) contrast(1.05) brightness(0.62);
+  transform: scale(1.08);
+  transition: opacity 1600ms var(--ease-inout);
 }
 
-.slider .buttons button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #fff;
-    border: none;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: 24px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+.hero__img.is-active {
+  opacity: 1;
+  /* Slow push-in gives a still photo life without touching layout. */
+  transform: scale(1);
+  transition: opacity 1600ms var(--ease-inout), transform 9s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__img,
+  .hero__img.is-active {
+    transform: none;
+    transition: opacity 1ms linear;
+  }
+}
+
+/* ---------- Scrim + firelight ---------- */
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      100deg,
+      rgba(10, 9, 8, 0.94) 0%,
+      rgba(10, 9, 8, 0.72) 42%,
+      rgba(10, 9, 8, 0.32) 78%
+    ),
+    linear-gradient(to top, var(--c-black) 2%, transparent 42%);
+}
+
+/* The single parallax element. Transform is driven from JS. */
+.hero__glow {
+  position: absolute;
+  top: -18%;
+  right: -12%;
+  width: min(78vw, 900px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(201, 163, 107, 0.2) 0%,
+    rgba(201, 163, 107, 0.08) 34%,
+    transparent 66%
+  );
+  will-change: transform;
+}
+
+/* ---------- Content ---------- */
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: var(--header-h);
+  z-index: var(--z-raised);
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-body);
+  margin-bottom: var(--s-8);
+}
+
+.hero__eyebrow::before {
+  content: '';
+  width: 44px;
+  height: 1px;
+  background: var(--c-brass);
+}
+
+/* ---------- Wordmark ---------- */
+
+.hero__wordmark {
+  font-family: var(--font-display);
+  font-variation-settings: var(--fv-display);
+  font-size: var(--t-display);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-tight);
+  letter-spacing: 0.06em; /* the reference sets the display type wide, not tight */
+  color: var(--c-cream);
+  margin-bottom: var(--s-8);
+}
+
+.hero__line {
+  display: block;
+}
+
+/* Line two is indented, echoing the reference's staggered baseline. */
+.hero__line:nth-child(2) {
+  padding-left: clamp(1rem, 5vw, 5.5rem);
+}
+
+.hero__word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hero__word--wonk {
+  font-style: italic;
+  /* SOFT + WONK cranked: this is where Fraunces grows its flourish. */
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+  font-size: 1.08em;
+  color: var(--c-brass);
+  margin-left: 0.12em;
+  letter-spacing: 0;
+}
+
+.hero__space {
+  display: inline-block;
+}
+
+/* Each glyph rises and sharpens into place. Transform + filter only. */
+.hero__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.42em);
+  filter: blur(10px);
+  animation: char-rise 1000ms var(--ease-out) forwards;
+}
+
+@keyframes char-rise {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.hero__tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: 'opsz' 24, 'SOFT' 60, 'WONK' 0;
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  color: var(--c-cream);
+  opacity: 0.9;
+  margin-bottom: var(--s-10);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex-wrap: wrap;
+}
+
+.hero__cta {
+  min-height: 56px;
+  padding-inline: var(--s-10);
+}
+
+/* Secondary action is a bare underlined label, not a second button. */
+.hero__link {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-body);
+  min-height: 48px;
+  padding-bottom: var(--s-1);
+  border-bottom: 1px solid var(--c-border-dark-strong);
+  transition: color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.hero__link:hover {
+  color: var(--c-brass);
+  border-bottom-color: var(--c-brass);
+}
+
+/* ---------- Entrance choreography ----------
+   Tagline and actions land *after* the wordmark finishes. The last glyph
+   starts at 260ms + (~11 glyphs x 42ms) ≈ 720ms and runs 1000ms. */
+
+.hero__eyebrow,
+.hero__tagline,
+.hero__actions,
+.hero__controls {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: hero-in 900ms var(--ease-out) forwards;
+}
+
+.hero__eyebrow {
+  animation-delay: 120ms;
+}
+.hero__tagline {
+  animation-delay: 1500ms;
+}
+.hero__actions {
+  animation-delay: 1660ms;
+}
+.hero__controls {
+  animation-delay: 1900ms;
+}
+
+@keyframes hero-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__char,
+  .hero__eyebrow,
+  .hero__tagline,
+  .hero__actions,
+  .hero__controls {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
+  }
+}
+
+/* ---------- Controls ---------- */
+
+.hero__controls {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  /* Must clear the search card, which overhangs the stage's bottom edge. */
+  bottom: clamp(5.5rem, 8vw, 7rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  z-index: var(--z-raised);
+  pointer-events: none;
+}
+
+.hero__caption,
+.hero__scroll-cue {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-faint);
+}
+
+.hero__scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.hero__scroll-cue svg {
+  animation: cue-bob 2.4s var(--ease-inout) infinite;
+}
+
+@keyframes cue-bob {
+  0%,
+  100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-cue svg {
+    animation: none;
+  }
+}
+
+.hero__dots {
+  display: flex;
+  gap: var(--s-2);
+  pointer-events: auto;
+}
+
+.hero__dot {
+  width: 44px; /* touch target; the visible bar is the pseudo-element */
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+
+.hero__dot::after {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--c-border-dark-strong);
+  transition: background-color var(--dur) var(--ease-out),
+    width var(--dur) var(--ease-out);
+}
+
+.hero__dot:hover::after {
+  background: var(--c-cream-body);
+}
+
+.hero__dot.is-active::after {
+  width: 44px;
+  background: var(--c-brass);
+}
+
+/* ---------- Search card ---------- */
+
+.hero-search {
+  position: relative;
+  z-index: var(--z-raised);
+  margin-top: clamp(-4.5rem, -5vw, -3rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  align-items: end;
+  gap: var(--s-2);
+  padding: var(--s-5);
+  /* Sits on the black hero, so it is a lifted black panel, not a white card. */
+  background: var(--c-black-2);
+  border: 1px solid var(--c-border-dark);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xl);
+}
+
+.hero-search__field {
+  display: grid;
+  gap: var(--s-2);
+  padding-inline: var(--s-4);
+  border-right: 1px solid var(--c-border-dark);
+}
+
+.hero-search__field:last-of-type {
+  border-right: none;
+}
+
+.hero-search__field label {
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-faint);
+}
+
+.hero-search__field select {
+  appearance: none;
+  width: 100%;
+  min-height: 34px;
+  border: none;
+  background: transparent;
+  font-size: var(--t-body);
+  font-weight: var(--fw-medium);
+  color: var(--c-cream);
+  cursor: pointer;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 16 16' fill='%23c9a36b'%3E%3Cpath d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: var(--s-6);
+}
+
+/* The native dropdown list is drawn by the OS — force readable option colours. */
+.hero-search__field select option {
+  background: var(--c-black-2);
+  color: var(--c-cream);
+}
+
+.hero-search__submit {
+  min-height: 58px;
+  padding-inline: var(--s-10);
+  border-radius: var(--r-sm);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 960px) {
+  .hero-search {
+    grid-template-columns: 1fr 1fr;
+    margin-top: -2rem;
+  }
+
+  .hero-search__field {
+    padding-inline: var(--s-2);
+    border-right: none;
+    border-bottom: 1px solid var(--c-border-dark);
+    padding-bottom: var(--s-3);
+  }
+
+  .hero-search__submit {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__stage {
+    height: min(90svh, 700px);
+    min-height: 500px;
+  }
+
+  .hero__wordmark {
+    letter-spacing: 0.03em;
+  }
+
+  .hero__caption,
+  .hero__scroll-cue {
+    display: none;
+  }
+
+  .hero__controls {
     justify-content: center;
+  }
 }
 
-a {
-    text-decoration: none;
-}
+@media (max-width: 560px) {
+  .hero-search {
+    grid-template-columns: 1fr;
+  }
 
-.slider .dots {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    color: #fff;
+  .hero__actions {
+    gap: var(--s-5);
+  }
+
+  .hero__cta {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    z-index: 5;
-}
-
-.slider .dots li {
-    list-style: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 10px;
-    border-radius: 20px;
-    transition: 0.5s;
-}
-
-.slider .dots li.active {
-    width: 30px;
-}
-
-.item {
-    position: relative; 
-    width: 100%; 
-    flex-shrink: 0; 
-}
-
-.anh-truot-noidung {
-    position: absolute;
-    top: 70%;
-    left: 100px;
-    z-index: 2;
-    transform: translateY(-50%);
-}
-
-.anh-truot-noidung a {
-    font-size: 15px;
-    color: white;
-    font-weight: bold;
-}
-
-.anh-truot-noidung button {
-    border: none;
-    background-color: red;
-    padding: 10px 50px;
-    box-sizing: border-box;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.anh-truot-text {
-    position: absolute;
-    top: 25%;
-    left: 100px;
-    z-index: 2;
-    transform: translateY(-50%);
-}
-
-.text-small {
-    color: white;
-    font-size: 45px;
-    font-weight: bold;
-    line-height: 1.5;
-}
-
-.text-big {
-    color: white;
-    font-size: 55px;
-    font-weight: bold;
-}
-
-.text-small-extra {
-    font-size: 20px;
-    margin-top: 10px;
-    color: white;
-}
-
-/* ===================== Responsive ===================== */
-@media screen and (max-width: 1200px) {
-    .slider {
-        height: 600px;
-    }
-    .text-big { font-size: 50px; }
-    .text-small { font-size: 40px; }
-    .anh-truot-text { top: 22%; left: 80px; }
-    .anh-truot-noidung { top: 68%; left: 80px; }
-}
-
-@media screen and (max-width: 1024px) {
-    .slider {
-        height: 500px;
-    }
-    .text-big { font-size: 40px; }
-    .text-small { font-size: 30px; }
-    .anh-truot-text { top: 20%; left: 60px; }
-    .anh-truot-noidung { top: 65%; left: 60px; }
-}
-
-@media screen and (max-width: 768px) {
-    .slider {
-        height: 400px;
-    }
-    .text-big { font-size: 35px; }
-    .text-small { font-size: 25px; }
-    .anh-truot-text { top: 18%; left: 40px; }
-    .anh-truot-noidung { top: 60%; left: 40px; }
-
-    .anh-truot-noidung button {
-        padding: 8px 30px;
-        font-size: 14px;
-    }
-
-    .slider .buttons button {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .text-small-extra {
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .slider {
-        height: 300px;
-    }
-    .text-big { font-size: 25px; }
-    .text-small { font-size: 18px; }
-    .anh-truot-text { top: 15%; left: 20px; }
-    .anh-truot-noidung { top: 55%; left: 20px; }
-
-    .anh-truot-noidung button {
-        padding: 6px 20px;
-        font-size: 12px;
-    }
-
-    .slider .buttons button {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-
-    .text-small-extra {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .slider {
-        height: 250px;
-    }
-    .text-big { font-size: 20px; }
-    .text-small { font-size: 15px; }
-    .anh-truot-text { top: 12%; left: 10px; }
-    .anh-truot-noidung { top: 50%; left: 10px; }
-
-    .anh-truot-noidung button {
-        padding: 5px 15px;
-        font-size: 10px;
-    }
-
-    .slider .buttons button {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .slider {
-        height: 200px;
-    }
-    .text-big { font-size: 18px; }
-    .text-small { font-size: 12px; }
-    .anh-truot-text { top: 10%; left: 8px; }
-    .anh-truot-noidung { top: 45%; left: 8px; }
-
-    .anh-truot-noidung button {
-        padding: 4px 12px;
-        font-size: 9px;
-    }
-
-    .slider .buttons button {
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
-    }
-
-    .text-small-extra {
-        font-size: 12px;
-    }
+  }
 }

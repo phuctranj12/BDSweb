@@ -1,57 +1,210 @@
-.duAn-container{
-  margin-top: 100px;
-  width: 100%;
-}
-.duAn-container .duAn-header{
-    margin: 50px 0 50px 0  ;
-    text-align: center;
-    font-size: 30px;
-    color: #e2974d;
-    font-weight: bold;
+/* =============================================================
+   PROJECT PAGE — Khu nhà ở Thôn Đại Vi
+   ============================================================= */
+
+.project__head {
+  padding-block: clamp(3rem, 6vw, 5.5rem) clamp(2rem, 4vw, 3.5rem);
 }
 
-.duAn-img-container{
-    margin: 0 10% 0 10%;
-    
+.project__title {
+  font-size: var(--t-h1);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  max-width: 16ch;
 }
-.duAn-img-big{
-    margin-bottom: 10px;
+
+.project__lead {
+  margin-top: var(--s-6);
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+  max-width: 60ch;
 }
-.duAn-img-big img{
-    width: 100%;
+
+/* ---------- Gallery ---------- */
+
+.project__gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--s-4);
+  margin-bottom: var(--section-y);
 }
-.duAn-img-small-container{
-display: flex;
-width: 100%;
-gap : 10px;
+
+.project__gallery figure {
+  margin: 0;
+  border-radius: var(--r-md);
 }
-.duAn-img-small-container img{
-    width: 50%;
-    object-fit: cover;
+
+.project__gallery-main {
+  aspect-ratio: 3 / 2;
 }
-.duAn-container img{
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+
+/* The plan drawing must never be cropped — it's the thing people zoom into. */
+.project__gallery-main img {
+  object-fit: contain;
+  background: var(--c-surface-2);
 }
-.duAn-body{
-    margin : 0 5% 0 5% ;
+
+.project__gallery-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--s-4);
 }
-.duAn-body-intro{
-    margin: 50px 0 50px 0;
+
+.project__gallery-side figure {
+  overflow: hidden;
+  min-height: 0;
 }
-.duAn-body .body-head{
-    font-weight: bold;
-    font-size: 23px;
-    margin-bottom: 10px;
+
+/* ---------- Two-column layout ---------- */
+
+.project__layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  padding-bottom: var(--section-y);
+  align-items: start;
 }
-.duAn-body .body-content{
-    font-size: 18px;
-    margin-bottom: 20px;
+
+/* ---------- Facts sidebar ---------- */
+
+.project__facts {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+  padding: var(--s-8);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
 }
-.duAn-body a{
-    color: #e2974d;
-    cursor: pointer;
+
+.project__facts-title {
+  font-size: var(--t-h4);
+  margin-bottom: var(--s-6);
+  padding-bottom: var(--s-4);
+  border-bottom: 1px solid var(--c-border);
 }
-.duAn-body a:hover{
-    color:#ff7200;
+
+.project__facts dl {
+  display: grid;
+  gap: var(--s-5);
+  margin: 0;
+}
+
+.project__facts dt {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-bottom: var(--s-1);
+}
+
+.project__facts dd {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: var(--lh-normal);
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
+}
+
+.project__docs {
+  display: grid;
+  gap: var(--s-2);
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 1px solid var(--c-border);
+}
+
+.project__docs a {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 44px;
+  font-size: var(--t-sm);
+  font-weight: var(--fw-medium);
+  color: var(--c-accent);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.project__docs a:hover {
+  color: var(--c-accent-hover);
+}
+
+.project__docs svg {
+  flex-shrink: 0;
+}
+
+/* ---------- Highlights ---------- */
+
+.project__highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-8) var(--s-6);
+  margin: 0;
+}
+
+.project__highlights li {
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--c-border);
+}
+
+.project__highlight-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: var(--fv-display);
+  font-size: 1.5rem;
+  font-weight: var(--fw-normal);
+  color: var(--c-accent);
+  margin-bottom: var(--s-3);
+}
+
+.project__highlights h3 {
+  font-size: var(--t-h4);
+  font-weight: var(--fw-semibold);
+  margin: 0 0 var(--s-2);
+}
+
+.project__highlights p {
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+  margin: 0;
+}
+
+/* The prose rule adds top margin to headings; the first one doesn't need it. */
+.project__body > section:first-child > h2 {
+  margin-top: 0;
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 1024px) {
+  .project__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project__facts {
+    position: static;
+  }
+
+  .project__highlights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .project__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .project__gallery-side {
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .project__gallery-side figure {
+    aspect-ratio: 1;
+  }
 }

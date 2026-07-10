@@ -1,174 +1,216 @@
-.bds-tp-container {
-    margin: 50px 5% 50px 5%;
-}
-.bds-tp-container h2 a{
-    cursor: pointer;
-    color: black;
-}
-.bds-tp-container h2 a:hover{
-    color: #ed9c00;
-}
-.bds-tp-container h2{
-    margin-bottom: 40px;
-}
-.bds-tp-container .bds-tp-column-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+/* =============================================================
+   LOT CARDS — the six "Liền kề" sub-divisions
+   ============================================================= */
+
+.lots__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: var(--s-8);
+  padding-bottom: var(--s-12);
+  margin-bottom: var(--s-16);
+  border-bottom: 1px solid var(--c-border);
 }
 
-.bds-tp-container .bds-tp-column {
-    width: 32%;
-    position: relative;
-    margin-bottom: 30px;
-}
-.bds-tp-container .card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 7px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.lots__title {
+  font-size: var(--t-h1);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  line-height: var(--lh-snug);
+  max-width: 14ch;
 }
 
-.bds-tp-container .card-img {
-    width: 100%;
-    height: 100%;
-    height: 450px; 
-    display: block;
-    border-radius: 7px;
-    cursor: pointer;
-    overflow: hidden;
-
-    object-fit: cover;
-    transition: transform 2s ease; 
+.lots__intro {
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+  max-width: 46ch;
+  justify-self: end;
 }
 
-.bds-tp-container .card-img:hover {
-    transform: scale(1.05); 
-    object-position: center;  
+.lots__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-12) var(--s-6);
+  margin: 0;
 }
 
-.bds-tp-container .logo {
-    color: white;
-    font-size: 15px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1;
-    overflow: hidden;
-    background: #ed9c00;
-    padding: 3px 8px;
-    cursor: pointer;
-    border-radius: 5px;
+/* ---------- Card ---------- */
+
+.lot-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.bds-tp-container .logo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-    transform: skewX(-25deg);
-    animation: shine 3s infinite;
+.lot-card__media {
+  aspect-ratio: 4 / 3; /* reserves space → no layout shift on image load */
+  border-radius: var(--r-md);
+  margin-bottom: var(--s-5);
 }
 
-@keyframes shine {
-    0% {
-        left: -100%;
-    }
-    50% {
-        left: 100%;
-    }
-    100% {
-        left: 100%;
-        opacity: 0;
-    }
-}
-.bds-tp-container .card-content{
-    padding: 20px;
-}
-.bds-tp-container .card-title a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 19px;
-}
-.bds-tp-container .card-address {
-    display: flex;
-    font-size: 14px;
-    color: rgb(74, 74, 74);
-    align-items: center; 
-}
-.bds-tp-container .card-item-name{
-    font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 3px;
-}
-.bds-tp-container .card-address svg{
-    height: 16px;
-    width: 16px;
-    margin-right: 3px;
-}
-.bds-tp-container .card-infor{
-    font-size: 15px;
-    color: rgb(74, 74, 74);
-    margin-bottom: 3px;
-}
-.bds-tp-container .card-btn{
-    margin-top: auto;
-}
-.bds-tp-container .card-btn button{
-    margin: 0 0 10px 0 ;
-    background-color: #e2974d;
-    color: white;
-    border: none;
-    padding:5px ;
-    cursor: pointer;
-}
-.bds-tp-container .card-btn button:hover{
-    background-color: #dd8339;
-}
-.bds-tp-container .card-infor-container{
-    justify-content: space-between;
-    display: flex;
-}
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .bds-tp-container .bds-tp-column {
-        width: 48%; /* 2 columns on medium screens */
-    }
-    .bds-tp-container .bds-tp-column-container{
-        width: 900px;
-    }
-    .bds-tp-container .card-img {
-        height: 350px;
-       
-    }
+.lot-card__media img {
+  transition: transform 1000ms var(--ease-out), filter 700ms var(--ease-out);
+  filter: saturate(0.92);
 }
 
-@media (max-width: 768px) {
-    .bds-tp-container .bds-tp-column {
-        width: 100%; /* 1 column on small screens */
-    }
-    .bds-tp-container .bds-tp-column-container{
-    width: 600px;
+.lot-card:hover .lot-card__media img {
+  transform: scale(1.05);
+  filter: saturate(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lot-card:hover .lot-card__media img {
+    transform: none;
   }
-    .bds-tp-container h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+}
 
-    .bds-tp-container .card-content {
-        padding: 15px;
-    }
+.lot-card__badge {
+  position: absolute;
+  top: var(--s-4);
+  left: var(--s-4);
+  z-index: var(--z-raised);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--r-xs);
+  background: var(--c-black);
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-brass);
+}
 
-    .bds-tp-container .card-title a {
-        font-size: 17px;
-    }
+.lot-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
-    .bds-tp-container .card-img {
-        /* height: 300px; */
-        width: 100%;
-    }
+.lot-card__title {
+  font-size: var(--t-h3);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  margin-bottom: var(--s-2);
+}
+
+/* Styled as plain text; the ::after covers the whole card so the entire card
+   is one large target, while assistive tech still receives a real button. */
+.lot-card__link {
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.lot-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-md);
+}
+
+.lot-card:hover .lot-card__link {
+  color: var(--c-accent);
+}
+
+.lot-card__link:focus-visible {
+  outline: none;
+}
+
+.lot-card__link:focus-visible::after {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 4px;
+}
+
+.lot-card__address {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+  font-size: var(--t-sm);
+  line-height: var(--lh-normal);
+  color: var(--c-muted);
+  margin-bottom: var(--s-5);
+}
+
+.lot-card__address svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--c-accent);
+}
+
+.lot-card__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+  padding-top: var(--s-5);
+  margin-top: auto;
+  border-top: 1px solid var(--c-border);
+}
+
+.lot-card__stats dt {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-bottom: var(--s-2);
+}
+
+.lot-card__stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--fv-title);
+  font-size: 1.0625rem;
+  font-weight: var(--fw-semibold);
+  color: var(--c-ink);
+}
+
+.lot-card__cue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-accent);
+}
+
+.lot-card__cue svg {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.lot-card:hover .lot-card__cue svg {
+  transform: translateX(5px);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 1024px) {
+  .lots__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .lots__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: var(--s-5);
+  }
+
+  .lots__intro {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 600px) {
+  .lots__grid {
+    grid-template-columns: 1fr;
+    gap: var(--s-10);
+  }
 }

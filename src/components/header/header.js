@@ -1,30 +1,136 @@
-
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import '../../styles/header.css';
-import logo from '../assets/image/logo.png';
+
+const NAV_ITEMS = [
+    { to: '/DuAn', label: 'Bất động sản' },
+    { to: '/TuVan', label: 'Tư vấn' },
+    { to: '/DichVu', label: 'Dịch vụ' },
+    { to: '/AboutUs', label: 'Về chúng tôi' },
+    { to: '/LienHe', label: 'Liên hệ' },
+];
+
+const HOTLINE = '0977208988';
+
 function Header() {
+    const { pathname } = useLocation();
+    const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const isHome = pathname === '/';
+    // Over the home hero the bar is transparent and the wordmark is hidden —
+    // the hero already shouts the name. Past 60px it blurs in, and the small
+    // wordmark fades up into the gap.
+    const solid = scrolled || !isHome;
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 60);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    // Close the drawer whenever the route changes.
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [pathname]);
+
+    // Lock body scroll behind the drawer, and let Escape dismiss it.
+    useEffect(() => {
+        if (!menuOpen) return undefined;
+
+        const onKeyDown = (e) => {
+            if (e.key === 'Escape') setMenuOpen(false);
+        };
+
+        document.body.style.overflow = 'hidden';
+        window.addEventListener('keydown', onKeyDown);
+
+        return () => {
+            document.body.style.overflow = '';
+            window.removeEventListener('keydown', onKeyDown);
+        };
+    }, [menuOpen]);
+
     return (
-        <div className="navbar2">
+        <header className={`site-header${solid ? ' is-solid' : ''}${menuOpen ? ' is-open' : ''}`}>
+            <div className="site-header__inner">
+                <Link to="/" className="brand" aria-label="Trường Phát — về trang chủ">
+                    <span className="brand__name">Trường Phát</span>
+                    <span className="brand__sub">Bất động sản</span>
+                </Link>
 
-            <div className="logo">
-                <img src={logo} />
+                <nav className="site-nav" aria-label="Điều hướng chính">
+                    <ul className="site-nav__list">
+                        {NAV_ITEMS.map((item) => (
+                            <li key={item.to}>
+                                <NavLink
+                                    to={item.to}
+                                    className={({ isActive }) =>
+                                        isActive ? 'site-nav__link is-active' : 'site-nav__link'
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+
+                <div className="site-header__actions">
+                    <a className="header-hotline" href={`tel:${HOTLINE}`}>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z" />
+                        </svg>
+                        <span className="tabular">{HOTLINE}</span>
+                    </a>
+
+                    <Link to="/LienHe" className="u-btn u-btn--primary header-cta">
+                        Đặt lịch xem đất
+                    </Link>
+
+                    <button
+                        type="button"
+                        className="nav-toggle"
+                        aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
+                        aria-expanded={menuOpen}
+                        aria-controls="mobile-drawer"
+                        onClick={() => setMenuOpen((open) => !open)}
+                    >
+                        <span className="nav-toggle__bar" />
+                        <span className="nav-toggle__bar" />
+                    </button>
+                </div>
             </div>
 
+            <div id="mobile-drawer" className="mobile-drawer" hidden={!menuOpen}>
+                <nav aria-label="Điều hướng di động">
+                    <ul className="mobile-drawer__list">
+                        {NAV_ITEMS.map((item, i) => (
+                            <li key={item.to} style={{ '--i': i }}>
+                                <NavLink
+                                    to={item.to}
+                                    className={({ isActive }) =>
+                                        isActive ? 'mobile-drawer__link is-active' : 'mobile-drawer__link'
+                                    }
+                                >
+                                    {item.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
 
-            <div className="menu">
-                <ul>
-                    <li><Link to="/DuAn" className="menu-link">BẤT ĐỘNG SẢN</Link></li>
-                    <li><Link to="/TuVan" className="menu-link">TƯ VẤN</Link></li>
-                    <li><Link to="/DichVu" className="menu-link">DỊCH VỤ</Link></li>
-                    <li><Link to="/LienHe" className="menu-link">LIÊN HỆ</Link></li>
-                </ul>
+                <div className="mobile-drawer__foot">
+                    <a className="u-btn u-btn--outline" href={`tel:${HOTLINE}`}>
+                        Gọi {HOTLINE}
+                    </a>
+                    <Link to="/LienHe" className="u-btn u-btn--primary">
+                        Đặt lịch xem đất
+                    </Link>
+                </div>
             </div>
-
-            {/* <div className="search">
-                <input className="srch" type="search" placeholder="" />
-                <button className="btn">Tìm kiếm</button>
-            </div> */}
-        </div>
+        </header>
     );
 }
 

@@ -1,0 +1,89 @@
+/* =============================================================
+   POLICY PAGE
+   ============================================================= */
+
+.policy__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+/* ---------- Table of contents ---------- */
+
+.policy__toc {
+  position: sticky;
+  top: calc(var(--header-h) + var(--s-6));
+}
+
+.policy__toc-title {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-bottom: var(--s-5);
+}
+
+.policy__toc ul {
+  display: grid;
+  gap: var(--s-1);
+  border-left: 1px solid var(--c-border);
+}
+
+.policy__toc a {
+  display: block;
+  padding: var(--s-3) var(--s-5);
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  font-size: var(--t-sm);
+  color: var(--c-muted);
+  transition: color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out);
+}
+
+.policy__toc a:hover {
+  color: var(--c-ink);
+  border-left-color: var(--c-accent);
+}
+
+/* ---------- Body ---------- */
+
+.policy__body {
+  display: grid;
+  gap: var(--s-12);
+}
+
+/* Anchored sections must clear the fixed header when jumped to. */
+.policy__item {
+  scroll-margin-top: calc(var(--header-h) + var(--s-8));
+}
+
+.policy__item h2 {
+  font-size: var(--t-h3);
+  letter-spacing: var(--ls-heading);
+  padding-bottom: var(--s-4);
+  margin-bottom: var(--s-5);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.policy__item p {
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-relaxed);
+  color: var(--c-body);
+  max-width: 68ch;
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 900px) {
+  .policy__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .policy__toc {
+    position: static;
+    padding-bottom: var(--s-8);
+    border-bottom: 1px solid var(--c-border);
+  }
+}

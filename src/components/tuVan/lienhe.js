@@ -1,60 +1,172 @@
+import React, { useState } from 'react';
 import '../../styles/lienhe.css';
-function LienHe() {
-    return (
-        <div className="lienhe-container">
-            <div className="lienhe-header">
-                <div className="lienhe-header-intro">
-                    Liên Hệ Với Chúng Tôi
-                </div>
-            </div>
-            <div className="lienhe-content">
-                <div className="content-left">
-                    <div className='content-info' style={{ marginRight: "16px", marginLeft: "8px" }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-map-fill" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.5.5 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.5.5 0 0 0-.196 0zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1z" />
-                        </svg>
-                        <div className='content-infor-r'>Lô F26 , khu đô thị Phú Điền phố Chùa Dận , phường Đình Bảng , thành phố Từ Sơn Bắc Ninh</div>
-                    </div>
-                    <div className='content-info'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone-vibrate-fill" viewBox="0 0 16 16">
-                            <path d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0M1.807 4.734a.5.5 0 1 0-.884-.468A8 8 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A7 7 0 0 1 1 8c0-1.18.292-2.292.807-3.266m13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A8 8 0 0 0 16 8a8 8 0 0 0-.923-3.734M3.34 6.182a.5.5 0 1 0-.93-.364A6 6 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A5 5 0 0 1 3 8c0-.642.12-1.255.34-1.818m10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818s-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8s-.145-1.505-.41-2.182" />
-                        </svg>
-                        <div className='content-infor-r'>0977208988</div>
-                    </div>
-                    <div className='content-info'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
-                            <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                            <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                        </svg>
-                        <div className='content-infor-r'>huongg@gmail.com</div>
-                    </div>
-                    <div className="login-right">
-                        <div className="form-right">
-                            <form action="#" method="post">
-                                <input required name="name" type="text" placeholder="Tên*" />
-                                <input required name="name" type="email" placeholder="Email*" />
-                                <input required name="sdt" type="text" placeholder="Số điện thoại*" />
-                                <div className="button-register">
-                                    <button type="submit">Lưu thông tin</button>
+import '../../styles/tuvan.css'; // shares the .field form primitive
 
-                                </div>
-                            </form>
+const MAP_SRC =
+    'https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5415.247803260615!2d105.96568073268288!3d21.118795213475348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zTMO0IEYyNiwgS2h1IMSRw7QgdGjhu4sgUGjDuiDEkGnhu4FuLCBQaOG7kSBjaMO5YSBE4bqtbiwgUGjGsOG7nW5nIMSQw6xuaCBC4bqjbmcsIFRow6BuaCBwaOG7kSBU4burIFPGoW4sIFThu4luaCBC4bqvYyBOaW5oLCBWaeG7h3QgTmFtIA!5e0!3m2!1svi!2s!4v1730885501025!5m2!1svi!2s';
+
+const DETAILS = [
+    {
+        label: 'Địa chỉ',
+        value: 'Lô F26, khu đô thị Phú Điền, phố Chùa Dận, phường Đình Bảng, TP. Từ Sơn, Bắc Ninh',
+        icon: <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />,
+    },
+    {
+        label: 'Điện thoại',
+        value: '0977 208 988',
+        href: 'tel:0977208988',
+        icon: <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z" />,
+    },
+    {
+        label: 'Email',
+        value: 'huongg@gmail.com',
+        href: 'mailto:huongg@gmail.com',
+        icon: <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />,
+    },
+];
+
+const EMPTY = { name: '', email: '', phone: '', message: '' };
+
+function Field({ id, label, error, as = 'input', ...inputProps }) {
+    const errorId = `${id}-error`;
+    const Tag = as;
+
+    return (
+        <div className={`field field--light${error ? ' has-error' : ''}`}>
+            <label htmlFor={id}>
+                {label} {inputProps.required && <span aria-hidden="true">*</span>}
+            </label>
+            <Tag
+                id={id}
+                aria-invalid={Boolean(error)}
+                aria-describedby={error ? errorId : undefined}
+                {...inputProps}
+            />
+            {error && (
+                <p className="field__error" id={errorId} role="alert">
+                    {error}
+                </p>
+            )}
+        </div>
+    );
+}
+
+function LienHe() {
+    const [values, setValues] = useState(EMPTY);
+    const [errors, setErrors] = useState({});
+    const [status, setStatus] = useState('idle');
+
+    const setField = (key) => (e) => {
+        setValues((v) => ({ ...v, [key]: e.target.value }));
+        if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const found = {};
+        if (!values.name.trim()) found.name = 'Vui lòng nhập họ tên của bạn.';
+        if (!/^\S+@\S+\.\S+$/.test(values.email)) found.email = 'Email chưa đúng định dạng.';
+        if (!/^0\d{9}$/.test(values.phone.replace(/\s/g, ''))) {
+            found.phone = 'Số điện thoại gồm 10 chữ số, bắt đầu bằng 0.';
+        }
+
+        setErrors(found);
+        if (Object.keys(found).length > 0) {
+            document.getElementById(`lh-${Object.keys(found)[0]}`)?.focus();
+            return;
+        }
+
+        setStatus('sending');
+        setTimeout(() => {
+            setStatus('sent');
+            setValues(EMPTY);
+        }, 700);
+    };
+
+    return (
+        <>
+            <header className="page-head">
+                <div className="u-container">
+                    <p className="u-eyebrow">Liên hệ</p>
+                    <h1 className="page-head__title">Nói chuyện với chúng tôi</h1>
+                    <p className="page-head__lead">
+                        Gọi trực tiếp, gửi form, hoặc ghé văn phòng của chúng tôi tại Từ Sơn.
+                        Chúng tôi trả lời mọi yêu cầu trong vòng 24 giờ làm việc.
+                    </p>
+                </div>
+            </header>
+
+            <section className="contact u-section">
+                <div className="u-container contact__layout">
+                    <div className="contact__info">
+                        <ul className="contact__details">
+                            {DETAILS.map((item) => (
+                                <li key={item.label}>
+                                    <span className="contact__icon" aria-hidden="true">
+                                        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                                            {item.icon}
+                                        </svg>
+                                    </span>
+                                    <div>
+                                        <span className="contact__label">{item.label}</span>
+                                        {item.href ? (
+                                            <a className="contact__value u-link" href={item.href}>
+                                                {item.value}
+                                            </a>
+                                        ) : (
+                                            <span className="contact__value">{item.value}</span>
+                                        )}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className="contact__map u-media">
+                            <iframe
+                                src={MAP_SRC}
+                                title="Bản đồ tới văn phòng Trường Phát tại Từ Sơn, Bắc Ninh"
+                                loading="lazy"
+                                allowFullScreen
+                                referrerPolicy="no-referrer-when-downgrade"
+                            />
                         </div>
                     </div>
+
+                    <div className="contact__form-wrap">
+                        {status === 'sent' ? (
+                            <div className="contact__success" role="status">
+                                <svg width="40" height="40" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05" />
+                                </svg>
+                                <h2>Đã gửi thành công</h2>
+                                <p>Cảm ơn bạn. Chúng tôi sẽ liên hệ trong vòng 24 giờ làm việc.</p>
+                                <button type="button" className="u-btn u-btn--outline" onClick={() => setStatus('idle')}>
+                                    Gửi yêu cầu khác
+                                </button>
+                            </div>
+                        ) : (
+                            <form className="contact__form" onSubmit={onSubmit} noValidate>
+                                <h2 className="contact__form-title">Gửi yêu cầu tư vấn</h2>
+
+                                <Field id="lh-name" label="Họ và tên" type="text" required autoComplete="name"
+                                    value={values.name} onChange={setField('name')} error={errors.name} />
+                                <Field id="lh-email" label="Email" type="email" required autoComplete="email"
+                                    inputMode="email" value={values.email} onChange={setField('email')} error={errors.email} />
+                                <Field id="lh-phone" label="Số điện thoại" type="tel" required autoComplete="tel"
+                                    inputMode="numeric" value={values.phone} onChange={setField('phone')} error={errors.phone} />
+                                <Field id="lh-message" label="Nội dung" as="textarea" rows={4}
+                                    value={values.message} onChange={setField('message')} />
+
+                                <button type="submit" className="u-btn u-btn--accent contact__submit" disabled={status === 'sending'}>
+                                    {status === 'sending' ? 'Đang gửi…' : 'Gửi yêu cầu'}
+                                </button>
+                            </form>
+                        )}
+                    </div>
                 </div>
-                <div className="content-right">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d5415.247803260615!2d105.96568073268288!3d21.118795213475348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zTMO0IEYyNiwgS2h1IMSRw7QgdGjhu4sgUGjDuiDEkGnhu4FuLCBQaOG7kSBjaMO5YSBE4bqtbiwgUGjGsOG7nW5nIMSQw6xuaCBC4bqjbmcsIFRow6BuaCBwaOG7kSBU4burIFPGoW4sIFThu4luaCBC4bqvYyBOaW5oLCBWaeG7h3QgTmFtIA!5e0!3m2!1svi!2s!4v1730885501025!5m2!1svi!2s"
-                        width="600"
-                        height="450"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
-                </div>
-            </div>
-        </div >
+            </section>
+        </>
     );
 }
 

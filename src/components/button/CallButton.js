@@ -1,55 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { FaPhone } from 'react-icons/fa';
-import Draggable from 'react-draggable';
+import React from 'react';
 import '../../styles/callButton.css';
 
-const CallButton = () => {
-    const [isVibrating, setIsVibrating] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const [clickTimeout, setClickTimeout] = useState(null);  // Để xử lý việc double-click
+const PHONE = '0977208988';
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIsVibrating(true);
-            setTimeout(() => setIsVibrating(false), 1000);
-        }, 4000);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const handleDoubleClick = () => {
-        if (!isDragging) {  // Kiểm tra nếu không đang kéo
-            window.location.href = 'tel:0782423245';
-        }
-    };
-
-    const handleClick = () => {
-        if (clickTimeout) {
-            clearTimeout(clickTimeout);  // Clear timeout nếu có click trước đó
-        }
-
-        setClickTimeout(setTimeout(() => {
-            // Nếu click không phải là double-click, không làm gì
-        }, 300));  // Thời gian chờ để phân biệt single-click và double-click
-    };
-
-    return (
-        <Draggable
-            bounds="body"
-            onStart={() => setIsDragging(true)}
-            onStop={() => setIsDragging(false)}
-        >
-            <div className="call-wrapper">
-                <div
-                    onClick={handleClick}  // Thêm handleClick để kiểm soát single-click
-                    onDoubleClick={handleDoubleClick}  // Xử lý double-click
-                    className={`call-button ${isVibrating ? 'vibrating' : ''}`}
-                >
-                    <FaPhone className="call-icon" />
-                </div>
-            </div>
-        </Draggable>
-    );
-};
+/**
+ * The previous version was draggable and only fired on double-click, so a single
+ * tap — what everyone actually does — did nothing. It is now a plain link.
+ */
+const CallButton = () => (
+    <a
+        className="fab fab--call"
+        href={`tel:${PHONE}`}
+        aria-label={`Gọi hotline ${PHONE}`}
+    >
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58z" />
+        </svg>
+        <span className="fab__tip">Gọi ngay</span>
+    </a>
+);
 
 export default CallButton;

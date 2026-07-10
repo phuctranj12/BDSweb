@@ -1,24 +1,95 @@
+/* =============================================================
+   SERVICES PAGE
+   ============================================================= */
 
-.dichvu-container{
-    padding: 50px 0 50px 0%;
-    margin: 50px 10% 50px 10%;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px; /* the gap itself becomes the hairline grid */
+  background: var(--c-border);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin: 0;
 }
-.dichvu-main{
-    margin: 0 30px 30px 30px;
+
+.service-card {
+  background: var(--c-bg);
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  transition: background-color var(--dur) var(--ease-out);
 }
-.dichvu-header{
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 30px;
+
+.service-card:hover {
+  background: var(--c-surface);
 }
-.dichvu-intro{
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
+
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: var(--s-8);
+  border-radius: var(--r-full);
+  border: 1px solid var(--c-border-strong);
+  color: var(--c-accent);
+  transition: background-color var(--dur) var(--ease-out),
+    color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out);
 }
-.dichvu-content{
-    font-size: 18px;
-    margin-bottom: 15px;
+
+.service-card:hover .service-card__icon {
+  background: var(--c-black);
+  border-color: var(--c-black);
+  color: var(--c-brass);
+}
+
+.service-card__title {
+  font-size: var(--t-h3);
+  font-weight: var(--fw-normal);
+  letter-spacing: var(--ls-heading);
+  margin-bottom: var(--s-3);
+}
+
+.service-card__body {
+  font-size: var(--t-sm);
+  line-height: var(--lh-relaxed);
+  color: var(--c-muted);
+}
+
+/* ---------- Closing CTA ---------- */
+
+/* The closing CTA is a dark spotlight block, not another tinted card. */
+.services__cta {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: var(--s-3);
+  margin-top: var(--section-y);
+  padding: clamp(2.75rem, 6vw, 5rem);
+  border-radius: var(--r-lg);
+}
+
+.services__cta h2 {
+  font-size: var(--t-h2);
+  font-weight: var(--fw-normal);
+  color: var(--c-cream);
+  max-width: 18ch;
+}
+
+.services__cta p {
+  color: var(--c-cream-body);
+  margin-bottom: var(--s-6);
+}
+
+/* ---------- Breakpoints ---------- */
+
+@media (max-width: 900px) {
+  .services__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .services__grid {
+    grid-template-columns: 1fr;
+  }
 }
