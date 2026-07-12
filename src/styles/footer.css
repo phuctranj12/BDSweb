@@ -80,7 +80,20 @@
   letter-spacing: var(--ls-caps);
   text-transform: uppercase;
   color: var(--c-cream);
-  margin-bottom: var(--s-6);
+  margin-bottom: var(--s-4);
+}
+
+/* The heading is a link to its section's page; keep its look, brass on hover.
+   padding-block gives it a real ≥24px hit area (matches the sub-item links). */
+.site-footer__heading a {
+  display: inline-block;
+  padding-block: var(--s-2);
+  color: inherit;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.site-footer__heading a:hover {
+  color: var(--c-brass);
 }
 
 .site-footer__col ul {

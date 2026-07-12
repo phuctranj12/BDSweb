@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import '../../styles/header.css';
 
@@ -16,6 +16,8 @@ function Header() {
     const { pathname } = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const drawerRef = useRef(null);
+    const toggleRef = useRef(null);
 
     const isHome = pathname === '/';
     // Over the home hero the bar is transparent and the wordmark is hidden —
@@ -35,20 +37,59 @@ function Header() {
         setMenuOpen(false);
     }, [pathname]);
 
-    // Lock body scroll behind the drawer, and let Escape dismiss it.
+    // While the drawer is open: lock body scroll, let Escape dismiss it, move
+    // focus inside, trap Tab within it, and return focus to the toggle on close.
+    // (The drawer is a full-screen opaque panel, so there is no "outside" region
+    // to tap — Escape / a nav link / the toggle are the dismiss paths.)
     useEffect(() => {
         if (!menuOpen) return undefined;
 
+        const drawer = drawerRef.current;
+        // Capture the toggle node now; the cleanup restores focus to this exact
+        // element (it's always mounted, so the ref won't have moved).
+        const toggle = toggleRef.current;
+        const focusable = () =>
+            drawer
+                ? Array.from(
+                      drawer.querySelectorAll(
+                          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                      )
+                  )
+                : [];
+
         const onKeyDown = (e) => {
-            if (e.key === 'Escape') setMenuOpen(false);
+            if (e.key === 'Escape') {
+                setMenuOpen(false);
+                return;
+            }
+            if (e.key !== 'Tab') return;
+
+            const items = focusable();
+            if (items.length === 0) return;
+            const first = items[0];
+            const last = items[items.length - 1];
+
+            // Keep Tab cycling inside the drawer instead of leaking to the page.
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         };
 
         document.body.style.overflow = 'hidden';
         window.addEventListener('keydown', onKeyDown);
+        // Send focus to the first item so screen-reader / keyboard users land
+        // inside the panel they just opened.
+        focusable()[0]?.focus();
 
         return () => {
             document.body.style.overflow = '';
             window.removeEventListener('keydown', onKeyDown);
+            // Restore focus to the control that opened the drawer.
+            toggle?.focus();
         };
     }, [menuOpen]);
 
@@ -90,6 +131,7 @@ function Header() {
                     </Link>
 
                     <button
+                        ref={toggleRef}
                         type="button"
                         className="nav-toggle"
                         aria-label={menuOpen ? 'Đóng menu' : 'Mở menu'}
@@ -103,7 +145,7 @@ function Header() {
                 </div>
             </div>
 
-            <div id="mobile-drawer" className="mobile-drawer" hidden={!menuOpen}>
+            <div id="mobile-drawer" className="mobile-drawer" hidden={!menuOpen} ref={drawerRef}>
                 <nav aria-label="Điều hướng di động">
                     <ul className="mobile-drawer__list">
                         {NAV_ITEMS.map((item, i) => (

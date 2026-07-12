@@ -1,0 +1,52 @@
+/* =============================================================
+   MANIFESTO — dark "spotlight" interstitial between light sections
+   ============================================================= */
+
+.manifesto {
+  background: var(--c-black);
+  padding-block: clamp(4.5rem, 9vw, 8rem);
+  /* A hairline top rule in brass, drawn from the container edge, quietly marks
+     the section change without a hard border. */
+  position: relative;
+  overflow: hidden;
+}
+
+.manifesto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--gutter);
+  width: clamp(56px, 8vw, 120px);
+  height: 2px;
+  background: var(--c-brass);
+}
+
+.manifesto__inner {
+  display: grid;
+  gap: var(--s-6);
+  max-width: 60ch;
+}
+
+.manifesto__quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-variation-settings: var(--fv-heading);
+  font-weight: var(--fw-normal);
+  font-size: var(--t-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-heading);
+  color: var(--c-cream);
+  text-wrap: balance;
+}
+
+.manifesto__quote .u-wonk {
+  color: var(--c-brass);
+}
+
+.manifesto__attribution {
+  font-size: var(--t-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  color: var(--c-cream-faint);
+}

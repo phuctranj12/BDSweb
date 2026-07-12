@@ -1,15 +1,21 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/slide.css';
+import Picture from '../util/Picture';
 
-import slideImage1 from '../assets/image/Bds1.jpg';
-import slideImage2 from '../assets/image/LK1.jpg';
-import slideImage3 from '../assets/image/s4.JPG';
+// Phối cảnh thật của dự án Đại Vi. Trước đây hero dùng ảnh cao ốc Sài Gòn —
+// một dự án đất nền ở Bắc Ninh không nên mở đầu bằng ảnh của nơi khác.
+import slideImage1 from '../assets/image/web/DuAn2.jpg';
+import slideImage2 from '../assets/image/web/LK1.jpg';
+import slideImage3 from '../assets/image/web/DuAn1.jpg';
+import slideImage1Webp from '../assets/image/web/DuAn2.webp';
+import slideImage2Webp from '../assets/image/web/LK1.webp';
+import slideImage3Webp from '../assets/image/web/DuAn1.webp';
 
 const BACKDROPS = [
-    { img: slideImage1, alt: 'Toàn cảnh khu đô thị về đêm' },
-    { img: slideImage2, alt: 'Dãy nhà liền kề đã hoàn thiện' },
-    { img: slideImage3, alt: 'Hạ tầng nội khu dự án' },
+    { img: slideImage1, webp: slideImage1Webp, alt: 'Phối cảnh tổng thể Khu nhà ở thôn Đại Vi nhìn từ trên cao' },
+    { img: slideImage2, webp: slideImage2Webp, alt: 'Phối cảnh mặt tiền dãy nhà liền kề của dự án' },
+    { img: slideImage3, webp: slideImage3Webp, alt: 'Phối cảnh toàn khu nhìn về phía cánh đồng' },
 ];
 
 const AUTOPLAY_MS = 7000;
@@ -141,12 +147,16 @@ function Slide() {
             >
                 <div className="hero__backdrops">
                     {BACKDROPS.map((b, i) => (
-                        <img
+                        <Picture
                             key={b.img}
+                            webp={b.webp}
+                            jpg={b.img}
                             className={`hero__img${i === active ? ' is-active' : ''}`}
-                            src={b.img}
-                            alt=""
+                            /* Chỉ ảnh đang hiện mới có alt; nếu cả ba cùng có,
+                               trình đọc màn hình sẽ đọc liên tiếp ba mô tả. */
+                            alt={i === active ? b.alt : ''}
                             loading={i === 0 ? 'eager' : 'lazy'}
+                            fetchPriority={i === 0 ? 'high' : undefined}
                             decoding="async"
                         />
                     ))}
@@ -194,7 +204,11 @@ function Slide() {
                                 aria-current={i === active}
                                 className={`hero__dot${i === active ? ' is-active' : ''}`}
                                 onClick={() => goTo(i)}
-                            />
+                            >
+                                <span className="hero__dot-num tabular" aria-hidden="true">
+                                    {String(i + 1).padStart(2, '0')}
+                                </span>
+                            </button>
                         ))}
                     </div>
 

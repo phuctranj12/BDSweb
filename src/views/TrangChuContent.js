@@ -2,6 +2,7 @@ import React from 'react';
 import Slide from '../components/slide/slide';
 import Stats from '../components/stats/Stats';
 import BodyIntro from '../components/bdsIntroBody/body';
+import Manifesto from '../components/interstitial/Manifesto';
 import ProductList from '../components/introDuAn/ProductList';
 import TuVan from '../components/tuVan/tuVan';
 import News from '../components/new/News';
@@ -16,6 +17,7 @@ function TrangChuContent() {
             <Slide />
             <Stats />
             <BodyIntro />
+            <Manifesto />
             <ProductList />
             <TuVan />
             <News />

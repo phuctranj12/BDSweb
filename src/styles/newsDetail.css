@@ -39,7 +39,6 @@
 /* ---------- Head ---------- */
 
 .article__head {
-  max-width: 22ch;
   margin-bottom: var(--s-10);
 }
 
@@ -48,6 +47,10 @@
   font-weight: var(--fw-normal);
   letter-spacing: var(--ls-heading);
   line-height: var(--lh-snug);
+  /* `ch` here is relative to the title's own display size, so this is a real
+     ~2-line measure. Putting it on .article__head (body font-size) collapsed
+     the column to ~238px and wrapped every word onto its own line. */
+  max-width: 18ch;
   text-wrap: balance;
 }
 
@@ -239,13 +242,13 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .article__more-grid,
   .article__related {
     grid-template-columns: 1fr;
   }
 
-  .article__head {
+  .article__title {
     max-width: none;
   }
 

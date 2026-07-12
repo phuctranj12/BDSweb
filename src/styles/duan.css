@@ -194,7 +194,7 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   .project__gallery {
     grid-template-columns: 1fr;
   }

@@ -1,9 +1,13 @@
 import React from 'react';
 import useReveal from '../../hooks/useReveal';
 import '../../styles/duan.css';
-import chiaLo from '../assets/image/chiaLo.jpeg';
-import DuAn1 from '../assets/image/DuAn1.jpg';
-import LK1 from '../assets/image/LK1.jpg';
+import Picture from '../util/Picture';
+import chiaLo from '../assets/image/web/chiaLo.jpg';
+import DuAn1 from '../assets/image/web/DuAn2.jpg';
+import LK1 from '../assets/image/web/LK1.jpg';
+import chiaLoWebp from '../assets/image/web/chiaLo.webp';
+import DuAn1Webp from '../assets/image/web/DuAn2.webp';
+import LK1Webp from '../assets/image/web/LK1.webp';
 
 const FACTS = [
     { term: 'Tên dự án', value: 'Khu nhà ở thôn Đại Vi, xã Đại Đồng, huyện Tiên Du' },
@@ -63,8 +67,9 @@ function DuAn() {
                 {/* Asymmetric gallery, echoing the reference layout. */}
                 <div className="project__gallery">
                     <figure className="project__gallery-main u-media">
-                        <img
-                            src={chiaLo}
+                        <Picture
+                            webp={chiaLoWebp}
+                            jpg={chiaLo}
                             alt="Bản đồ quy hoạch chia lô toàn bộ dự án Khu nhà ở thôn Đại Vi"
                             loading="lazy"
                             decoding="async"
@@ -72,10 +77,10 @@ function DuAn() {
                     </figure>
                     <div className="project__gallery-side">
                         <figure className="u-media">
-                            <img src={DuAn1} alt="Phối cảnh tổng thể khu nhà ở" loading="lazy" decoding="async" />
+                            <Picture webp={DuAn1Webp} jpg={DuAn1} alt="Phối cảnh tổng thể khu nhà ở" loading="lazy" decoding="async" />
                         </figure>
                         <figure className="u-media">
-                            <img src={LK1} alt="Phối cảnh dãy nhà liền kề" loading="lazy" decoding="async" />
+                            <Picture webp={LK1Webp} jpg={LK1} alt="Phối cảnh dãy nhà liền kề" loading="lazy" decoding="async" />
                         </figure>
                     </div>
                 </div>

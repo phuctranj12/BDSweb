@@ -9,8 +9,11 @@
    Accent is brass. It ships in two tints because a single one cannot
    pass contrast on both surfaces:
      --c-brass  #C9A36B  → 8.45:1 on near-black   (dark surfaces)
-     --c-accent #8A6A34  → 4.72:1 on warm white   (light surfaces)
+     --c-accent #83632F  → 4.91:1 on warm white   (light surfaces)
    Inside `.on-dark`, --c-accent is remapped to the bright tint.
+
+   Type: Fraunces (display) + Be Vietnam Pro (body). Both ship the
+   `vietnamese` subset; neither is Inter or Roboto.
    ============================================================= */
 
 :root {
@@ -30,7 +33,6 @@
   /* Measured against --c-surface (#F5F2EC), the darkest light surface, so the
      ratios hold on every light background. */
   --c-ink: #17140f; /* headings */
-  --c-ink-soft: #2e2921;
   --c-body: #4a443c; /* 9.07:1 */
   --c-muted: #6b6357; /* 5.22:1 */
   --c-faint: #766e60; /* 4.75:1 — used for small uppercase labels */
@@ -53,21 +55,17 @@
      to near-black (8.45:1). Getting this backwards fails contrast either way. */
   --c-on-accent: #f5f2ec;
 
-  /* Oxblood — reserved for rare emphasis, never for body text. */
-  --c-oxblood: #6e1f23;
-
   /* ---------- Color: semantic ---------- */
   --c-success: #3f6f4a;
   --c-danger: #a3312b;
   --c-focus: var(--c-accent);
 
-  --c-scrim: rgba(10, 9, 8, 0.55);
-  --c-scrim-strong: rgba(10, 9, 8, 0.78);
-
   /* ---------- Typography ---------- */
-  /* Fraunces carries the identity; SOFT/WONK axes drive the flourish. */
+  /* Fraunces carries the identity; SOFT/WONK axes drive the flourish.
+     Body is Be Vietnam Pro — not Inter/Roboto, and its diacritics are drawn
+     for Vietnamese rather than retrofitted. */
   --font-display: "Fraunces", ui-serif, Georgia, serif;
-  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
 
   --t-display: clamp(2.75rem, 7.4vw, 7rem); /* hero wordmark */
   --t-h1: clamp(2.125rem, 4.4vw, 3.75rem);
@@ -127,6 +125,18 @@
   --header-h: 76px;
   --header-h-sm: 62px;
 
+  /* ---------- Breakpoints ----------
+     Canonical tiers — use ONLY these in @media queries so the whole site breaks
+     at the same widths. (Custom properties can't drive @media, so this is a
+     documented convention, not a live token.)
+       1024  desktop → tablet-landscape
+        900  tablet-landscape → tablet
+        768  tablet → large phone
+        600  large phone
+        480  phone
+     Content measures (e.g. table min-width, --container-narrow) are NOT
+     breakpoints and are exempt. */
+
   /* ---------- Radius (editorial = restrained) ---------- */
   --r-xs: 2px;
   --r-sm: 3px;
@@ -172,7 +182,6 @@
   --c-border-strong: var(--c-border-dark-strong);
 
   --c-ink: var(--c-cream);
-  --c-ink-soft: var(--c-cream);
   --c-body: var(--c-cream-body);
   --c-muted: var(--c-cream-body);
   --c-faint: var(--c-cream-faint);

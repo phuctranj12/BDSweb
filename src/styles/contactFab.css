@@ -1,0 +1,204 @@
+/* =============================================================
+   CONTACT FAB — expandable quick-contact button
+   One brass toggle → reveals labelled call / Zalo actions.
+   Floats over both the dark hero and the light content, so it
+   uses the palette's own tokens and never the Zalo brand blue.
+   ============================================================= */
+
+.cfab {
+  position: fixed;
+  right: var(--s-4);
+  bottom: calc(var(--s-4) + env(safe-area-inset-bottom));
+  z-index: var(--z-float);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s-3);
+}
+
+/* ---------- Primary toggle ---------- */
+
+.cfab__toggle {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-full);
+  background: var(--c-brass);
+  color: var(--c-black);
+  box-shadow: var(--sh-lg);
+  transition: transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+
+.cfab__toggle:hover {
+  background: var(--c-brass-soft);
+  box-shadow: var(--sh-xl);
+}
+
+.cfab__toggle:active {
+  transform: scale(0.95);
+}
+
+/* Soft brass halo to draw the eye — only while collapsed. */
+.cfab__toggle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--c-brass);
+  animation: cfab-pulse 2.8s var(--ease-out) infinite;
+}
+
+.cfab.is-open .cfab__toggle::before {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes cfab-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Crossfade + rotate between the chat glyph and the × glyph. */
+.cfab__ico {
+  position: absolute;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+}
+
+.cfab__ico--open {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+.cfab__ico--close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+.cfab.is-open .cfab__ico--open {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+.cfab.is-open .cfab__ico--close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ---------- Menu ---------- */
+
+.cfab__menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s-3);
+  margin: 0;
+  padding: 0;
+}
+
+.cfab__row {
+  list-style: none;
+}
+
+/* Each action: label pill + icon disc, entering from below with a stagger. */
+.cfab__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+  /* Exit is quicker than enter (≈70%) so dismissing feels responsive. */
+  transition-duration: calc(var(--dur) * 0.7);
+}
+
+.cfab.is-open .cfab__item {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-duration: var(--dur);
+  transition-delay: calc(var(--i) * 55ms);
+}
+
+.cfab__label {
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-full);
+  background: var(--c-black);
+  border: 1px solid var(--c-border-dark-strong);
+  color: var(--c-cream);
+  font-family: var(--font-body);
+  font-size: var(--t-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-caps);
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: var(--sh-md);
+}
+
+.cfab__disc {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-full);
+  background: var(--c-black-2);
+  border: 1px solid var(--c-border-dark-strong);
+  color: var(--c-brass);
+  box-shadow: var(--sh-lg);
+  transition: background-color var(--dur) var(--ease-out),
+    border-color var(--dur) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.cfab__item:hover .cfab__disc {
+  background: var(--c-black-3);
+  border-color: var(--c-brass);
+}
+
+.cfab__item:active .cfab__disc {
+  transform: scale(0.95);
+}
+
+/* ---------- Focus ---------- */
+
+.cfab__toggle:focus-visible,
+.cfab__item:focus-visible .cfab__disc {
+  outline: 2px solid var(--c-brass);
+  outline-offset: 3px;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cfab__toggle::before {
+    animation: none;
+    opacity: 0;
+  }
+  .cfab__ico,
+  .cfab__item {
+    transition: opacity 1ms linear;
+    transform: none;
+  }
+  .cfab.is-open .cfab__ico--open {
+    transform: none;
+  }
+  .cfab.is-open .cfab__item {
+    transition-delay: 0ms;
+  }
+}
+
+/* On small phones drop the pulse ring's reach a touch so it never clips. */
+@media (max-width: 480px) {
+  .cfab__toggle {
+    width: 52px;
+    height: 52px;
+  }
+}

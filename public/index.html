@@ -16,6 +16,15 @@
   <!-- Speed up the webfont handshake before CSS is even parsed. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load here (not via CSS @import) so the request starts during HTML
+       parse. Fraunces carries the identity: opsz 9..144, SOFT 0..100 and WONK
+       0..1 are all exercised (the .u-wonk flourish needs italic + SOFT 100 +
+       WONK 1), so the axis range is kept full. display=swap avoids invisible
+       text. Be Vietnam Pro ships the vietnamese subset. -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Fraunces:ital,opsz,SOFT,WONK,wght@0,9..144,0..100,0..1,300..900;1,9..144,0..100,0..1,300..900&display=swap"
+  />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Bất Động Sản Trường Phát" />

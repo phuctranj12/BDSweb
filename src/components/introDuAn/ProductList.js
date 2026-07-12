@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import useReveal from '../../hooks/useReveal';
+import Picture from '../util/Picture';
 import '../../styles/ProductList.css';
-import img1 from '../assets/image/GlobalCity.jpg'
-import img2 from '../assets/image/VHomeGrand.jpg'
-import img3 from '../assets/image/Sunshine.jpg'
-import img4 from '../assets/image/AquaCity.jpg'
-import img5 from '../assets/image/MasteriCentrePoint.jpg'
-import img6 from '../assets/image/EcoParkSkyOasis.jpg'
-import img7 from '../assets/image/CelestaRise.jpg'
-import img8 from '../assets/image/EmpireCity .jpg'
-import img9 from '../assets/image/The9Stellars.jpg'
-import img10 from '../assets/image/VinhomesOceanPark2.jpg'
+import img1 from '../assets/image/web/GlobalCity.jpg'
+import img2 from '../assets/image/web/VHomeGrand.jpg'
+import img3 from '../assets/image/web/Sunshine.jpg'
+import img4 from '../assets/image/web/AquaCity.jpg'
+import img5 from '../assets/image/web/MasteriCentrePoint.jpg'
+import img6 from '../assets/image/web/EcoParkSkyOasis.jpg'
+import img7 from '../assets/image/web/CelestaRise.jpg'
+import img8 from '../assets/image/web/EmpireCity .jpg'
+import img9 from '../assets/image/web/The9Stellars.jpg'
+import img10 from '../assets/image/web/VinhomesOceanPark2.jpg'
+import img1Webp from '../assets/image/web/GlobalCity.webp'
+import img2Webp from '../assets/image/web/VHomeGrand.webp'
+import img3Webp from '../assets/image/web/Sunshine.webp'
+import img4Webp from '../assets/image/web/AquaCity.webp'
+import img5Webp from '../assets/image/web/MasteriCentrePoint.webp'
+import img6Webp from '../assets/image/web/EcoParkSkyOasis.webp'
+import img7Webp from '../assets/image/web/CelestaRise.webp'
+import img8Webp from '../assets/image/web/EmpireCity .webp'
+import img9Webp from '../assets/image/web/The9Stellars.webp'
+import img10Webp from '../assets/image/web/VinhomesOceanPark2.webp'
 
 const mockProducts = [
-    { id: 1, name: "The Global City", location: "An Phú, Thủ Đức", price: "12.8 tỷ", image: img1, description: "Khu đô thị cao cấp phong cách Singapore." },
-    { id: 2, name: "Vinhomes Grand Park", location: "Long Bình, Thủ Đức", price: "4.2 tỷ", image: img2, description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
-    { id: 3, name: "Sunshine City Sài Gòn", location: "Quận 7", price: "6.5 tỷ", image: img3, description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
-    { id: 4, name: "Aqua City", location: "Biên Hòa", price: "7.8 tỷ", image: img4, description: "Đô thị sinh thái ven sông." },
-    { id: 5, name: "Masteri Centre Point", location: "Vinhomes Grand Park", price: "5.3 tỷ", image: img5, description: "Căn hộ cao cấp tiêu chuẩn quốc tế." },
-    { id: 6, name: "EcoPark Sky Oasis", location: "Văn Giang", price: "2.7 tỷ", image: img6, description: "Căn hộ cao tầng ven hồ, trong lành, tiện nghi." },
-    { id: 7, name: "Celesta Rise", location: "Nhà Bè", price: "3.9 tỷ", image: img7, description: "Căn hộ trung cao cấp gần Phú Mỹ Hưng." },
-    { id: 8, name: "Empire City Thủ Thiêm", location: "Thủ Thiêm", price: "18 tỷ", image: img8, description: "Căn hộ siêu sang ven sông Sài Gòn." },
-    { id: 9, name: "The 9 Stellars", location: "Quận 9", price: "3.2 tỷ", image: img9, description: "Căn hộ xanh gần Depot Metro." },
-    { id: 10, name: "Vinhomes Ocean Park 2", location: "Hưng Yên", price: "4.9 tỷ", image: img10, description: "Đô thị biển hồ, tiện ích resort đỉnh cao." },
+    { id: 1, name: "The Global City", location: "An Phú, Thủ Đức", price: "12.8 tỷ", image: img1, imageWebp: img1Webp, description: "Khu đô thị cao cấp phong cách Singapore." },
+    { id: 2, name: "Vinhomes Grand Park", location: "Long Bình, Thủ Đức", price: "4.2 tỷ", image: img2, imageWebp: img2Webp, description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
+    { id: 3, name: "Sunshine City Sài Gòn", location: "Quận 7", price: "6.5 tỷ", image: img3, imageWebp: img3Webp, description: "Căn hộ thông minh, tiện nghi với công viên ánh sáng lớn nhất Đông Nam Á." },
+    { id: 4, name: "Aqua City", location: "Biên Hòa", price: "7.8 tỷ", image: img4, imageWebp: img4Webp, description: "Đô thị sinh thái ven sông." },
+    { id: 5, name: "Masteri Centre Point", location: "Vinhomes Grand Park", price: "5.3 tỷ", image: img5, imageWebp: img5Webp, description: "Căn hộ cao cấp tiêu chuẩn quốc tế." },
+    { id: 6, name: "EcoPark Sky Oasis", location: "Văn Giang", price: "2.7 tỷ", image: img6, imageWebp: img6Webp, description: "Căn hộ cao tầng ven hồ, trong lành, tiện nghi." },
+    { id: 7, name: "Celesta Rise", location: "Nhà Bè", price: "3.9 tỷ", image: img7, imageWebp: img7Webp, description: "Căn hộ trung cao cấp gần Phú Mỹ Hưng." },
+    { id: 8, name: "Empire City Thủ Thiêm", location: "Thủ Thiêm", price: "18 tỷ", image: img8, imageWebp: img8Webp, description: "Căn hộ siêu sang ven sông Sài Gòn." },
+    { id: 9, name: "The 9 Stellars", location: "Quận 9", price: "3.2 tỷ", image: img9, imageWebp: img9Webp, description: "Căn hộ xanh gần Depot Metro." },
+    { id: 10, name: "Vinhomes Ocean Park 2", location: "Hưng Yên", price: "4.9 tỷ", image: img10, imageWebp: img10Webp, description: "Đô thị biển hồ, tiện ích resort đỉnh cao." },
 
 ];
 
@@ -94,9 +105,10 @@ const ProductListPage = () => {
                     <ul className="market__grid">
                         {currentProducts.map((product) => (
                             <li key={product.id} className="market-card">
-                                <div className="market-card__media u-media">
-                                    <img
-                                        src={product.image}
+                                <div className="market-card__media u-media u-toned">
+                                    <Picture
+                                        webp={product.imageWebp}
+                                        jpg={product.image}
                                         alt={`${product.name} tại ${product.location}`}
                                         loading="lazy"
                                         decoding="async"
@@ -107,6 +119,9 @@ const ProductListPage = () => {
                                 </div>
 
                                 <div className="market-card__body">
+                                    <span className="market-card__index tabular" aria-hidden="true">
+                                        {String(product.id).padStart(2, '0')}
+                                    </span>
                                     <h3 className="market-card__name">{product.name}</h3>
                                     <p className="market-card__location">
                                         <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">

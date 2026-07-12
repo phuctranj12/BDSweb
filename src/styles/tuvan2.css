@@ -78,7 +78,7 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .steps__list {
     grid-template-columns: 1fr;
   }

@@ -225,7 +225,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .about__pillars,
   .about__floor-inner {
     grid-template-columns: 1fr;

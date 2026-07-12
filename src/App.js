@@ -3,8 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-import CallButton from './components/button/CallButton';
-import ZaloButton from './components/button/ZaloButton';
+import ContactFab from './components/button/ContactFab';
 
 import TrangChuContent from './views/TrangChuContent';
 import BDSContent from './views/BDSContent';
@@ -29,7 +28,10 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    // 'instant', not 'auto': `html { scroll-behavior: smooth }` makes 'auto'
+    // follow the CSS and smooth-scroll the freshly-loaded page from wherever the
+    // old one sat — janky on a route change. Jump straight to the top.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname]);
 
   return null;
@@ -70,10 +72,7 @@ function App() {
 
       <Footer />
 
-      <div className="app-float-stack">
-        <ZaloButton />
-        <CallButton />
-      </div>
+      <ContactFab />
     </div>
   );
 }

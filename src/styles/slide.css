@@ -330,27 +330,49 @@
 }
 
 .hero__dot {
-  width: 44px; /* touch target; the visible bar is the pseudo-element */
+  min-width: 44px; /* touch target */
   height: 44px;
+  padding-inline: var(--s-1);
   display: grid;
+  grid-auto-flow: row;
   place-items: center;
+  gap: 5px;
+}
+
+/* Numbered index — matches the 01–06 lot / catalog numerals elsewhere, so the
+   whole site shares one editorial counting motif. */
+.hero__dot-num {
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 24, 'SOFT' 20, 'WONK' 0;
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: var(--c-cream-faint);
+  transition: color var(--dur) var(--ease-out);
 }
 
 .hero__dot::after {
   content: '';
-  width: 26px;
+  width: 22px;
   height: 1px;
   background: var(--c-border-dark-strong);
   transition: background-color var(--dur) var(--ease-out),
     width var(--dur) var(--ease-out);
 }
 
+.hero__dot:hover .hero__dot-num {
+  color: var(--c-cream-body);
+}
+
 .hero__dot:hover::after {
   background: var(--c-cream-body);
 }
 
+.hero__dot.is-active .hero__dot-num {
+  color: var(--c-brass);
+}
+
 .hero__dot.is-active::after {
-  width: 44px;
+  width: 40px;
   background: var(--c-brass);
 }
 
@@ -423,7 +445,7 @@
 
 /* ---------- Breakpoints ---------- */
 
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
   .hero-search {
     grid-template-columns: 1fr 1fr;
     margin-top: -2rem;
@@ -461,7 +483,7 @@
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .hero-search {
     grid-template-columns: 1fr;
   }

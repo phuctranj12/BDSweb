@@ -43,6 +43,35 @@
   flex-direction: column;
 }
 
+/* LK1 leads the set: it spans two columns and lays out horizontally, so the
+   grid opens on a clear focal point instead of six equal tiles. On the last
+   breakpoint it falls back to the ordinary vertical card. */
+.lot-card--feature {
+  grid-column: span 2;
+  flex-direction: row;
+  gap: var(--s-8);
+  align-items: stretch;
+  padding: var(--s-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+}
+
+.lot-card--feature .lot-card__media {
+  flex: 1 1 55%;
+  aspect-ratio: auto;
+  margin-bottom: 0;
+}
+
+.lot-card--feature .lot-card__body {
+  flex: 1 1 45%;
+  justify-content: center;
+}
+
+.lot-card--feature .lot-card__title {
+  font-size: var(--t-h2);
+}
+
 .lot-card__media {
   aspect-ratio: 4 / 3; /* reserves space → no layout shift on image load */
   border-radius: var(--r-md);
@@ -82,9 +111,30 @@
 }
 
 .lot-card__body {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex: 1;
+  padding-top: var(--s-2);
+}
+
+/* Editorial index numeral, set in the display serif and sitting quietly in the
+   top-right of the card body. Reads as a curated series, 01–06. */
+.lot-card__index {
+  position: absolute;
+  top: calc(var(--s-2) * -1);
+  right: 0;
+  font-family: var(--font-display);
+  font-variation-settings: 'opsz' 48, 'SOFT' 30, 'WONK' 0;
+  font-size: 2.25rem;
+  font-weight: var(--fw-normal);
+  line-height: 1;
+  color: var(--c-border-strong);
+  transition: color var(--dur) var(--ease-out);
+}
+
+.lot-card:hover .lot-card__index {
+  color: var(--c-accent);
 }
 
 .lot-card__title {
@@ -196,7 +246,27 @@
   }
 }
 
-@media (max-width: 860px) {
+/* Below tablet the horizontal feature would get cramped — return LK1 to a plain
+   vertical card. */
+@media (max-width: 768px) {
+  .lot-card--feature {
+    grid-column: span 1;
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .lot-card--feature .lot-card__media {
+    aspect-ratio: 4 / 3;
+    margin-bottom: var(--s-5);
+  }
+  .lot-card--feature .lot-card__title {
+    font-size: var(--t-h3);
+  }
+}
+
+@media (max-width: 900px) {
   .lots__head {
     grid-template-columns: 1fr;
     align-items: start;

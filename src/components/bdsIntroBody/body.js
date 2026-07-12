@@ -1,18 +1,32 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useReveal from '../../hooks/useReveal';
+import { LOT_TABLES, formatArea } from '../../data/lots';
+import Picture from '../util/Picture';
 import '../../styles/bodyIntro.css';
 
 // Bản vẽ quy hoạch tổng thể, dùng làm ảnh lớn ở trang chi tiết.
-import Image7 from '../assets/image/chiaLo.jpeg';
+import Image7 from '../assets/image/web/chiaLo.jpg';
 
-// Card thumbnails.
-import Img3 from '../assets/image/DuAn3.jpg';
-import Img4 from '../assets/image/DuAn4.jpeg';
-import Img5 from '../assets/image/DuAn5.jpg';
-import Img6 from '../assets/image/DuAn6.jpeg';
-import Img7 from '../assets/image/DuAn7.JPG';
-import Img8 from '../assets/image/DuAn8.jpg';
+// Ảnh thẻ phân khu — đều là ảnh minh hoạ (không phải phối cảnh thật của dự án;
+// phối cảnh thật đã dùng ở hero và trang chi tiết dự án). Chọn ảnh nhà ở /
+// nội thất trong dải màu ấm-tối để khớp hệ màu đồng thau.
+// Mọi ảnh phải nằm trong dải ấm/tối của hệ màu. Ảnh nền xanh ngọc
+// (alexander-andrews) và xanh dương (etienne) đã bị loại vì đâm vào tông đồng thau.
+import Img1 from '../assets/image/web/elite-prop-hmlP-v0vJ5o-unsplash.jpg';
+import Img2 from '../assets/image/web/marina-nazina-XAyj4ATVE9g-unsplash.jpg';
+import Img3 from '../assets/image/web/breno-assis-r3WAWU5Fi5Q-unsplash.jpg';
+import Img4 from '../assets/image/web/franco-debartolo-7xA4Pe7sWLY-unsplash.jpg';
+import Img5 from '../assets/image/web/marina-nazina-dWH92v9E6j4-unsplash.jpg';
+import Img6 from '../assets/image/web/kc-shum-tVbA4YUguG4-unsplash.jpg';
+import Img1Webp from '../assets/image/web/elite-prop-hmlP-v0vJ5o-unsplash.webp';
+import Img2Webp from '../assets/image/web/marina-nazina-XAyj4ATVE9g-unsplash.webp';
+import Img3Webp from '../assets/image/web/breno-assis-r3WAWU5Fi5Q-unsplash.webp';
+import Img4Webp from '../assets/image/web/franco-debartolo-7xA4Pe7sWLY-unsplash.webp';
+import Img5Webp from '../assets/image/web/marina-nazina-dWH92v9E6j4-unsplash.webp';
+import Img6Webp from '../assets/image/web/kc-shum-tVbA4YUguG4-unsplash.webp';
+
+const LOT_WEBP = [Img1Webp, Img2Webp, Img3Webp, Img4Webp, Img5Webp, Img6Webp];
 
 
 const data = [
@@ -21,7 +35,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3204 m2",
-        imageUrl: Img4,
+        imageUrl: Img1,
         imageUrl3: Image7,
         soLo: 30,
         describe: "Liền kề LK1 gồm 30 lô đất trên tổng diện tích 3.204 m², chia thành hai loại: 26 lô chuẩn 100 m² và 4 lô góc rộng 151 m² tại các vị trí LK1-1, 15, 16 và 30. Cơ cấu đơn giản, dễ lựa chọn — lô chuẩn phù hợp với gia đình trẻ, lô góc dành cho ai cần mặt tiền rộng để vừa ở vừa kinh doanh. LK1 có hạ tầng hoàn thiện, đường nội khu rộng rãi và kết nối thuận tiện tới các tiện ích xung quanh."
@@ -31,7 +45,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "6152,4 m2",
-        imageUrl: Img5,
+        imageUrl: Img2,
         imageUrl3: Image7,
         soLo: 59,
         describe: "Liền kề LK2 là phân khu lớn nhất dự án: 59 lô đất trên 6.152,4 m², diện tích trải dài từ 98 m² đến 224,1 m². Phần lớn là 51 lô chuẩn 100 m², bên cạnh đó có lô LK2-32 rộng 224,1 m² — lô lớn nhất toàn dự án. Sự đa dạng này cho phép người mua chọn đúng nhu cầu, từ tổ ấm gia đình đến biệt thự sân vườn. LK2 nằm ở vị trí thuận lợi, gần các trung tâm thương mại và trường học."
@@ -44,7 +58,7 @@ const data = [
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         // Trước ghi "405,3 m2" — sai 10 lần. Bảng phân lô LK3 cộng ra 4053 m².
         area: "4053 m2",
-        imageUrl: Img6,
+        imageUrl: Img3,
         imageUrl3: Image7,
         soLo: 39,
         describe: "Liền kề LK3 gồm 39 lô đất trên 4.053 m², diện tích từ 92,1 m² đến 157,9 m². Xương sống của phân khu là 31 lô chuẩn 100 m², cùng hai lô góc 155,5 m² và các lô đặc biệt LK3-19 (157,9 m²), LK3-20 (92,1 m²). Đây là khu vực có không gian sống trong lành, gần các mảng xanh, phù hợp với những ai yêu thích sự yên tĩnh và gần gũi thiên nhiên."
@@ -54,7 +68,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "3852.05 m2",
-        imageUrl: Img7,
+        imageUrl: Img4,
         imageUrl3: Image7,
         soLo: 40,
         describe: "Liền kề LK4 gồm 40 lô đất trên 3.852,05 m², diện tích từ 86,25 m² đến 127,9 m². Đây là phân khu có nhiều lô diện tích vừa và nhỏ nhất, với 16 lô 99 m² và 10 lô 90,75 m² — rất thích hợp cho gia đình trẻ hoặc các cặp đôi đang tìm nơi xây dựng ngôi nhà đầu tiên. LK4 nằm gần công viên, trường học và khu mua sắm, mang lại cuộc sống hàng ngày thuận tiện."
@@ -64,7 +78,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "5414.3 m2",
-        imageUrl: Img3,
+        imageUrl: Img5,
         imageUrl3: Image7,
         soLo: 54,
         describe: "Liền kề LK5 gồm 54 lô đất trên 5.414,3 m², diện tích từ 87,65 m² đến 155,5 m². Phân khu có cơ cấu phong phú nhất với 14 loại diện tích khác nhau, trong đó 22 lô chuẩn 100 m² và 10 lô 89,65 m². LK5 nằm ở vị trí trung tâm, giao thông thuận lợi, kết nối nhanh tới siêu thị, trường học và bệnh viện — vừa đáp ứng nhu cầu ở, vừa là lựa chọn tiềm năng cho nhà đầu tư."
@@ -74,7 +88,7 @@ const data = [
         title: "BẤT ĐỘNG SẢN BẮC NINH",
         address: "Thôn Đại Vi , Xã Đại Đồng , Huyện Thiên Du",
         area: "1263.8 m2",
-        imageUrl: Img8,
+        imageUrl: Img6,
         imageUrl3: Image7,
         soLo: 13,
         describe: "Liền kề LK6 gồm 13 lô đất trên 1.263,8 m², diện tích từ 80,3 m² đến 119 m². Mỗi lô một diện tích riêng, không lô nào trùng lô nào — phân khu nhỏ gọn, riêng tư và yên tĩnh nhất dự án. LK6 nằm tách biệt đôi chút so với các khu liền kề khác, thích hợp cho gia đình trẻ hoặc cá nhân muốn đầu tư với mức chi phí hợp lý."
@@ -106,11 +120,16 @@ function BodyIntro() {
 
                 <ul className="lots__grid" data-reveal-stagger>
                     {data.map((item) => (
-                        <li key={item.stt} className="lot-card" data-reveal>
-                            <div className="lot-card__media u-media">
-                                <img
-                                    src={item.imageUrl}
-                                    alt={`Phối cảnh phân khu Liền kề ${item.stt}, ${item.address}`}
+                        <li
+                            key={item.stt}
+                            className={item.stt === 1 ? 'lot-card lot-card--feature' : 'lot-card'}
+                            data-reveal
+                        >
+                            <div className="lot-card__media u-media u-toned">
+                                <Picture
+                                    webp={LOT_WEBP[item.stt - 1]}
+                                    jpg={item.imageUrl}
+                                    alt={`Ảnh minh hoạ không gian sống — phân khu Liền kề ${item.stt}`}
                                     loading="lazy"
                                     decoding="async"
                                     width="800"
@@ -120,6 +139,11 @@ function BodyIntro() {
                             </div>
 
                             <div className="lot-card__body">
+                                {/* Oversized index numeral — an editorial motif that
+                                    numbers the six sub-divisions as a set. */}
+                                <span className="lot-card__index" aria-hidden="true">
+                                    {String(item.stt).padStart(2, '0')}
+                                </span>
                                 <h3 className="lot-card__title">
                                     {/* Stretched hit area: the whole card is one target. */}
                                     <button
@@ -139,14 +163,19 @@ function BodyIntro() {
                                     {item.address}
                                 </p>
 
+                                {/* Lấy từ bảng phân lô đã kiểm chứng, không dùng chuỗi
+                                    `area` thô — nó ghi "3852.05 m2" kiểu Anh và từng sai
+                                    ở LK3. */}
                                 <dl className="lot-card__stats">
                                     <div>
                                         <dt>Tổng diện tích</dt>
-                                        <dd className="tabular">{item.area}</dd>
+                                        <dd className="tabular">
+                                            {formatArea(LOT_TABLES[item.stt].totalArea)} m²
+                                        </dd>
                                     </div>
                                     <div>
                                         <dt>Số lô đất</dt>
-                                        <dd className="tabular">{item.soLo}</dd>
+                                        <dd className="tabular">{LOT_TABLES[item.stt].totalCount}</dd>
                                     </div>
                                 </dl>
 

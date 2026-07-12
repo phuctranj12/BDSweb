@@ -275,7 +275,7 @@
 }
 
 /* Hint that the table scrolls, on screens too narrow to show it all. */
-@media (max-width: 620px) {
+@media (max-width: 600px) {
   .lot-table__scroll {
     position: relative;
   }
@@ -321,7 +321,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .detail__head {
     flex-direction: column;
     align-items: flex-start;

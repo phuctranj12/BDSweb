@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import ScrollLink from '../util/ScrollLink';
 import '../../styles/footer.css';
 
 const SERVICES = [
-    'Mua nhà đất',
-    'Tư vấn',
-    'Môi giới',
-    'Tư vấn đầu tư',
-    'Hỗ trợ cho thuê',
-    'Thẩm định giá',
+    { to: '/DichVu', label: 'Mua nhà đất' },
+    { to: '/TuVan', label: 'Tư vấn' },
+    { to: '/DichVu', label: 'Môi giới' },
+    { to: '/DichVu', label: 'Tư vấn đầu tư' },
+    { to: '/DichVu', label: 'Hỗ trợ cho thuê' },
+    { to: '/DichVu', label: 'Thẩm định giá' },
 ];
 
 const COMPANY = [
@@ -46,10 +46,10 @@ function Footer() {
             <div className="u-container">
                 <div className="site-footer__top">
                     <div className="site-footer__brand">
-                        <Link to="/" className="footer-brand" aria-label="Trường Phát — về trang chủ">
+                        <ScrollLink to="/" className="footer-brand" aria-label="Trường Phát — về trang chủ">
                             <span className="footer-brand__name">Trường Phát</span>
                             <span className="footer-brand__sub">Bất động sản</span>
-                        </Link>
+                        </ScrollLink>
                         <p className="site-footer__tagline">
                             Chủ đầu tư Dự án Khu nhà ở thôn Đại Vi, xã Đại Đồng, huyện Tiên Du,
                             tỉnh Bắc Ninh. Đồng hành cùng khách hàng từ năm 2008.
@@ -74,29 +74,35 @@ function Footer() {
                     </div>
 
                     <nav className="site-footer__col" aria-label="Dịch vụ">
-                        <h2 className="site-footer__heading">Dịch vụ</h2>
+                        <h2 className="site-footer__heading">
+                            <ScrollLink to="/DichVu">Dịch vụ</ScrollLink>
+                        </h2>
                         <ul>
-                            {SERVICES.map((label) => (
-                                <li key={label}>
-                                    <Link to="/DichVu">{label}</Link>
+                            {SERVICES.map((item) => (
+                                <li key={item.label}>
+                                    <ScrollLink to={item.to}>{item.label}</ScrollLink>
                                 </li>
                             ))}
                         </ul>
                     </nav>
 
                     <nav className="site-footer__col" aria-label="Công ty">
-                        <h2 className="site-footer__heading">Công ty</h2>
+                        <h2 className="site-footer__heading">
+                            <ScrollLink to="/AboutUs">Công ty</ScrollLink>
+                        </h2>
                         <ul>
                             {COMPANY.map((item) => (
                                 <li key={item.label}>
-                                    <Link to={item.to}>{item.label}</Link>
+                                    <ScrollLink to={item.to}>{item.label}</ScrollLink>
                                 </li>
                             ))}
                         </ul>
                     </nav>
 
                     <div className="site-footer__col">
-                        <h2 className="site-footer__heading">Liên hệ</h2>
+                        <h2 className="site-footer__heading">
+                            <ScrollLink to="/LienHe">Liên hệ</ScrollLink>
+                        </h2>
 
                         <a className="site-footer__hotline tabular" href={`tel:${HOTLINE}`}>
                             {HOTLINE}
@@ -114,7 +120,7 @@ function Footer() {
 
                 <div className="site-footer__bottom">
                     <p>© {new Date().getFullYear()} Công ty TNHH Trường Phát Từ Sơn. Bảo lưu mọi quyền.</p>
-                    <Link to="/Policy">Chính sách bảo mật</Link>
+                    <ScrollLink to="/Policy">Chính sách bảo mật</ScrollLink>
                 </div>
             </div>
         </footer>

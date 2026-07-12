@@ -14,17 +14,7 @@
   padding-top: var(--header-h);
 }
 
-/* ---------- Floating contact buttons ---------- */
-
-.app-float-stack {
-  position: fixed;
-  right: var(--s-4);
-  bottom: calc(var(--s-4) + env(safe-area-inset-bottom));
-  z-index: var(--z-float);
-  display: flex;
-  flex-direction: column;
-  gap: var(--s-3);
-}
+/* Floating contact button lives in ContactFab / contactFab.css. */
 
 /* ---------- Shared page header (inner pages) ---------- */
 
@@ -120,6 +110,20 @@
   will-change: auto;
 }
 
+/* Masked variant: instead of sliding up, the element is wiped in from the top
+   edge via clip-path. Layer it on any [data-reveal] element that deserves a
+   more deliberate entrance (e.g. a manifesto line). */
+.has-js [data-reveal].u-reveal-mask {
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--dur-reveal) var(--ease-out),
+    opacity var(--dur-reveal) var(--ease-out);
+}
+
+.has-js [data-reveal].u-reveal-mask.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
 /* Never let a reveal hide content from someone who disabled motion, and never
    let it hide content if JS fails to run. */
 @media (prefers-reduced-motion: reduce) {
@@ -127,5 +131,8 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .has-js [data-reveal].u-reveal-mask {
+    clip-path: none;
   }
 }

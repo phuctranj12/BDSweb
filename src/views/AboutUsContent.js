@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/aboutUs.css';
-import Image1 from '../components/assets/image/s1.JPG';
-import Image2 from '../components/assets/image/s3.JPG';
+// Ảnh chụp thật: trụ sở công ty và sàn giao dịch Thanh Quỳnh.
+import Picture from '../components/util/Picture';
+import Image1 from '../components/assets/image/web/s1.jpg';
+import Image2 from '../components/assets/image/web/s3.jpg';
+import Image1Webp from '../components/assets/image/web/s1.webp';
+import Image2Webp from '../components/assets/image/web/s3.webp';
 import News from '../components/new/News';
 import BodyIntro from '../components/bdsIntroBody/body';
 
@@ -62,9 +66,10 @@ function AboutUsContent() {
 
             <div className="u-container">
                 <figure className="about__banner u-media">
-                    <img
-                        src={Image1}
-                        alt="Toàn cảnh dự án khu nhà ở do Trường Phát Từ Sơn đầu tư"
+                    <Picture
+                        webp={Image1Webp}
+                        jpg={Image1}
+                        alt="Trụ sở Công ty TNHH Trường Phát Từ Sơn tại khu đô thị Phú Điền, Từ Sơn, Bắc Ninh"
                         loading="lazy"
                         decoding="async"
                     />
@@ -145,8 +150,9 @@ function AboutUsContent() {
             <section className="about__floor">
                 <div className="u-container about__floor-inner">
                     <figure className="u-media about__floor-media">
-                        <img
-                            src={Image2}
+                        <Picture
+                            webp={Image2Webp}
+                            jpg={Image2}
                             alt="Sàn giao dịch bất động sản Thanh Quỳnh"
                             loading="lazy"
                             decoding="async"

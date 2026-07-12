@@ -1,5 +1,7 @@
-/* Fraunces variable: ital + opsz + SOFT + WONK axes, vietnamese subset included. */
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,SOFT,WONK,wght@0,9..144,0..100,0..1,300..900;1,9..144,0..100,0..1,300..900&family=Inter:wght@400;500;600;700&display=swap");
+/* Fonts (Fraunces + Be Vietnam Pro) are loaded via a <link> in public/index.html
+   so the request starts during HTML parse instead of waiting for this stylesheet
+   to download — a render-blocking @import here delayed the webfont handshake and
+   hurt LCP. See the font decision notes in index.html <head>. */
 @import "./styles/tokens.css";
 
 /* =============================================================
@@ -381,8 +383,40 @@ code {
   background: var(--c-surface-2);
 }
 
-.u-media > img {
+/* <picture> is a layout-neutral pass-through so stylesheets keep targeting the
+   inner <img>. It does not change selector matching, so the media rule below
+   reaches through it explicitly. */
+.u-picture {
+  display: contents;
+}
+
+.u-media > img,
+.u-media > .u-picture > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Colour-grade for the illustrative STOCK imagery (lot cards, market listings)
+   so a set gathered from different sources reads as one commissioned shoot in
+   the brass palette. A warm multiply wash + a slight desaturate pulls every
+   photo toward the same temperature. Do NOT put this on the real project
+   renders (hero, master plan, offices) — those should stay true to life. */
+.u-toned::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    rgba(201, 163, 107, 0.14),
+    rgba(10, 9, 8, 0.24)
+  );
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.u-toned > img,
+.u-toned > .u-picture > img {
+  filter: saturate(0.8) contrast(1.03) brightness(0.98);
 }
