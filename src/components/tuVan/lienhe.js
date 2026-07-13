@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendLead } from '../../lib/emailjs';
 import '../../styles/lienhe.css';
 import '../../styles/tuvan.css'; // shares the .field form primitive
 
@@ -61,7 +62,7 @@ function LienHe() {
         if (errors[key]) setErrors((prev) => ({ ...prev, [key]: undefined }));
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         const found = {};
@@ -78,10 +79,20 @@ function LienHe() {
         }
 
         setStatus('sending');
-        setTimeout(() => {
+        try {
+            await sendLead({
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                message: values.message || '',
+                source: 'Form Liên hệ (trang Liên hệ)',
+            });
             setStatus('sent');
             setValues(EMPTY);
-        }, 700);
+        } catch (err) {
+            console.error('Gửi email thất bại:', err);
+            setStatus('error');
+        }
     };
 
     return (
@@ -161,6 +172,12 @@ function LienHe() {
                                 <button type="submit" className="u-btn u-btn--accent contact__submit" disabled={status === 'sending'}>
                                     {status === 'sending' ? 'Đang gửi…' : 'Gửi yêu cầu'}
                                 </button>
+
+                                {status === 'error' && (
+                                    <p className="field__error" role="alert">
+                                        Gửi yêu cầu chưa thành công. Vui lòng thử lại hoặc gọi trực tiếp cho chúng tôi.
+                                    </p>
+                                )}
                             </form>
                         )}
                     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { sendLead } from '../../lib/emailjs';
 import '../../styles/tuvan.css';
 
 const EMPTY = { name: '', email: '', phone: '' };
@@ -52,7 +53,7 @@ function TuVan() {
         return next;
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         const found = validate();
         setErrors(found);
@@ -65,11 +66,20 @@ function TuVan() {
         }
 
         setStatus('sending');
-        // No backend yet — replace this timeout with the real POST when it exists.
-        setTimeout(() => {
+        try {
+            await sendLead({
+                name: values.name,
+                email: values.email,
+                phone: values.phone,
+                message: '',
+                source: 'Form Tư vấn (trang chủ)',
+            });
             setStatus('sent');
             setValues(EMPTY);
-        }, 700);
+        } catch (err) {
+            console.error('Gửi email thất bại:', err);
+            setStatus('error');
+        }
     };
 
     return (
@@ -144,6 +154,12 @@ function TuVan() {
                             >
                                 {status === 'sending' ? 'Đang gửi…' : 'Nhận tư vấn'}
                             </button>
+
+                            {status === 'error' && (
+                                <p className="field__error" role="alert">
+                                    Gửi thông tin chưa thành công. Vui lòng thử lại hoặc gọi trực tiếp cho chúng tôi.
+                                </p>
+                            )}
 
                             <p className="consult__note">
                                 Thông tin của bạn được bảo mật và chỉ dùng để liên hệ tư vấn.
