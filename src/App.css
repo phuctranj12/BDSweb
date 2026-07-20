@@ -110,18 +110,36 @@
   will-change: auto;
 }
 
-/* Masked variant: instead of sliding up, the element is wiped in from the top
-   edge via clip-path. Layer it on any [data-reveal] element that deserves a
-   more deliberate entrance (e.g. a manifesto line). */
+/* Masked variant: a cover bar wipes upward off the element for a more
+   deliberate entrance (e.g. a manifesto line).
+
+   CRITICAL — do NOT hide this element with opacity:0 or clip-path.
+   useReveal's IntersectionObserver measures *visible geometry*: an element
+   clipped to zero area (the old `clip-path: inset(0 0 100% 0)`) reports as
+   non-intersecting, so `is-visible` is never added and the reveal deadlocks —
+   the element stays permanently hidden. Instead the element itself stays fully
+   visible to the observer, and a ::after overlay does the hiding, then wipes
+   away on reveal. The overlay's own transform never affects the observer. */
 .has-js [data-reveal].u-reveal-mask {
+  opacity: 1;
   transform: none;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path var(--dur-reveal) var(--ease-out),
-    opacity var(--dur-reveal) var(--ease-out);
+  position: relative;
 }
 
-.has-js [data-reveal].u-reveal-mask.is-visible {
-  clip-path: inset(0 0 0 0);
+.has-js [data-reveal].u-reveal-mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Matches the surrounding surface via the theme token (black inside .on-dark). */
+  background: var(--c-bg);
+  transform-origin: bottom;
+  transition: transform var(--dur-reveal) var(--ease-out);
+  pointer-events: none;
+}
+
+/* Collapse the cover toward its bottom edge → text uncovers top-first. */
+.has-js [data-reveal].u-reveal-mask.is-visible::after {
+  transform: scaleY(0);
 }
 
 /* Never let a reveal hide content from someone who disabled motion, and never
@@ -132,7 +150,7 @@
     transform: none;
     transition: none;
   }
-  .has-js [data-reveal].u-reveal-mask {
-    clip-path: none;
+  .has-js [data-reveal].u-reveal-mask::after {
+    display: none;
   }
 }

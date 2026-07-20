@@ -41,20 +41,30 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: var(--s-6);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  /* --dur collapses to ~1ms under prefers-reduced-motion (see tokens.css). */
+  transition: border-color var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
+}
+
+/* Boxed cards should feel liftable — a quiet elevation on hover. */
+.lot-card:hover {
+  border-color: var(--c-border-strong);
+  box-shadow: var(--sh-lg);
 }
 
 /* LK1 leads the set: it spans two columns and lays out horizontally, so the
-   grid opens on a clear focal point instead of six equal tiles. On the last
-   breakpoint it falls back to the ordinary vertical card. */
+   grid opens on a clear focal point instead of six equal tiles. It inherits the
+   card box (border/background/padding/radius); only the span + row layout differ.
+   On the last breakpoint it falls back to the ordinary vertical card. */
 .lot-card--feature {
   grid-column: span 2;
   flex-direction: row;
   gap: var(--s-8);
   align-items: stretch;
-  padding: var(--s-6);
-  border: 1px solid var(--c-border);
-  border-radius: var(--r-lg);
-  background: var(--c-surface);
 }
 
 .lot-card--feature .lot-card__media {
@@ -246,16 +256,13 @@
   }
 }
 
-/* Below tablet the horizontal feature would get cramped — return LK1 to a plain
-   vertical card. */
+/* Below tablet the horizontal feature would get cramped — drop LK1 to a single
+   column and stack it vertically. It keeps the card box, matching the others. */
 @media (max-width: 768px) {
   .lot-card--feature {
     grid-column: span 1;
     flex-direction: column;
     gap: 0;
-    padding: 0;
-    border: none;
-    background: none;
   }
   .lot-card--feature .lot-card__media {
     aspect-ratio: 4 / 3;
